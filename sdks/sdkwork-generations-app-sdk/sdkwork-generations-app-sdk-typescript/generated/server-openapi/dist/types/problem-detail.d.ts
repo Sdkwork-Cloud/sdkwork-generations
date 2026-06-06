@@ -1,0 +1,10 @@
+export interface ProblemDetail {
+    type: string;
+    title: string;
+    status: number;
+    detail: string;
+    code: string;
+    traceId: string;
+    requestId: string;
+}
+//# sourceMappingURL=problem-detail.d.ts.map

@@ -1,0 +1,1971 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SDKWork Generations App API",
+    "version": "0.1.0",
+    "x-sdkwork-owner": "sdkwork-generations",
+    "x-sdkwork-api-authority": "sdkwork-generations-app-api"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "x-sdkwork-owner": "sdkwork-generations",
+  "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+  "tags": [
+    {
+      "name": "generations"
+    }
+  ],
+  "paths": {
+    "/app/v3/api/generations": {
+      "get": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.list",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/GenerationStatus"
+            }
+          },
+          {
+            "name": "modality",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/GenerationModality"
+            }
+          },
+          {
+            "name": "operation_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 128
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generation record page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationRecordPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/images/text_to_image": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.images.textToImage",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/images/image_edit": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.images.imageEdit",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/videos/text_to_video": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.videos.textToVideo",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/videos/image_to_video": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.videos.imageToVideo",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/videos/video_extend": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.videos.videoExtend",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/music/text_to_music": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.music.textToMusic",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/music/lyrics_to_music": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.music.lyricsToMusic",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/voice/speech": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.voice.speech",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/voice/transcription": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.voice.transcription",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/voice/translation": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.voice.translation",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}": {
+      "get": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.get",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generation record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationRecord"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/results": {
+      "get": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.results.list",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          },
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generation results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationResultPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/timeline": {
+      "get": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.timeline.list",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          },
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generation timeline.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationTimelineEventPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/cancel": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.cancel",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationAction"
+        },
+        "responses": {
+          "200": {
+            "description": "Canceled generation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationRecord"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/retry": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.retry",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationAction"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/favorite": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.favorite",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/FavoriteGeneration"
+        },
+        "responses": {
+          "200": {
+            "description": "Updated generation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationRecord"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/v3/api/generations/{generationId}/results/{resultId}/save_to_assets": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.results.saveToAssets",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/GenerationId"
+          },
+          {
+            "$ref": "#/components/parameters/ResultId"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveGenerationResultToAssetsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result saved to global assets.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationResult"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "AuthToken": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "AccessToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Access-Token"
+      }
+    },
+    "parameters": {
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 128
+        }
+      },
+      "GenerationId": {
+        "name": "generationId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "ResultId": {
+        "name": "resultId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Cursor": {
+        "name": "cursor",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PageSize": {
+        "name": "page_size",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32",
+          "minimum": 1,
+          "maximum": 100
+        }
+      }
+    },
+    "requestBodies": {
+      "GenerationCommand": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateGenerationCommandRequest"
+            }
+          }
+        }
+      },
+      "GenerationAction": {
+        "required": false,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GenerationActionRequest"
+            }
+          }
+        }
+      },
+      "FavoriteGeneration": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/FavoriteGenerationRequest"
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "GenerationAccepted": {
+        "description": "Generation accepted.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GenerationCommandResponse"
+            }
+          }
+        }
+      },
+      "Problem": {
+        "description": "Problem detail.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetail"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetail"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "GenerationModality": {
+        "type": "string",
+        "enum": [
+          "image",
+          "video",
+          "music",
+          "voice"
+        ]
+      },
+      "GenerationStatus": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "running",
+          "requires_action",
+          "succeeded",
+          "failed",
+          "canceled"
+        ]
+      },
+      "MediaResource": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "mediaResourceId": {
+            "type": "string"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "durationMs": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "checksumSha256": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "CreateGenerationCommandRequest": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "tenantId",
+          "prompt"
+        ],
+        "properties": {
+          "tenantId": {
+            "type": "string"
+          },
+          "organizationId": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "inputAssetIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "GenerationActionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "type": "string",
+            "maxLength": 256
+          }
+        }
+      },
+      "FavoriteGenerationRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "favorite"
+        ],
+        "properties": {
+          "favorite": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SaveGenerationResultToAssetsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tenantId"
+        ],
+        "properties": {
+          "tenantId": {
+            "type": "string"
+          },
+          "collectionId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GenerationCommandResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "generation"
+        ],
+        "properties": {
+          "generation": {
+            "$ref": "#/components/schemas/GenerationRecord"
+          }
+        }
+      },
+      "GenerationRecord": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tenantId",
+          "userId",
+          "modality",
+          "operationType",
+          "status",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "organizationId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "modality": {
+            "$ref": "#/components/schemas/GenerationModality"
+          },
+          "operationType": {
+            "type": "string"
+          },
+          "sourceProvider": {
+            "type": "string"
+          },
+          "sourceJobId": {
+            "type": "string"
+          },
+          "promptPreview": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/GenerationStatus"
+          },
+          "favorite": {
+            "type": "boolean"
+          },
+          "resultCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GenerationRecordPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerationRecord"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "generationId",
+          "resultType",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "generationId": {
+            "type": "string"
+          },
+          "resultType": {
+            "type": "string"
+          },
+          "driveSpaceId": {
+            "type": "string"
+          },
+          "driveNodeId": {
+            "type": "string"
+          },
+          "driveUri": {
+            "type": "string"
+          },
+          "resourceSnapshot": {
+            "$ref": "#/components/schemas/MediaResource"
+          },
+          "assetId": {
+            "type": "string"
+          },
+          "previewText": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GenerationResultPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerationResult"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerationTimelineEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "generationId",
+          "eventType",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "generationId": {
+            "type": "string"
+          },
+          "eventType": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GenerationTimelineEventPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerationTimelineEvent"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        }
+      },
+      "ProblemDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "code",
+          "traceId",
+          "requestId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

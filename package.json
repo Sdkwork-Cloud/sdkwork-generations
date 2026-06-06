@@ -1,0 +1,11 @@
+{
+  "name": "sdkwork-generations-workspace",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "test": "node --test sdks/test/*.test.mjs tests/*.test.mjs",
+    "sdk:generate": "node tools/generations_sdk_generate.mjs"
+  }
+}

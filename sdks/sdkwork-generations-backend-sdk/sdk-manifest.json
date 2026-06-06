@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sdkName": "sdkwork-generations-backend-sdk",
+  "sdkOwner": "sdkwork-generations",
+  "sdkFamily": "sdkwork-generations-backend-sdk",
+  "apiAuthority": "sdkwork-generations-backend-api",
+  "sdkType": "backend",
+  "apiPrefix": "/backend/v3/api",
+  "generationInputSpec": "openapi/sdkwork-generations-backend-api.openapi.json",
+  "generatedPackages": {
+    "typescript": {
+      "language": "typescript",
+      "packageName": "sdkwork-generations-backend-sdk-generated-typescript",
+      "generatedOutput": "sdkwork-generations-backend-sdk-typescript/generated/server-openapi"
+    },
+    "rust": {
+      "language": "rust",
+      "packageName": "sdkwork-generations-backend-sdk-generated-rust",
+      "generatedOutput": "sdkwork-generations-backend-sdk-rust/generated/server-openapi"
+    },
+    "java": {
+      "language": "java",
+      "packageName": "sdkwork-generations-backend-sdk-generated-java",
+      "generatedOutput": "sdkwork-generations-backend-sdk-java/generated/server-openapi"
+    },
+    "python": {
+      "language": "python",
+      "packageName": "sdkwork-generations-backend-sdk-generated-python",
+      "generatedOutput": "sdkwork-generations-backend-sdk-python/generated/server-openapi"
+    },
+    "go": {
+      "language": "go",
+      "packageName": "sdkwork-generations-backend-sdk-generated-go",
+      "generatedOutput": "sdkwork-generations-backend-sdk-go/generated/server-openapi"
+    }
+  },
+  "sdkDependencies": [],
+  "generatorName": "sdkwork-sdk-generator",
+  "baseUrl": "http://127.0.0.1:18090",
+  "standardProfile": "sdkwork-v3",
+  "fixedSdkVersion": "0.1.0",
+  "ownerOnlyOperationCount": 4,
+  "managedBy": "tools/generations_sdk_generator_runner.mjs"
+}

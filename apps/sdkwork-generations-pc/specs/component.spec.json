@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.component.spec",
+  "component": {
+    "name": "sdkwork-generations-pc",
+    "displayName": "SDKWork Generations PC",
+    "version": "0.1.0",
+    "type": "pc-app",
+    "root": "sdkwork-generations/apps/sdkwork-generations-pc",
+    "domain": "intelligence",
+    "capability": "generations-pc",
+    "status": "standardizing",
+    "languages": [
+      "typescript",
+      "react"
+    ],
+    "generated": false,
+    "private": true,
+    "manifests": [
+      "sdkwork.app.config.json",
+      "package.json"
+    ]
+  },
+  "canonicalSpecs": [
+    {
+      "file": "APPLICATION_SPEC.md",
+      "path": "../../../sdkwork-specs/APPLICATION_SPEC.md",
+      "purpose": "Application shell and module composition rules."
+    },
+    {
+      "file": "APP_MANIFEST_SPEC.md",
+      "path": "../../../sdkwork-specs/APP_MANIFEST_SPEC.md",
+      "purpose": "SDKWork app manifest rules."
+    },
+    {
+      "file": "APP_PC_ARCHITECTURE_SPEC.md",
+      "path": "../../../sdkwork-specs/APP_PC_ARCHITECTURE_SPEC.md",
+      "purpose": "PC application root layout and package taxonomy."
+    },
+    {
+      "file": "APP_PC_REACT_UI_SPEC.md",
+      "path": "../../../sdkwork-specs/APP_PC_REACT_UI_SPEC.md",
+      "purpose": "App-side PC React UI package rules."
+    },
+    {
+      "file": "APP_SDK_INTEGRATION_SPEC.md",
+      "path": "../../../sdkwork-specs/APP_SDK_INTEGRATION_SPEC.md",
+      "purpose": "Generated SDK client composition and appbase IAM runtime integration."
+    },
+    {
+      "file": "COMPONENT_SPEC.md",
+      "path": "../../../sdkwork-specs/COMPONENT_SPEC.md",
+      "purpose": "Component-local contract and discovery rules."
+    },
+    {
+      "file": "CODE_STYLE_SPEC.md",
+      "path": "../../../sdkwork-specs/CODE_STYLE_SPEC.md",
+      "purpose": "Authored source structure and generated code boundaries."
+    },
+    {
+      "file": "NAMING_SPEC.md",
+      "path": "../../../sdkwork-specs/NAMING_SPEC.md",
+      "purpose": "Canonical naming rules."
+    },
+    {
+      "file": "TYPESCRIPT_CODE_SPEC.md",
+      "path": "../../../sdkwork-specs/TYPESCRIPT_CODE_SPEC.md",
+      "purpose": "TypeScript package and script rules."
+    },
+    {
+      "file": "FRONTEND_CODE_SPEC.md",
+      "path": "../../../sdkwork-specs/FRONTEND_CODE_SPEC.md",
+      "purpose": "Frontend authored source structure."
+    },
+    {
+      "file": "UI_ARCHITECTURE_SPEC.md",
+      "path": "../../../sdkwork-specs/UI_ARCHITECTURE_SPEC.md",
+      "purpose": "UI architecture selection rules."
+    }
+  ],
+  "contracts": {
+    "publicExports": [],
+    "runtimeEntrypoints": [
+      "package.json#scripts.test",
+      "package.json#scripts.typecheck"
+    ],
+    "sdkClients": [
+      "sdkwork-generations-app-sdk"
+    ],
+    "events": [],
+    "configKeys": [
+      "sdkwork.app.config.json"
+    ],
+    "routeManifest": null
+  },
+  "verification": {
+    "commands": [
+      "node --test tests/verify-generations-pc-app.test.mjs",
+      "pnpm --dir apps/sdkwork-generations-pc test"
+    ]
+  }
+}

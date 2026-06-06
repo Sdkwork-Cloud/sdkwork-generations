@@ -1,0 +1,563 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SDKWork Generations Backend API",
+    "version": "0.1.0",
+    "x-sdkwork-owner": "sdkwork-generations",
+    "x-sdkwork-api-authority": "sdkwork-generations-backend-api"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "x-sdkwork-owner": "sdkwork-generations",
+  "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
+  "tags": [
+    {
+      "name": "generationsBackend"
+    }
+  ],
+  "paths": {
+    "/backend/v3/api/generations/dispatch_jobs": {
+      "get": {
+        "tags": [
+          "generationsBackend"
+        ],
+        "operationId": "generationDispatchJobs.list",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 200
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lease_owner",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dispatch jobs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationDispatchJobPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/backend/v3/api/generations/dispatch_jobs/{dispatchJobId}": {
+      "get": {
+        "tags": [
+          "generationsBackend"
+        ],
+        "operationId": "generationDispatchJobs.get",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "dispatchJobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dispatch job.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationDispatchJob"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/backend/v3/api/generations/source_events": {
+      "get": {
+        "tags": [
+          "generationsBackend"
+        ],
+        "operationId": "generationSourceEvents.list",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source_provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source inbox events.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationSourceEventPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/backend/v3/api/generations/reconciliation/runs": {
+      "post": {
+        "tags": [
+          "generationsBackend"
+        ],
+        "operationId": "generationReconciliationRuns.create",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReconciliationRunRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Reconciliation run accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconciliationRun"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "AuthToken": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "AccessToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Access-Token"
+      }
+    },
+    "parameters": {
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 128
+        }
+      }
+    },
+    "responses": {
+      "Problem": {
+        "description": "Problem detail.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetail"
+            }
+          },
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProblemDetail"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "GenerationDispatchJob": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "generationId",
+          "sourceProvider",
+          "operationType",
+          "status",
+          "attemptCount",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "generationId": {
+            "type": "string"
+          },
+          "sourceProvider": {
+            "type": "string"
+          },
+          "operationType": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "attemptCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "leaseOwner": {
+            "type": "string"
+          },
+          "leaseExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nextAttemptAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GenerationDispatchJobPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerationDispatchJob"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        }
+      },
+      "GenerationSourceEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sourceProvider",
+          "sourceEventId",
+          "status",
+          "receivedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sourceProvider": {
+            "type": "string"
+          },
+          "sourceEventId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "receivedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GenerationSourceEventPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerationSourceEvent"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateReconciliationRunRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tenantId",
+          "operatorId"
+        ],
+        "properties": {
+          "tenantId": {
+            "type": "string"
+          },
+          "sourceProvider": {
+            "type": "string"
+          },
+          "operatorId": {
+            "type": "string"
+          },
+          "dryRun": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ReconciliationRun": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tenantId",
+          "status",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "sourceProvider": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ProblemDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "code",
+          "traceId",
+          "requestId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

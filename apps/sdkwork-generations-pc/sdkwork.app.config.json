@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "sdkwork-generations-pc",
+    "name": "SDKWork Generations PC",
+    "displayName": "SDKWork Generations",
+    "description": "PC browser and desktop application for generation commands, history, results, and provenance.",
+    "officialWebsiteUrl": "https://sdkwork.com/generations",
+    "appType": "APP_REACT",
+    "identifiers": {
+      "packageName": "com.sdkwork.generations",
+      "bundleId": "com.sdkwork.generations",
+      "desktopAppId": "com.sdkwork.generations.pc"
+    }
+  },
+  "backend": {
+    "apiAuthorities": [
+      "sdkwork-generations-app-api",
+      "sdkwork-generations-backend-api"
+    ]
+  },
+  "runtime": {
+    "family": "desktop",
+    "framework": "react-tauri",
+    "defaultPlatform": "WEB",
+    "defaultArchitecture": "x64"
+  },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://sdkwork.com/assets/generations/icon.png",
+        "platform": "WEB",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "enabled": true
+      },
+      "platform": []
+    },
+    "screenshots": [],
+    "previews": []
+  },
+  "publish": {
+    "status": "DRAFT",
+    "platforms": [
+      "WEB",
+      "DESKTOP"
+    ],
+    "installPlatforms": []
+  },
+  "environments": {
+    "development": {
+      "accessUrl": "http://localhost:5173"
+    },
+    "test": {},
+    "staging": {},
+    "production": {}
+  },
+  "artifacts": {
+    "installConfig": {
+      "defaultPackageId": "web-x64-web-url",
+      "packages": [
+        {
+          "id": "web-x64-web-url",
+          "name": "SDKWork Generations Web",
+          "sourceType": "WEB_URL",
+          "packageFormat": "OTHER",
+          "platform": "WEB",
+          "architecture": "x64",
+          "url": "https://sdkwork.com/generations",
+          "enabled": true
+        }
+      ]
+    }
+  },
+  "release": {
+    "currentVersion": "0.1.0",
+    "latest": {
+      "DEV": "0.1.0"
+    },
+    "notes": [
+      {
+        "version": "0.1.0",
+        "channel": "DEV",
+        "current": true,
+        "packageIds": [
+          "web-x64-web-url"
+        ],
+        "summary": "Initial PC application scaffold."
+      }
+    ]
+  },
+  "security": {
+    "checksumRequired": false,
+    "signatureRequired": false,
+    "sbomRequired": false
+  },
+  "devApp": {
+    "enabled": true
+  },
+  "metadata": {
+    "owner": "sdkwork-generations",
+    "surface": "pc"
+  }
+}

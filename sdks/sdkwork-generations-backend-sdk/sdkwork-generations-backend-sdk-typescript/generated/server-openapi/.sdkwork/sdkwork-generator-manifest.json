@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "generator": "@sdkwork/sdk-generator",
+  "sdk": {
+    "name": "sdkwork-generations-backend-sdk",
+    "version": "0.1.0",
+    "language": "typescript",
+    "sdkType": "backend",
+    "packageName": "sdkwork-generations-backend-sdk-generated-typescript"
+  },
+  "generatedFiles": [
+    {
+      "path": "bin/publish-core.mjs",
+      "sha256": "affb1f1b5400ac492e94e2d01f3104b8dd38b50329e371265d4f0945f2b0763c"
+    },
+    {
+      "path": "bin/publish.ps1",
+      "sha256": "78c6419400b988409d9393c2ecd85aa02dd6760f73edb3cc84cb28fefc51b41e"
+    },
+    {
+      "path": "bin/publish.sh",
+      "sha256": "899087c23e670b6951a12a13490fd557f761c96d78fabfb7e58a37e367db889f"
+    },
+    {
+      "path": "bin/sdk-gen.bat",
+      "sha256": "1fa0948b506e5deecf73be9371db39a042e48555d018292334fa0004a897fcbe"
+    },
+    {
+      "path": "bin/sdk-gen.sh",
+      "sha256": "215c7192b3f5891efebd79d6e2938a520ac6c9c6eb6b64979371c1ee7a58fd3d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "fb941a0806986a54fc192f98a98f6d9c282b8d350b2b19a3e71dda404e92d545"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "7840cc7d2b36ff364ac16c2fc5ec15b861bfe96854eecf81fb59b00edb8b1447"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1f1d5bcda26196f39c12cfe943ae5c42f9f4c600cedfae8d440d20a303252a18"
+    },
+    {
+      "path": "README.md",
+      "sha256": "552acb7bb51c045c956da9c3c57216875450acd7ef5dde8e5b0db6a363b6fc84"
+    },
+    {
+      "path": "sdkwork-sdk.json",
+      "sha256": "59ee234d214ef72bada555d8f1fc4eaa081cd157af4e66e27867c92b838d8c4d"
+    },
+    {
+      "path": "src/api/base.ts",
+      "sha256": "02ad25e6bf331ff241ba387c2947ddf1900dd849038e08c2757416a3aa788a04"
+    },
+    {
+      "path": "src/api/generations-backend.ts",
+      "sha256": "0c5f809cf9f3b2d38167be0b75f955b02770201cdfb9d7d1676c091e78850820"
+    },
+    {
+      "path": "src/api/index.ts",
+      "sha256": "86a6a00274d7895c5db2413b81a7cfb2ba459f9ae7943cc24dc707ebf2ea5ebc"
+    },
+    {
+      "path": "src/api/paths.ts",
+      "sha256": "fb06a3db13e96bb5b349ddc1831aa6d350c17b09d05ea92a36438131140f666e"
+    },
+    {
+      "path": "src/auth/index.ts",
+      "sha256": "657fc63738bdcd61d83133120732a477dd127448cf2c51229b05d21f5e1f5c04"
+    },
+    {
+      "path": "src/http/client.ts",
+      "sha256": "0d746abe3766ca1aa52d5ec5903911ec9bb2c9e50d05f3c74ebb7803efebb9ec"
+    },
+    {
+      "path": "src/http/index.ts",
+      "sha256": "fc204fbe89750b9d25ecaffe41003e6ac243a1a895b65e65856202ab825d2dbe"
+    },
+    {
+      "path": "src/index.ts",
+      "sha256": "3a4a3f9c5ce1c5bf55baf261e7b648091cbef7ba2c30ea402dd15f3f37820956"
+    },
+    {
+      "path": "src/sdk.ts",
+      "sha256": "66cbf5356279f1f5913f73d032b38ff8801472cff839e556cb9eebe05130d546"
+    },
+    {
+      "path": "src/types/common.ts",
+      "sha256": "c6adbdca8ccdb1656d1cb904e35cfc765d4a9075923190fba4b8787afd0cc710"
+    },
+    {
+      "path": "src/types/create-reconciliation-run-request.ts",
+      "sha256": "11c1fb05810304856cb72dc9818bf95e7b1bb959e3b86cd6e4019090dcce433f"
+    },
+    {
+      "path": "src/types/generation-dispatch-job-page.ts",
+      "sha256": "05a206024413c04f66309fd207a40ed5d8b0420c678b965f66f389853d2590f7"
+    },
+    {
+      "path": "src/types/generation-dispatch-job.ts",
+      "sha256": "2c0f6830ecd853fc8985ddcb353beb997f7b3cc2ce86e8b29553f5221c837254"
+    },
+    {
+      "path": "src/types/generation-source-event-page.ts",
+      "sha256": "825b092999bd91ff029930d58f93b7da3a844b9acb1b441e0fa237c5f939711e"
+    },
+    {
+      "path": "src/types/generation-source-event.ts",
+      "sha256": "4d1667367980c507a2e323489a6de15fa8ffd563bd5f50103173135eccc2ee4d"
+    },
+    {
+      "path": "src/types/index.ts",
+      "sha256": "78b9a369c6f50362e8ff15acbbc96cdc9e9611ad6503b5bc5259264864838f08"
+    },
+    {
+      "path": "src/types/problem-detail.ts",
+      "sha256": "4ae6f09328af91c3ed4b2588db2df51c1a28964fda0d041118bcaa77d47dc30e"
+    },
+    {
+      "path": "src/types/reconciliation-run.ts",
+      "sha256": "59c6abcc4077b4a5fe282fec81198dcdcee042d1fe546eced01ab08788502be2"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "7c8a6c2b00fb208ec28e1e6045194487d1b3e563d6c44cef4783fd4fe0e8ffad"
+    }
+  ],
+  "scaffoldFiles": [
+    "custom/build-runtime.mjs",
+    "custom/README.md"
+  ],
+  "customRoots": [
+    "custom/"
+  ]
+}

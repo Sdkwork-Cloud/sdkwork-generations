@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "paths": {
+      "@sdkwork/generations-pc-workspace": ["packages/sdkwork-generations-pc-workspace/src/index.ts"],
+      "@sdkwork/generations-pc-workspace/react": ["packages/sdkwork-generations-pc-workspace/src/react.ts"]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "types": ["vite/client"]
+  },
+  "include": ["src", "packages/*/src", "packages/*/tests"]
+}

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.component.spec",
+  "component": {
+    "name": "sdkwork-generations-app-sdk",
+    "displayName": "SDKWork Generations App API SDK",
+    "version": "0.1.0",
+    "type": "sdk-family",
+    "root": "sdkwork-generations/sdks/sdkwork-generations-app-sdk",
+    "domain": "intelligence",
+    "capability": "generations",
+    "status": "standardized",
+    "languages": [
+      "typescript",
+      "rust",
+      "java",
+      "python",
+      "go"
+    ],
+    "generated": true,
+    "private": false,
+    "manifests": [
+      ".sdkwork-assembly.json",
+      "sdk-manifest.json"
+    ]
+  },
+  "canonicalSpecs": [
+    {
+      "file": "API_SPEC.md",
+      "path": "../../../sdkwork-specs/API_SPEC.md",
+      "purpose": "HTTP/OpenAPI and generated SDK contract rules."
+    },
+    {
+      "file": "SDK_SPEC.md",
+      "path": "../../../sdkwork-specs/SDK_SPEC.md",
+      "purpose": "SDK generation, SDK dependency, and SDK integration rules."
+    },
+    {
+      "file": "SDK_WORKSPACE_GENERATION_SPEC.md",
+      "path": "../../../sdkwork-specs/SDK_WORKSPACE_GENERATION_SPEC.md",
+      "purpose": "SDK workspace and OpenAPI generation rules."
+    },
+    {
+      "file": "DRIVE_SPEC.md",
+      "path": "../../../sdkwork-specs/DRIVE_SPEC.md",
+      "purpose": "Drive and global asset storage ownership."
+    },
+    {
+      "file": "MEDIA_RESOURCE_SPEC.md",
+      "path": "../../../sdkwork-specs/MEDIA_RESOURCE_SPEC.md",
+      "purpose": "MediaResource snapshots for generation outputs."
+    },
+    {
+      "file": "COMPONENT_SPEC.md",
+      "path": "../../../sdkwork-specs/COMPONENT_SPEC.md",
+      "purpose": "Component-local contract and discovery rules."
+    },
+    {
+      "file": "CODE_STYLE_SPEC.md",
+      "path": "../../../sdkwork-specs/CODE_STYLE_SPEC.md",
+      "purpose": "Authored source structure and generated code boundaries."
+    },
+    {
+      "file": "NAMING_SPEC.md",
+      "path": "../../../sdkwork-specs/NAMING_SPEC.md",
+      "purpose": "Canonical SDKWork naming rules."
+    },
+    {
+      "file": "MODULE_SPEC.md",
+      "path": "../../../sdkwork-specs/MODULE_SPEC.md",
+      "purpose": "Reusable module and package boundary rules."
+    },
+    {
+      "file": "TEST_SPEC.md",
+      "path": "../../../sdkwork-specs/TEST_SPEC.md",
+      "purpose": "Verification and contract testing expectations."
+    },
+    {
+      "file": "TYPESCRIPT_CODE_SPEC.md",
+      "path": "../../../sdkwork-specs/TYPESCRIPT_CODE_SPEC.md",
+      "purpose": "TypeScript and Node package rules."
+    },
+    {
+      "file": "RUST_CODE_SPEC.md",
+      "path": "../../../sdkwork-specs/RUST_CODE_SPEC.md",
+      "purpose": "Rust crate and module rules."
+    },
+    {
+      "file": "JAVA_CODE_SPEC.md",
+      "path": "../../../sdkwork-specs/JAVA_CODE_SPEC.md",
+      "purpose": "Java and Maven module rules."
+    }
+  ],
+  "contracts": {
+    "apiAuthority": {
+      "name": "sdkwork-generations-app-api",
+      "prefix": "/app/v3/api",
+      "authorityOpenApi": "../openapi/sdkwork-generations-app-api.openapi.json",
+      "derivedOpenApi": [
+        "../openapi/sdkwork-generations-app-api.openapi.json"
+      ],
+      "owner": "sdkwork-generations",
+      "standard": "../../../../sdkwork-specs/SDK_WORKSPACE_GENERATION_SPEC.md"
+    },
+    "publicExports": [],
+    "runtimeEntrypoints": [
+      ".sdkwork-assembly.json",
+      "sdk-manifest.json"
+    ],
+    "sdkDependencies": [
+      {
+        "workspace": "sdkwork-drive-app-sdk",
+        "role": "global-assets-and-drive-resource-capability",
+        "required": true,
+        "dependencyMode": "consumer-sdk",
+        "apiPrefix": "/app/v3/api",
+        "apiAuthority": "sdkwork-drive.app",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/drive-app-sdk",
+          "rust": "sdkwork-drive-app-sdk",
+          "java": "com.sdkwork:sdkwork-drive-app-sdk",
+          "python": "sdkwork-drive-app-sdk",
+          "go": "github.com/sdkwork/sdkwork-drive-app-sdk"
+        }
+      },
+      {
+        "workspace": "sdkwork-image-app-sdk",
+        "role": "image-generation-capability",
+        "required": true,
+        "dependencyMode": "consumer-sdk",
+        "apiPrefix": "/app/v3/api",
+        "apiAuthority": "sdkwork-image-app-api",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/image-app-sdk",
+          "rust": "sdkwork-image-app-sdk",
+          "java": "com.sdkwork:sdkwork-image-app-sdk",
+          "python": "sdkwork-image-app-sdk",
+          "go": "github.com/sdkwork/sdkwork-image-app-sdk"
+        }
+      },
+      {
+        "workspace": "sdkwork-video-app-sdk",
+        "role": "video-generation-capability",
+        "required": true,
+        "dependencyMode": "consumer-sdk",
+        "apiPrefix": "/app/v3/api",
+        "apiAuthority": "sdkwork-video-app-api",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/video-app-sdk",
+          "rust": "sdkwork-video-app-sdk",
+          "java": "com.sdkwork:sdkwork-video-app-sdk",
+          "python": "sdkwork-video-app-sdk",
+          "go": "github.com/sdkwork/sdkwork-video-app-sdk"
+        }
+      },
+      {
+        "workspace": "sdkwork-music-app-sdk",
+        "role": "music-generation-capability",
+        "required": true,
+        "dependencyMode": "consumer-sdk",
+        "apiPrefix": "/app/v3/api",
+        "apiAuthority": "sdkwork-music-app-api",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/music-app-sdk",
+          "rust": "sdkwork-music-app-sdk",
+          "java": "com.sdkwork:sdkwork-music-app-sdk",
+          "python": "sdkwork-music-app-sdk",
+          "go": "github.com/sdkwork/sdkwork-music-app-sdk"
+        }
+      },
+      {
+        "workspace": "sdkwork-voice-app-sdk",
+        "role": "voice-generation-capability",
+        "required": true,
+        "dependencyMode": "consumer-sdk",
+        "apiPrefix": "/app/v3/api",
+        "apiAuthority": "sdkwork-voice-app-api",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/voice-app-sdk",
+          "rust": "sdkwork-voice-app-sdk",
+          "java": "com.sdkwork:sdkwork-voice-app-sdk",
+          "python": "sdkwork-voice-app-sdk",
+          "go": "github.com/sdkwork/sdkwork-voice-app-sdk"
+        }
+      }
+    ],
+    "sdkClients": [
+      "SdkworkGenerationsAppClient"
+    ],
+    "events": [],
+    "routeManifest": null,
+    "configKeys": []
+  },
+  "verification": {
+    "commands": [
+      "pnpm test"
+    ]
+  }
+}

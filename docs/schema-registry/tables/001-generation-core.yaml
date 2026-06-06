@@ -1,0 +1,45 @@
+schema_version: 1
+owner: sdkwork-generations
+authority: sdkwork-generations.persistence
+purpose: Unified AI generation records, dispatch, result tracking, projections, and event flow.
+tables:
+  - table: generation_record
+    purpose: Canonical user-facing generation record.
+    indexes:
+      - primary_key: id
+  - table: generation_record_source_ref
+    purpose: Mapping from SDKWork generation record to provider/source identifiers.
+  - table: generation_dispatch_job
+    purpose: High-concurrency worker dispatch queue with idempotency and lease ownership.
+    indexes:
+      - ux_generation_dispatch_job_idempotency
+      - idx_generation_dispatch_job_lease
+      - idx_generation_dispatch_job_retry
+  - table: generation_source_inbox_event
+    purpose: Idempotent inbox for callbacks and source status events.
+    indexes:
+      - ux_generation_source_inbox_provider_event
+      - idx_generation_source_inbox_status
+  - table: generation_timeline_event
+    purpose: Append-only generation status timeline for product UI and audits.
+    indexes:
+      - idx_generation_timeline_generation_created
+  - table: generation_result
+    purpose: Generated output metadata with Drive resource and global asset references.
+    indexes:
+      - idx_generation_result_generation_ordinal
+      - idx_generation_result_asset
+  - table: generation_record_projection
+    purpose: Read-optimized projection for /generations list filtering and cursor pagination.
+    indexes:
+      - idx_generation_projection_user_updated
+      - idx_generation_projection_user_status_updated
+      - idx_generation_projection_user_modality_updated
+  - table: generation_outbox_event
+    purpose: Reliable event publication after generation state changes.
+    indexes:
+      - idx_generation_outbox_status
+notes:
+  - /generations is the app-facing list of generation records and results.
+  - Modality commands remain explicit under /generations/images, /generations/videos, /generations/music, and /generations/voice.
+  - Global assets are owned by sdkwork-drive /assets; generation_result.asset_id is an alias of the saved Drive node id.

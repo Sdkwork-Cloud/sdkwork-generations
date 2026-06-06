@@ -1,0 +1,32 @@
+{
+  "name": "sdkwork-generations-pc",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sdkwork/generations-pc-workspace": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  },
+  "sdkwork": {
+    "workspace": "sdkwork-generations",
+    "architecture": "pc-react",
+    "domain": "intelligence",
+    "capability": "generations-pc",
+    "status": "standardizing"
+  }
+}
