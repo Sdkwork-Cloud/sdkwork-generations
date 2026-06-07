@@ -113,6 +113,29 @@ async translation(body: CreateGenerationCommandRequest, params?: GenerationsVoic
   }
 }
 
+export interface GenerationsSoundEffectsCreateParams {
+  idempotencyKey?: string;
+}
+
+export class GenerationsSoundEffectsApi {
+  private client: HttpClient;
+
+  constructor(client: HttpClient) {
+    this.client = client;
+  }
+
+
+async create(body: CreateGenerationCommandRequest, params?: GenerationsSoundEffectsCreateParams): Promise<GenerationCommandResponse> {
+    const requestHeaders = buildRequestHeaders(
+      {
+        'Idempotency-Key': { value: params?.idempotencyKey, style: 'simple', explode: false },
+      },
+      {}
+    );
+    return this.client.post<GenerationCommandResponse>(appApiPath(`/generations/sound_effects`), body, undefined, requestHeaders, 'application/json');
+  }
+}
+
 export interface GenerationsMusicTextToMusicParams {
   idempotencyKey?: string;
 }
@@ -260,6 +283,7 @@ export class GenerationsApi {
   public readonly images: GenerationsImagesApi;
   public readonly videos: GenerationsVideosApi;
   public readonly music: GenerationsMusicApi;
+  public readonly soundEffects: GenerationsSoundEffectsApi;
   public readonly voice: GenerationsVoiceApi;
   public readonly results: GenerationsResultsApi;
   public readonly timeline: GenerationsTimelineApi;
@@ -269,6 +293,7 @@ export class GenerationsApi {
     this.images = new GenerationsImagesApi(client);
     this.videos = new GenerationsVideosApi(client);
     this.music = new GenerationsMusicApi(client);
+    this.soundEffects = new GenerationsSoundEffectsApi(client);
     this.voice = new GenerationsVoiceApi(client);
     this.results = new GenerationsResultsApi(client);
     this.timeline = new GenerationsTimelineApi(client);

@@ -6,7 +6,6 @@ export declare class SdkworkBackendClient {
     private httpClient;
     readonly generationsBackend: GenerationsBackendApi;
     constructor(config: SdkworkBackendConfig);
-    setApiKey(apiKey: string): this;
     setAuthToken(token: string): this;
     setAccessToken(token: string): this;
     setTokenManager(manager: AuthTokenManager): this;

@@ -9,9 +9,7 @@ type HttpRequestOptions = RequestOptions & {
     contentType?: string;
 };
 export declare class HttpClient extends BaseHttpClient {
-    private static readonly API_KEY_HEADER;
     private static readonly ACCESS_TOKEN_HEADER;
-    private static readonly API_KEY_USE_BEARER;
     constructor(config: SdkworkBackendConfig);
     private getInternalAuthConfig;
     private getInternalHeaders;
@@ -23,7 +21,6 @@ export declare class HttpClient extends BaseHttpClient {
     private isMultipartMetadataField;
     private encodeFormBody;
     private appendFormValue;
-    setApiKey(apiKey: string): void;
     setAuthToken(token: string): void;
     setAccessToken(token: string): void;
     setTokenManager(manager: AuthTokenManager): void;

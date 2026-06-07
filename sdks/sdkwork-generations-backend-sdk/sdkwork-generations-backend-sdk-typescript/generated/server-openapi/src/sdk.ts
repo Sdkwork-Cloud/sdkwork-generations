@@ -14,10 +14,6 @@ export class SdkworkBackendClient {
     this.generationsBackend = createGenerationsBackendApi(this.httpClient);
   }
 
-  setApiKey(apiKey: string): this {
-    this.httpClient.setApiKey(apiKey);
-    return this;
-  }
 
   setAuthToken(token: string): this {
     this.httpClient.setAuthToken(token);

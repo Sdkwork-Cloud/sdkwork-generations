@@ -5,92 +5,223 @@
     "key": "sdkwork-generations-pc",
     "name": "SDKWork Generations PC",
     "displayName": "SDKWork Generations",
-    "description": "PC browser and desktop application for generation commands, history, results, and provenance.",
-    "officialWebsiteUrl": "https://sdkwork.com/generations",
+    "description": "PC browser application for generation commands, history, results, and provenance.",
+    "vendor": "SDKWork",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-generations-pc",
+    "supportUrl": "https://sdkwork.com/support",
+    "privacyPolicyUrl": "https://sdkwork.com/privacy",
+    "termsOfServiceUrl": "https://sdkwork.com/terms",
+    "iconUrl": "https://cdn.sdkwork.com/apps/sdkwork-generations-pc/assets/icon-1024.png",
     "appType": "APP_REACT",
+    "versionSource": "package.json",
     "identifiers": {
-      "packageName": "com.sdkwork.generations",
-      "bundleId": "com.sdkwork.generations",
-      "desktopAppId": "com.sdkwork.generations.pc"
+      "packageName": null,
+      "bundleId": null,
+      "desktopAppId": "com.sdkwork.generations.pc",
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-generations-pc"
     }
   },
   "backend": {
-    "apiAuthorities": [
-      "sdkwork-generations-app-api",
-      "sdkwork-generations-backend-api"
-    ]
+    "profileKey": "backend-root-admin",
+    "ownerMode": "tenant",
+    "grantMode": "current",
+    "platform": "WEB",
+    "appId": "sdkwork-generations-pc",
+    "tenantId": null,
+    "organizationId": null
   },
   "runtime": {
     "family": "desktop",
     "framework": "react-tauri",
+    "runtimes": [
+      "WEB",
+      "TAURI"
+    ],
+    "deliveryModes": [
+      "WEB_URL",
+      "DIRECT_DOWNLOAD"
+    ],
     "defaultPlatform": "WEB",
     "defaultArchitecture": "x64"
   },
   "media": {
     "icons": {
       "primary": {
-        "id": "primary-icon",
+        "id": "sdkwork-generations-pc-primary-icon",
         "type": "ICON",
         "purpose": "PRIMARY",
-        "url": "https://sdkwork.com/assets/generations/icon.png",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-generations-pc/assets/icon-1024.png",
         "platform": "WEB",
+        "locale": "en-US",
         "width": 1024,
         "height": 1024,
         "format": "PNG",
-        "enabled": true
+        "fileSizeBytes": 524288,
+        "alphaChannel": false,
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "assetOwner": "sdkwork-generations",
+          "source": "drive-media-governed"
+        }
       },
       "platform": []
     },
-    "screenshots": [],
-    "previews": []
+    "screenshots": [
+      {
+        "id": "sdkwork-generations-pc-desktop-screenshot",
+        "type": "SCREENSHOT",
+        "purpose": "CATALOG_SCREENSHOT",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-generations-pc/media/desktop-screenshot.png",
+        "platform": "DESKTOP_WINDOWS",
+        "locale": "en-US",
+        "deviceClass": "DESKTOP",
+        "displayType": "DESKTOP_16_10",
+        "width": 1920,
+        "height": 1080,
+        "format": "PNG",
+        "fileSizeBytes": 1048576,
+        "alphaChannel": false,
+        "caption": "SDKWork Generations PC workspace.",
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "altText": "SDKWork Generations PC generation history and asset workspace."
+        }
+      }
+    ],
+    "previews": [
+      {
+        "id": "sdkwork-generations-pc-catalog-preview",
+        "type": "PREVIEW_IMAGE",
+        "purpose": "CATALOG_PREVIEW",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-generations-pc/media/preview-cover.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "width": 1600,
+        "height": 900,
+        "format": "PNG",
+        "fileSizeBytes": 786432,
+        "alphaChannel": false,
+        "caption": "SDKWork Generations PC preview.",
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "altText": "SDKWork Generations PC preview cover."
+        }
+      }
+    ],
+    "metadata": {
+      "assetVersion": "0.1.0",
+      "defaultLocale": "en-US"
+    }
   },
   "publish": {
-    "status": "DRAFT",
+    "status": "ACTIVE",
+    "installSkill": {
+      "name": "sdkwork-skills-app"
+    },
     "platforms": [
       "WEB",
-      "DESKTOP"
+      "DESKTOP",
+      "DESKTOP_WINDOWS",
+      "DESKTOP_MACOS",
+      "DESKTOP_LINUX"
     ],
-    "installPlatforms": []
+    "installPlatforms": [
+      "WEB",
+      "DESKTOP_WINDOWS",
+      "DESKTOP_MACOS",
+      "DESKTOP_LINUX"
+    ],
+    "defaultPackageId": "web-x64-web-url",
+    "storeUrl": "https://sdkwork.com/apps/sdkwork-generations-pc",
+    "stores": [],
+    "config": {
+      "workspaceRoot": "apps/sdkwork-generations-pc",
+      "framework": "react-tauri",
+      "managedBy": "sdkwork-generations"
+    }
   },
   "environments": {
     "development": {
-      "accessUrl": "http://localhost:5173"
+      "accessUrl": "http://127.0.0.1:5173",
+      "deployUrl": "http://127.0.0.1:5173",
+      "deployEnv": "development"
     },
-    "test": {},
-    "staging": {},
-    "production": {}
+    "test": {
+      "accessUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-pc",
+      "deployUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-pc",
+      "deployEnv": "test"
+    },
+    "staging": {
+      "accessUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-pc",
+      "deployUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-pc",
+      "deployEnv": "staging"
+    },
+    "production": {
+      "accessUrl": "https://sdkwork.com/apps/sdkwork-generations-pc",
+      "deployUrl": "https://sdkwork.com/apps/sdkwork-generations-pc",
+      "deployEnv": "production"
+    }
   },
   "artifacts": {
     "installConfig": {
       "defaultPackageId": "web-x64-web-url",
+      "installCommand": "sdkwork install sdkwork-generations-pc",
+      "launchCommand": "sdkwork open sdkwork-generations-pc",
+      "uninstallCommand": "sdkwork uninstall sdkwork-generations-pc",
       "packages": [
         {
           "id": "web-x64-web-url",
-          "name": "SDKWork Generations Web",
+          "name": "SDKWork Generations PC Web",
           "sourceType": "WEB_URL",
           "packageFormat": "OTHER",
           "platform": "WEB",
           "architecture": "x64",
-          "url": "https://sdkwork.com/generations",
-          "enabled": true
+          "url": "https://sdkwork.com/apps/sdkwork-generations-pc",
+          "enabled": true,
+          "metadata": {
+            "runtimeTarget": "browser",
+            "releaseArtifact": "web-url"
+          }
         }
-      ]
+      ],
+      "metadata": {
+        "workspaceRoot": "apps/sdkwork-generations-pc",
+        "framework": "react-tauri",
+        "packageManager": "pnpm@10.33.0"
+      }
     }
   },
   "release": {
     "currentVersion": "0.1.0",
+    "defaultChannel": "DEV",
     "latest": {
       "DEV": "0.1.0"
     },
     "notes": [
       {
         "version": "0.1.0",
-        "channel": "DEV",
-        "current": true,
+        "releaseChannel": "DEV",
+        "title": "SDKWork Generations PC 0.1.0",
+        "summary": "Initial SDKWork App Manifest v3 identity for the Generations PC app root.",
+        "content": "Defines the official PC application root, package identity, runtime family, and safe web access package metadata.",
+        "highlights": [
+          "SDKWork App Manifest v3 identity",
+          "PC browser and desktop runtime family",
+          "Standard package and config ownership"
+        ],
         "packageIds": [
           "web-x64-web-url"
         ],
-        "summary": "Initial PC application scaffold."
+        "publishedAt": "2026-06-06T00:00:00Z",
+        "current": true,
+        "forceUpdate": false,
+        "minSupportedVersion": "0.1.0",
+        "metadata": {
+          "releaseState": "development"
+        }
       }
     ]
   },
@@ -100,10 +231,24 @@
     "sbomRequired": false
   },
   "devApp": {
-    "enabled": true
+    "enabled": true,
+    "sourceRoot": "apps/sdkwork-generations-pc",
+    "build": {
+      "targets": [
+        {
+          "id": "web-development",
+          "command": "pnpm dev",
+          "outputs": [
+            "dist"
+          ]
+        }
+      ]
+    }
   },
   "metadata": {
-    "owner": "sdkwork-generations",
-    "surface": "pc"
+    "standardOwner": "sdkwork-platform",
+    "component": "sdkwork-generations-pc",
+    "surface": "pc",
+    "initializedAt": "2026-06-06T00:00:00Z"
   }
 }

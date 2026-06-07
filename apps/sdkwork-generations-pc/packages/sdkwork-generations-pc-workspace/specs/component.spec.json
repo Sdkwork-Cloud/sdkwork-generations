@@ -124,6 +124,7 @@
       "./generation-service"
     ],
     "runtimeEntrypoints": [
+      "package.json#scripts.test",
       "package.json#scripts.typecheck"
     ],
     "sdkClients": [
@@ -143,6 +144,7 @@
   },
   "verification": {
     "commands": [
+      "pnpm --filter @sdkwork/generations-pc-workspace test",
       "pnpm --filter @sdkwork/generations-pc-workspace typecheck"
     ]
   },

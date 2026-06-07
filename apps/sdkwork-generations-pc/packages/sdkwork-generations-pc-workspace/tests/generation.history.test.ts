@@ -55,6 +55,7 @@ describe("sdkwork-generations-pc-workspace history helpers", () => {
       status: "processing",
       type: "images",
       updatedAt: "2026-05-22T00:00:00Z",
+      videos: [],
     });
   });
 
@@ -91,6 +92,7 @@ describe("sdkwork-generations-pc-workspace history helpers", () => {
       asset: mediaResource("image", "https://cdn.example/a.png"),
       durationSeconds: undefined,
       images: [mediaResource("image", "https://cdn.example/a.png")],
+      videos: [],
     });
     expect(readSdkworkGenerationMediaUrl(mediaResource("image", "image"))).toBe("image");
     expect(readSdkworkGenerationMediaUrl({

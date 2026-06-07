@@ -1,1 +1,1 @@
-export type GenerationModality = 'image' | 'video' | 'music' | 'voice';
+export type GenerationModality = 'image' | 'video' | 'music' | 'audio' | 'sfx' | 'voice';

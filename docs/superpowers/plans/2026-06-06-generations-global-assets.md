@@ -127,7 +127,7 @@ Run: `pnpm test` from `sdkwork-generations`
 Run Drive TypeScript generation: `node tools/drive_sdk_generate.mjs --language typescript`
 Run Generations TypeScript generation: `node tools/generations_sdk_generate.mjs --language typescript`
 
-Expected: If `D:\javasource\spring-ai-plus\sdk\sdkwork-sdk-generator\bin\sdkgen.js` is missing, scripts fail fast and the blocker is reported with source OpenAPI/metadata prepared.
+Expected: If `..\sdkwork-sdk-generator\bin\sdkgen.js` is missing, scripts fail fast and the blocker is reported with source OpenAPI/metadata prepared.
 
 - [ ] **Step 3: Run final verification**
 

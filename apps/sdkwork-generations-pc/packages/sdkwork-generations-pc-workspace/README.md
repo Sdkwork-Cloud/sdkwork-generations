@@ -68,6 +68,7 @@ Extension points are limited to declared public exports, runtime entrypoints, SD
 
 ### Verification
 
+- `pnpm --filter @sdkwork/generations-pc-workspace test`
 - `pnpm --filter @sdkwork/generations-pc-workspace typecheck`
 
 ### Owner And Status

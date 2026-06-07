@@ -37,6 +37,7 @@ const expectedGenerationCreatePaths = [
   "/app/v3/api/generations/videos/video_extend",
   "/app/v3/api/generations/music/text_to_music",
   "/app/v3/api/generations/music/lyrics_to_music",
+  "/app/v3/api/generations/sound_effects",
   "/app/v3/api/generations/voice/speech",
   "/app/v3/api/generations/voice/transcription",
   "/app/v3/api/generations/voice/translation",
@@ -170,6 +171,14 @@ test("generations app OpenAPI exposes user-facing generation records and modalit
 test("generations app schemas preserve Drive-backed results and high-volume list filters", () => {
   const openapi = readJson(appOpenapiPath);
   const schemas = openapi.components?.schemas || {};
+  assert.ok(
+    schemas.GenerationModality.enum.includes("sfx"),
+    "GenerationModality must expose sfx for sound effect generation",
+  );
+  assert.ok(
+    schemas.GenerationModality.enum.includes("audio"),
+    "GenerationModality must expose audio for Playground speech synthesis history and filtering",
+  );
 
   for (const schemaName of [
     "GenerationRecord",
@@ -245,6 +254,7 @@ test("generations backend OpenAPI keeps technical dispatch APIs off the app surf
 
 test("generations SDK family metadata declares owner-only SDK generation and dependencies", () => {
   const appAssembly = readJson(path.join(appFamilyRoot, ".sdkwork-assembly.json"));
+  const appManifest = readJson(path.join(appFamilyRoot, "sdk-manifest.json"));
   const backendAssembly = readJson(path.join(backendFamilyRoot, ".sdkwork-assembly.json"));
   const appComponent = readJson(path.join(appFamilyRoot, "specs", "component.spec.json"));
   const backendComponent = readJson(path.join(backendFamilyRoot, "specs", "component.spec.json"));
@@ -269,6 +279,14 @@ test("generations SDK family metadata declares owner-only SDK generation and dep
   ]) {
     assert.ok(appDependencies.has(dependency), `missing app dependency ${dependency}`);
   }
+  const voiceDependency = (appAssembly.sdkDependencies || []).find(
+    (dependency) => dependency.workspace === "sdkwork-voice-app-sdk",
+  );
+  assert.ok(voiceDependency, "missing voice dependency");
+  assert.ok(
+    voiceDependency.role.includes("sound-effect"),
+    "sdkwork-voice-app-sdk dependency role must cover sound effect generation",
+  );
 
   assert.equal(backendAssembly.workspace, "sdkwork-generations-backend-sdk");
   assert.equal(backendAssembly.sdkOwner, "sdkwork-generations");
@@ -282,6 +300,11 @@ test("generations SDK family metadata declares owner-only SDK generation and dep
     appComponent.contracts.sdkDependencies,
     appAssembly.sdkDependencies,
     "app component dependencies must mirror assembly dependencies",
+  );
+  assert.deepEqual(
+    appManifest.sdkDependencies,
+    appAssembly.sdkDependencies,
+    "app manifest dependencies must mirror assembly dependencies",
   );
   assert.deepEqual(
     backendComponent.contracts.sdkDependencies,

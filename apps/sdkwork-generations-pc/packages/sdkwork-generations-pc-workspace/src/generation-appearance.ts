@@ -3,6 +3,10 @@ import { createSdkworkBackdropStyle, createSdkworkHeroStyle, createSdkworkPanelS
 
 export type SdkworkGenerationVisualTone = SdkworkThemeVisualTone;
 
+function toSdkworkGenerationStyle(style: unknown): CSSProperties {
+  return style as CSSProperties;
+}
+
 export function createSdkworkGenerationToneStyle(
   tone: SdkworkGenerationVisualTone,
   options: {
@@ -10,7 +14,7 @@ export function createSdkworkGenerationToneStyle(
     borderWeight?: number;
   } = {},
 ): CSSProperties {
-  return createSdkworkToneStyle(tone, options);
+  return toSdkworkGenerationStyle(createSdkworkToneStyle(tone, options));
 }
 
 export function createSdkworkGenerationPanelStyle(
@@ -22,15 +26,15 @@ export function createSdkworkGenerationPanelStyle(
     surfaceWeight?: number;
   } = {},
 ): CSSProperties {
-  return createSdkworkPanelStyle(tone, options);
+  return toSdkworkGenerationStyle(createSdkworkPanelStyle(tone, options));
 }
 
 export function createSdkworkGenerationBackdropStyle(): CSSProperties {
-  return createSdkworkBackdropStyle();
+  return toSdkworkGenerationStyle(createSdkworkBackdropStyle());
 }
 
 export function createSdkworkGenerationHeroStyle(): CSSProperties {
-  return createSdkworkHeroStyle();
+  return toSdkworkGenerationStyle(createSdkworkHeroStyle());
 }
 
 export function createSdkworkGenerationHeroTextStyle(

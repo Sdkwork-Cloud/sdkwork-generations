@@ -762,6 +762,94 @@
         }
       }
     },
+    "/app/v3/api/generations/sound_effects": {
+      "post": {
+        "tags": [
+          "generations"
+        ],
+        "operationId": "generations.soundEffects.create",
+        "x-sdkwork-owner": "sdkwork-generations",
+        "x-sdkwork-api-authority": "sdkwork-generations-app-api",
+        "security": [
+          {
+            "AuthToken": [],
+            "AccessToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 128
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerationCommand"
+        },
+        "responses": {
+          "202": {
+            "description": "Generation accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationCommandResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Problem detail.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/app/v3/api/generations/voice/speech": {
       "post": {
         "tags": [
@@ -1597,6 +1685,8 @@
           "image",
           "video",
           "music",
+          "audio",
+          "sfx",
           "voice"
         ]
       },

@@ -6,7 +6,6 @@ export declare class SdkworkAppClient {
     private httpClient;
     readonly generations: GenerationsApi;
     constructor(config: SdkworkAppConfig);
-    setApiKey(apiKey: string): this;
     setAuthToken(token: string): this;
     setAccessToken(token: string): this;
     setTokenManager(manager: AuthTokenManager): this;

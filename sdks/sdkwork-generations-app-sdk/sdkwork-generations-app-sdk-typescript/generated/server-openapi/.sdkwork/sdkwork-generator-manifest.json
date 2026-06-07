@@ -11,7 +11,7 @@
   "generatedFiles": [
     {
       "path": "bin/publish-core.mjs",
-      "sha256": "affb1f1b5400ac492e94e2d01f3104b8dd38b50329e371265d4f0945f2b0763c"
+      "sha256": "18b05851461e9176a2ad18c3f5138316a6da45ad0dfb847565603ff3d90bf14b"
     },
     {
       "path": "bin/publish.ps1",
@@ -39,15 +39,15 @@
     },
     {
       "path": "package.json",
-      "sha256": "67bfa57e0d4c18716e3b3812bd482c79721799d06867f6546b53a727e3e5da26"
+      "sha256": "01fa056f4629f3860e64afc2e8e79f6491c92d90ae90890eb0e742ecf4bb7a38"
     },
     {
       "path": "README.md",
-      "sha256": "e21c114afe4166c8c319aa41c68b2b0d6ffbcbc731d2590408f132309573a369"
+      "sha256": "6784abb79873d3d048e3ee7b8dacb710e54835d49d8bdc42498fa12810085dce"
     },
     {
       "path": "sdkwork-sdk.json",
-      "sha256": "658c0f7f6946727db56a620c8f80a0aa916a5416cc40fc0adad193ca7a6683fc"
+      "sha256": "aa9be416ab6cfb7108fb7bad4243b6161a8cd6cec1215f2fc1815ad3265c1424"
     },
     {
       "path": "src/api/base.ts",
@@ -55,7 +55,7 @@
     },
     {
       "path": "src/api/generations.ts",
-      "sha256": "8ff236234e4e3480e763d0ad26d367726f80d07442a350a07200999a57484e5a"
+      "sha256": "861f5fe151202a976d1b0407fa8d4e6984f34fbcbecc37d6c25ff454a60b92de"
     },
     {
       "path": "src/api/index.ts",
@@ -71,7 +71,7 @@
     },
     {
       "path": "src/http/client.ts",
-      "sha256": "05609fa19c8bfded1765dadb8f875dae5dd3e6f11f13244f6239450dea8732fc"
+      "sha256": "510ad91cd45bd49f76741f12a548320c6b4f110c9db8b8a1e57c23b0ce739a68"
     },
     {
       "path": "src/http/index.ts",
@@ -83,11 +83,11 @@
     },
     {
       "path": "src/sdk.ts",
-      "sha256": "20d2016793f7d95cbec2100ed175ea01fcd020fe195af695777d518e70efb021"
+      "sha256": "75f032ec2b2c439ea3b4f73b5660b82a9a2d5ce110df30499aaeb97e70748b6f"
     },
     {
       "path": "src/types/common.ts",
-      "sha256": "ac5b348259c39e2cd8357dfcf8269268ee1da5f8a6e0770d714ab5eb796b3050"
+      "sha256": "d2506be8c4bdbe8e7059393467e6e71d75ef1d8c018dbf997bb0ab2a77b6c7b6"
     },
     {
       "path": "src/types/create-generation-command-request.ts",
@@ -107,7 +107,7 @@
     },
     {
       "path": "src/types/generation-modality.ts",
-      "sha256": "77a9a3e5171c8471f1b4806d24fb77baa93510e0e65ec3a8442847a818de8aac"
+      "sha256": "4d7b380961ec13f19a3390dbf8bd29b88d3f48e6fa2bda9e723e67eba3646a94"
     },
     {
       "path": "src/types/generation-record-page.ts",

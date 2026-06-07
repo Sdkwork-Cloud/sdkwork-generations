@@ -8,9 +8,11 @@
     "sdkType": "backend",
     "packageName": "sdkwork-generations-backend-sdk-generated-typescript"
   },
-  "changeFingerprint": "7042bff72fe3484cdf0cc7253f62cca9ed3bdd99524238fb21564b98fb0d87d0",
+  "changeFingerprint": "1665405ee501e4dddc6895eab8abc34baed313dc66e23511f2e3ac980645b7b8",
   "changes": {
-    "createdGeneratedFiles": [
+    "createdGeneratedFiles": [],
+    "updatedGeneratedFiles": [],
+    "unchangedGeneratedFiles": [
       "bin/publish-core.mjs",
       "bin/publish.ps1",
       "bin/publish.sh",
@@ -41,162 +43,37 @@
       "src/types/reconciliation-run.ts",
       "tsconfig.json"
     ],
-    "updatedGeneratedFiles": [],
-    "unchangedGeneratedFiles": [],
     "deletedGeneratedFiles": [],
-    "scaffoldedFiles": [
+    "scaffoldedFiles": [],
+    "preservedScaffoldFiles": [
       "custom/build-runtime.mjs",
       "custom/README.md"
     ],
-    "preservedScaffoldFiles": [],
     "backedUpFiles": []
   },
   "impact": {
     "schemaVersion": 1,
-    "areas": [
-      "api-surface",
-      "models",
-      "runtime",
-      "build-metadata",
-      "publish-workflow",
-      "documentation",
-      "custom-scaffold",
-      "unknown"
-    ],
-    "details": [
-      {
-        "area": "api-surface",
-        "paths": [
-          "src/api/base.ts",
-          "src/api/generations-backend.ts",
-          "src/api/index.ts",
-          "src/api/paths.ts",
-          "src/http/client.ts",
-          "src/sdk.ts"
-        ]
-      },
-      {
-        "area": "models",
-        "paths": [
-          "src/types/common.ts",
-          "src/types/create-reconciliation-run-request.ts",
-          "src/types/generation-dispatch-job-page.ts",
-          "src/types/generation-dispatch-job.ts",
-          "src/types/generation-source-event-page.ts",
-          "src/types/generation-source-event.ts",
-          "src/types/index.ts",
-          "src/types/problem-detail.ts",
-          "src/types/reconciliation-run.ts"
-        ]
-      },
-      {
-        "area": "runtime",
-        "paths": [
-          "src/auth/index.ts",
-          "src/http/client.ts",
-          "src/http/index.ts"
-        ]
-      },
-      {
-        "area": "build-metadata",
-        "paths": [
-          "package.json",
-          "sdkwork-sdk.json",
-          "tsconfig.json"
-        ]
-      },
-      {
-        "area": "publish-workflow",
-        "paths": [
-          "bin/publish-core.mjs",
-          "bin/publish.ps1",
-          "bin/publish.sh",
-          "bin/sdk-gen.bat",
-          "bin/sdk-gen.sh"
-        ]
-      },
-      {
-        "area": "documentation",
-        "paths": [
-          "CHANGELOG.md",
-          "custom/README.md",
-          "README.md"
-        ]
-      },
-      {
-        "area": "custom-scaffold",
-        "paths": [
-          "custom/build-runtime.mjs",
-          "custom/README.md"
-        ]
-      },
-      {
-        "area": "unknown",
-        "paths": [
-          "LICENSE",
-          "src/index.ts"
-        ]
-      }
-    ],
-    "requiresVerification": true,
-    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required."
+    "areas": [],
+    "details": [],
+    "requiresVerification": false,
+    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped."
   },
   "verificationPlan": {
-    "shouldRun": true,
-    "runPhase": "now",
-    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
-    "steps": [
-      {
-        "id": "check",
-        "title": "Unified package check",
-        "required": true,
-        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-backend-sdk\\sdkwork-generations-backend-sdk-typescript\\generated\\server-openapi",
-        "command": "node",
-        "args": [
-          "./bin/publish-core.mjs",
-          "--language",
-          "typescript",
-          "--project-dir",
-          ".",
-          "--action",
-          "check"
-        ],
-        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action check"
-      },
-      {
-        "id": "build",
-        "title": "Unified package build",
-        "required": true,
-        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-backend-sdk\\sdkwork-generations-backend-sdk-typescript\\generated\\server-openapi",
-        "command": "node",
-        "args": [
-          "./bin/publish-core.mjs",
-          "--language",
-          "typescript",
-          "--project-dir",
-          ".",
-          "--action",
-          "build"
-        ],
-        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action build"
-      }
-    ]
+    "shouldRun": false,
+    "runPhase": "skip",
+    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped.",
+    "steps": []
   },
   "executionDecision": {
     "schemaVersion": 1,
-    "riskLevel": "high",
-    "nextAction": "verify",
+    "riskLevel": "low",
+    "nextAction": "skip",
     "requiresManualReview": false,
     "applyRequiresExpectedFingerprint": false,
-    "summary": "Changes have been applied. Run the required verification plan now.",
+    "summary": "No actionable changes were detected. No apply or verification step is required.",
     "reasons": [
-      "manual-review-required",
-      "preserved-legacy-files",
-      "unknown-impact",
-      "verification-required"
+      "no-actionable-changes"
     ]
   },
-  "preservedLegacyFiles": true
+  "preservedLegacyFiles": false
 }

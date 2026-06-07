@@ -22,7 +22,6 @@ import type { AuthTokenManager, AuthMode, AuthTokens } from '@sdkwork/sdk-common
 export type { AuthTokenManager, AuthMode, AuthTokens };
 export interface SdkworkAppConfig {
     baseUrl: string;
-    apiKey?: string;
     authToken?: string;
     accessToken?: string;
     tenantId?: string;

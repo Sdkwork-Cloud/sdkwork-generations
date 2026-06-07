@@ -1,7 +1,7 @@
 {
   "name": "sdkwork-generations-app-sdk-generated-typescript",
   "version": "0.1.0",
-  "description": "sdkwork-generations-app-sdk",
+  "description": "Generator-owned TypeScript transport SDK for sdkwork-generations-app-sdk.",
   "author": "SDKWork Team",
   "license": "MIT",
   "type": "module",
@@ -36,5 +36,6 @@
     "api",
     "app",
     "sdkwork"
-  ]
+  ],
+  "private": true
 }

@@ -143,28 +143,7 @@ class HttpClient extends BaseHttpClient {
         }
         params.append(key, String(value));
     }
-    setApiKey(apiKey) {
-        const authConfig = this.getInternalAuthConfig();
-        const headers = this.getInternalHeaders();
-        authConfig.apiKey = apiKey;
-        authConfig.tokenManager?.clearTokens?.();
-        if (HttpClient.API_KEY_HEADER === 'Authorization' && HttpClient.API_KEY_USE_BEARER) {
-            authConfig.authMode = 'apikey';
-            return;
-        }
-        authConfig.authMode = 'dual-token';
-        headers[HttpClient.API_KEY_HEADER] = HttpClient.API_KEY_USE_BEARER
-            ? `Bearer ${apiKey}`
-            : apiKey;
-        if (HttpClient.API_KEY_HEADER.toLowerCase() !== 'authorization') {
-            delete headers['Authorization'];
-        }
-    }
     setAuthToken(token) {
-        const headers = this.getInternalHeaders();
-        if (HttpClient.API_KEY_HEADER.toLowerCase() !== 'authorization') {
-            delete headers[HttpClient.API_KEY_HEADER];
-        }
         super.setAuthToken(token);
     }
     setAccessToken(token) {
@@ -246,9 +225,7 @@ class HttpClient extends BaseHttpClient {
         return this.request(path, { method: 'PATCH', body, params, headers, contentType });
     }
 }
-HttpClient.API_KEY_HEADER = 'Access-Token';
 HttpClient.ACCESS_TOKEN_HEADER = 'Access-Token';
-HttpClient.API_KEY_USE_BEARER = false;
 function createHttpClient(config) {
     return new HttpClient(config);
 }
@@ -328,6 +305,17 @@ class GenerationsVoiceApi {
         return this.client.post(appApiPath(`/generations/voice/translation`), body, undefined, requestHeaders, 'application/json');
     }
 }
+class GenerationsSoundEffectsApi {
+    constructor(client) {
+        this.client = client;
+    }
+    async create(body, params) {
+        const requestHeaders = buildRequestHeaders({
+            'Idempotency-Key': { value: params?.idempotencyKey, style: 'simple', explode: false },
+        }, {});
+        return this.client.post(appApiPath(`/generations/sound_effects`), body, undefined, requestHeaders, 'application/json');
+    }
+}
 class GenerationsMusicApi {
     constructor(client) {
         this.client = client;
@@ -391,6 +379,7 @@ class GenerationsApi {
         this.images = new GenerationsImagesApi(client);
         this.videos = new GenerationsVideosApi(client);
         this.music = new GenerationsMusicApi(client);
+        this.soundEffects = new GenerationsSoundEffectsApi(client);
         this.voice = new GenerationsVoiceApi(client);
         this.results = new GenerationsResultsApi(client);
         this.timeline = new GenerationsTimelineApi(client);
@@ -666,10 +655,6 @@ class SdkworkAppClient {
     constructor(config) {
         this.httpClient = createHttpClient(config);
         this.generations = createGenerationsApi(this.httpClient);
-    }
-    setApiKey(apiKey) {
-        this.httpClient.setApiKey(apiKey);
-        return this;
     }
     setAuthToken(token) {
         this.httpClient.setAuthToken(token);

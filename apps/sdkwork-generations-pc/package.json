@@ -7,13 +7,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test tests/*.test.mjs && pnpm --filter @sdkwork/generations-pc-workspace test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@sdkwork/drive-app-sdk": "workspace:*",
     "@sdkwork/generations-pc-workspace": "workspace:*",
+    "@sdkwork/sdk-common": "^1.0.3",
+    "@sdkwork/ui-pc-react": "workspace:*",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "sdkwork-generations-app-sdk-generated-typescript": "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi"
   },
   "devDependencies": {
     "@types/react": "catalog:",

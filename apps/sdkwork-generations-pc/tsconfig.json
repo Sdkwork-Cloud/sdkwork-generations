@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "jsx": "react-jsx",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
@@ -9,7 +11,10 @@
     "noEmit": true,
     "paths": {
       "@sdkwork/generations-pc-workspace": ["packages/sdkwork-generations-pc-workspace/src/index.ts"],
-      "@sdkwork/generations-pc-workspace/react": ["packages/sdkwork-generations-pc-workspace/src/react.ts"]
+      "@sdkwork/generations-pc-workspace/react": ["packages/sdkwork-generations-pc-workspace/src/react.ts"],
+      "sdkwork-generations-app-sdk-generated-typescript": [
+        "../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi/src/index.ts"
+      ]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

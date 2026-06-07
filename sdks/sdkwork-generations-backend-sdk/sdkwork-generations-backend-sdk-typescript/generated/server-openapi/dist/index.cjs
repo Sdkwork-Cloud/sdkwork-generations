@@ -144,28 +144,7 @@ class HttpClient extends sdkCommon.BaseHttpClient {
         }
         params.append(key, String(value));
     }
-    setApiKey(apiKey) {
-        const authConfig = this.getInternalAuthConfig();
-        const headers = this.getInternalHeaders();
-        authConfig.apiKey = apiKey;
-        authConfig.tokenManager?.clearTokens?.();
-        if (HttpClient.API_KEY_HEADER === 'Authorization' && HttpClient.API_KEY_USE_BEARER) {
-            authConfig.authMode = 'apikey';
-            return;
-        }
-        authConfig.authMode = 'dual-token';
-        headers[HttpClient.API_KEY_HEADER] = HttpClient.API_KEY_USE_BEARER
-            ? `Bearer ${apiKey}`
-            : apiKey;
-        if (HttpClient.API_KEY_HEADER.toLowerCase() !== 'authorization') {
-            delete headers['Authorization'];
-        }
-    }
     setAuthToken(token) {
-        const headers = this.getInternalHeaders();
-        if (HttpClient.API_KEY_HEADER.toLowerCase() !== 'authorization') {
-            delete headers[HttpClient.API_KEY_HEADER];
-        }
         super.setAuthToken(token);
     }
     setAccessToken(token) {
@@ -247,9 +226,7 @@ class HttpClient extends sdkCommon.BaseHttpClient {
         return this.request(path, { method: 'PATCH', body, params, headers, contentType });
     }
 }
-HttpClient.API_KEY_HEADER = 'Access-Token';
 HttpClient.ACCESS_TOKEN_HEADER = 'Access-Token';
-HttpClient.API_KEY_USE_BEARER = false;
 function createHttpClient(config) {
     return new HttpClient(config);
 }
@@ -549,10 +526,6 @@ class SdkworkBackendClient {
     constructor(config) {
         this.httpClient = createHttpClient(config);
         this.generationsBackend = createGenerationsBackendApi(this.httpClient);
-    }
-    setApiKey(apiKey) {
-        this.httpClient.setApiKey(apiKey);
-        return this;
     }
     setAuthToken(token) {
         this.httpClient.setAuthToken(token);

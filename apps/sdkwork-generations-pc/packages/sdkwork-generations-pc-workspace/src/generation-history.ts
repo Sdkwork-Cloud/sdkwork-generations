@@ -6,13 +6,31 @@ import {
 } from "./generation-asset-config.ts";
 
 export interface SdkworkMediaResource {
+  access?: {
+    expiresAt?: string;
+    visibility?: "organization" | "private" | "public" | "signed" | "tenant";
+  };
+  ai?: Record<string, unknown>;
+  altText?: string;
+  checksum?: Record<string, unknown>;
   durationSeconds?: number;
+  fileName?: string;
+  height?: number;
   id?: string;
+  kind?: "archive" | "audio" | "document" | "image" | "model" | "other" | "video" | "voice";
+  metadata?: Record<string, unknown>;
   mimeType?: string;
+  objectBlobId?: string;
   poster?: SdkworkMediaResource;
+  publicUrl?: string;
+  sizeBytes?: string;
+  source?: "data_url" | "drive" | "external_url" | "generated" | "provider_asset";
   thumbnails?: SdkworkMediaResource[];
+  title?: string;
   uri?: string;
   url?: string;
+  variants?: SdkworkMediaResource[];
+  width?: number;
 }
 
 export type SdkworkGenerationHistoryType =
@@ -328,5 +346,5 @@ export function readSdkworkGenerationMediaThumb(
 }
 
 function getSdkworkMediaDeliveryUrl(media: SdkworkMediaResource | undefined): string | undefined {
-  return media?.url || media?.uri;
+  return media?.url || media?.publicUrl || media?.uri;
 }

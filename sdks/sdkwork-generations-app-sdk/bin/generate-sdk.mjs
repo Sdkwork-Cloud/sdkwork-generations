@@ -81,7 +81,7 @@ runGenerationsSdkGenerator(
       },
       {
         workspace: "sdkwork-voice-app-sdk",
-        role: "voice-generation-capability",
+        role: "voice-and-sound-effect-generation-capability",
         required: true,
         dependencyMode: "consumer-sdk",
         apiPrefix: "/app/v3/api",

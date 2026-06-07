@@ -11,6 +11,10 @@ function readJson(relativePath) {
   return JSON.parse(readFileSync(path.join(appRoot, relativePath), "utf8"));
 }
 
+function readText(relativePath) {
+  return readFileSync(path.join(appRoot, relativePath), "utf8");
+}
+
 test("sdkwork-generations-pc composes the user-facing workspace package", () => {
   const appManifest = readJson("sdkwork.app.config.json");
   const appPackage = readJson("package.json");
@@ -22,4 +26,42 @@ test("sdkwork-generations-pc composes the user-facing workspace package", () => 
   assert.equal(workspacePackage.sdkwork.surface, "app");
   assert.equal(workspacePackage.sdkwork.domain, "intelligence");
   assert.equal(workspacePackage.sdkwork.capability, "workspace");
+});
+
+test("sdkwork-generations-pc declares Drive SDK composition dependencies", () => {
+  const appPackage = readJson("package.json");
+  const componentSpec = readJson("specs/component.spec.json");
+  const workspacePackage = readJson("packages/sdkwork-generations-pc-workspace/package.json");
+  const workspaceYaml = readText("pnpm-workspace.yaml");
+
+  assert.equal(
+    appPackage.dependencies["sdkwork-generations-app-sdk-generated-typescript"],
+    "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi",
+  );
+  assert.equal(appPackage.dependencies["@sdkwork/drive-app-sdk"], "workspace:*");
+  assert.equal(appPackage.dependencies["@sdkwork/sdk-common"], "^1.0.3");
+  assert.equal(appPackage.dependencies["@sdkwork/ui-pc-react"], "workspace:*");
+  assert.equal(workspacePackage.dependencies["@sdkwork/ui-pc-react"], "workspace:*");
+  assert.equal(workspacePackage.peerDependencies?.["@sdkwork/ui-pc-react"], undefined);
+  assert.ok(
+    componentSpec.contracts.sdkClients.includes("sdkwork-generations-app-sdk"),
+    "component spec must declare the product app SDK client",
+  );
+  assert.ok(
+    componentSpec.contracts.sdkClients.includes("sdkwork-drive-app-sdk"),
+    "component spec must declare the Drive app SDK dependency",
+  );
+  assert.match(
+    workspaceYaml,
+    /sdkwork-drive\/sdks\/sdkwork-drive-app-sdk\/sdkwork-drive-app-sdk-typescript/u,
+  );
+  assert.doesNotMatch(
+    workspaceYaml,
+    /sdkwork-generations-app-sdk\/sdkwork-generations-app-sdk-typescript\/generated\/server-openapi/u,
+  );
+  assert.match(
+    workspaceYaml,
+    /sdkwork-appbase\/sdks\/sdkwork-appbase-app-sdk\/sdkwork-appbase-app-sdk-typescript\/generated\/server-openapi/u,
+  );
+  assert.match(workspaceYaml, /sdkwork-ui\/sdkwork-ui-pc-react/u);
 });

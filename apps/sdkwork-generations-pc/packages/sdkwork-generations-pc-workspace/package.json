@@ -41,20 +41,22 @@
     "README.md"
   ],
   "scripts": {
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@sdkwork/ui-pc-react": "workspace:*",
     "lucide-react": "catalog:"
   },
   "peerDependencies": {
-    "@sdkwork/ui-pc-react": "*",
     "react": ">=18.2.0 <20.0.0",
     "react-dom": ">=18.2.0 <20.0.0"
   },
-  "peerDependenciesMeta": {
-    "@sdkwork/ui-pc-react": {
-      "optional": true
-    }
+  "devDependencies": {
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "jsdom": "catalog:",
+    "vitest": "catalog:"
   },
   "sdkwork": {
     "workspace": "sdkwork-generations-pc",

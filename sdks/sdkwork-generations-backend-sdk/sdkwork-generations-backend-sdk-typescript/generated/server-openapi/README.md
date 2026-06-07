@@ -1,6 +1,6 @@
 # sdkwork-generations-backend-sdk
 
-Professional TypeScript SDK for SDKWork API.
+Generator-owned TypeScript transport SDK for sdkwork-generations-backend-sdk.
 
 ## Installation
 
@@ -22,8 +22,9 @@ const client = new SdkworkBackendClient({
   timeout: 30000,
 });
 
-// Mode A: API Key (recommended for server-to-server calls)
-client.setApiKey('your-api-key');
+// Attach the authenticated SDKWork session tokens
+client.setAuthToken('your-auth-token');
+client.setAccessToken('your-access-token');
 
 // Use the SDK
 const params = {
@@ -34,19 +35,7 @@ const params = {
 const result = await client.generationsBackend.generationSourceEvents.list(params);
 ```
 
-## Authentication Modes (Mutually Exclusive)
-
-Choose exactly one mode for the same client instance.
-
-### Mode A: API Key
-
-```typescript
-const client = new SdkworkBackendClient({ baseUrl: 'http://127.0.0.1:18090' });
-client.setApiKey('your-api-key');
-// Sends: Access-Token: <apiKey>
-```
-
-### Mode B: Dual Token
+## Dual Token Authentication
 
 ```typescript
 const client = new SdkworkBackendClient({ baseUrl: 'http://127.0.0.1:18090' });
@@ -56,8 +45,6 @@ client.setAccessToken('your-access-token');
 // Authorization: Bearer <authToken>
 // Access-Token: <accessToken>
 ```
-
-> Do not call `setApiKey(...)` together with `setAuthToken(...)` + `setAccessToken(...)` on the same client.
 
 ## Configuration (Non-Auth)
 

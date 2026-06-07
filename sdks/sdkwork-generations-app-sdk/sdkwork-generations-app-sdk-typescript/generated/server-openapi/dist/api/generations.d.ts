@@ -38,6 +38,14 @@ export declare class GenerationsVoiceApi {
     transcription(body: CreateGenerationCommandRequest, params?: GenerationsVoiceTranscriptionParams): Promise<GenerationCommandResponse>;
     translation(body: CreateGenerationCommandRequest, params?: GenerationsVoiceTranslationParams): Promise<GenerationCommandResponse>;
 }
+export interface GenerationsSoundEffectsCreateParams {
+    idempotencyKey?: string;
+}
+export declare class GenerationsSoundEffectsApi {
+    private client;
+    constructor(client: HttpClient);
+    create(body: CreateGenerationCommandRequest, params?: GenerationsSoundEffectsCreateParams): Promise<GenerationCommandResponse>;
+}
 export interface GenerationsMusicTextToMusicParams {
     idempotencyKey?: string;
 }
@@ -97,6 +105,7 @@ export declare class GenerationsApi {
     readonly images: GenerationsImagesApi;
     readonly videos: GenerationsVideosApi;
     readonly music: GenerationsMusicApi;
+    readonly soundEffects: GenerationsSoundEffectsApi;
     readonly voice: GenerationsVoiceApi;
     readonly results: GenerationsResultsApi;
     readonly timeline: GenerationsTimelineApi;
