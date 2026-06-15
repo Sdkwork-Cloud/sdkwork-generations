@@ -31,7 +31,19 @@ No `sdkwork.app.config.json` is present at this root. If the task changes applic
 - `sdkwork.app.config.json`: not present here; required for application roots.
 - `.sdkwork/`: reserved local dictionary folder; create only for local skills, plugins, manifests, or AI workspace metadata.
 - `specs/`: not present here; use when local contracts need to narrow root standards.
-- `sdks/`: not present here; use only for SDK authority or generation surfaces.
+- `sdks/`: SDK families, OpenAPI authorities, derived generator inputs, route manifests, SDK assembly, and generated outputs.
+- `apis/`: author-owned API contracts and API source inputs for all API kinds.
+- `apps/`: independently runnable application roots, application surfaces, app shells, demos promoted to runnable apps.
+- `crates/`: Rust crates, including route crates, service crates, repository crates, API server/service-host/native-host/Tauri-host/gateway/worker crates.
+- `jobs/`: job definitions, schedules, queue bindings, batch descriptors, maintenance runbooks, and non-Rust job packages.
+- `tools/`: developer, validation, generation, migration, and operator tools that are not shipped as app runtime code.
+- `plugins/`: application/runtime plugin source packages, marketplace plugin implementations, or extension packages.
+- `examples/`: runnable examples, integration examples, sample configs, and SDK/API usage examples.
+- `configs/`: source-controlled safe config templates, profile examples, config schemas, and non-secret runtime defaults.
+- `deployments/`: deployment descriptors, environment topology, packaging handoff files, infrastructure examples, and release deployment documentation.
+- `scripts/`: thin command entrypoints for build, verification, generation, migration, packaging, and release workflows.
+- `docs/`: repository/application documentation, architecture decisions, runbooks, design notes, changelogs, and user/developer guides.
+- `tests/`: cross-package tests, contract tests, integration tests, end-to-end tests, fixtures, and static verification inputs.
 
 ## Spec Resolution Order
 

@@ -7,6 +7,19 @@ Status: standard
 
 This README is the SDKWork module entrypoint for `sdkwork-generations-workspace`. The machine-readable component contract is `specs/component.spec.json`; canonical standards are under `../sdkwork-specs/`.
 
+## Application Surfaces
+
+This repository contains multiple application surfaces under `apps/`:
+
+- `apps/sdkwork-generations-pc/`: PC browser/desktop application (React + Tauri)
+- `apps/sdkwork-generations-h5/`: H5 mobile web application (React)
+- `apps/sdkwork-generations-flutter-mobile/`: Flutter mobile application (Dart)
+
+Each application root follows its corresponding SDKWork architecture standard:
+- PC: `APP_PC_ARCHITECTURE_SPEC.md`
+- H5: `APP_H5_ARCHITECTURE_SPEC.md`
+- Flutter: `FLUTTER_APP_MOBILE_ARCHITECTURE_SPEC.md`
+
 ## Public API
 
 - `.`

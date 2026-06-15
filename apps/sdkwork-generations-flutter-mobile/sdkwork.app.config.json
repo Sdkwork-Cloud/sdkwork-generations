@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "sdkwork-generations-flutter-mobile",
+    "name": "SDKWork Generations Flutter Mobile",
+    "displayName": "SDKWork Generations",
+    "description": "Flutter mobile application for generation commands, history, results, and provenance.",
+    "vendor": "SDKWork",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+    "supportUrl": "https://sdkwork.com/support",
+    "privacyPolicyUrl": "https://sdkwork.com/privacy",
+    "termsOfServiceUrl": "https://sdkwork.com/terms",
+    "iconUrl": "https://cdn.sdkwork.com/apps/sdkwork-generations-flutter-mobile/assets/icon-1024.png",
+    "appType": "APP_FLUTTER",
+    "versionSource": "pubspec.yaml",
+    "identifiers": {
+      "packageName": "com.sdkwork.generations.flutter",
+      "bundleId": "com.sdkwork.generations.flutter",
+      "desktopAppId": null,
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-generations-flutter-mobile"
+    }
+  },
+  "backend": {
+    "profileKey": "backend-root-admin",
+    "ownerMode": "tenant",
+    "grantMode": "current",
+    "platform": "MOBILE",
+    "appId": "sdkwork-generations-flutter-mobile",
+    "tenantId": null,
+    "organizationId": null
+  },
+  "runtime": {
+    "family": "mobile",
+    "framework": "flutter",
+    "runtimes": [
+      "FLUTTER_IOS",
+      "FLUTTER_ANDROID"
+    ],
+    "deliveryModes": [
+      "APP_STORE",
+      "GOOGLE_PLAY"
+    ],
+    "defaultPlatform": "ANDROID",
+    "defaultArchitecture": "arm64"
+  },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "sdkwork-generations-flutter-mobile-primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-generations-flutter-mobile/assets/icon-1024.png",
+        "platform": "MOBILE",
+        "locale": "en-US",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "fileSizeBytes": 524288,
+        "alphaChannel": false,
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "assetOwner": "sdkwork-generations",
+          "source": "drive-media-governed"
+        }
+      },
+      "platform": []
+    },
+    "screenshots": [],
+    "previews": [],
+    "metadata": {
+      "assetVersion": "0.1.0",
+      "defaultLocale": "en-US"
+    }
+  },
+  "publish": {
+    "status": "ACTIVE",
+    "installSkill": {
+      "name": "sdkwork-skills-app"
+    },
+    "platforms": [
+      "APP_IOS",
+      "APP_ANDROID"
+    ],
+    "installPlatforms": [
+      "APP_IOS",
+      "APP_ANDROID"
+    ],
+    "defaultPackageId": "android-arm64-google-play",
+    "storeUrl": "https://sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+    "stores": [],
+    "config": {
+      "workspaceRoot": "apps/sdkwork-generations-flutter-mobile",
+      "framework": "flutter",
+      "managedBy": "sdkwork-generations"
+    }
+  },
+  "environments": {
+    "development": {
+      "accessUrl": "http://127.0.0.1:8080",
+      "deployUrl": "http://127.0.0.1:8080",
+      "deployEnv": "development"
+    },
+    "test": {
+      "accessUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployEnv": "test"
+    },
+    "staging": {
+      "accessUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployEnv": "staging"
+    },
+    "production": {
+      "accessUrl": "https://sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployUrl": "https://sdkwork.com/apps/sdkwork-generations-flutter-mobile",
+      "deployEnv": "production"
+    }
+  },
+  "artifacts": {
+    "installConfig": {
+      "defaultPackageId": "android-arm64-google-play",
+      "installCommand": "sdkwork install sdkwork-generations-flutter-mobile",
+      "launchCommand": "sdkwork open sdkwork-generations-flutter-mobile",
+      "uninstallCommand": "sdkwork uninstall sdkwork-generations-flutter-mobile",
+      "packages": [
+        {
+          "id": "android-arm64-google-play",
+          "name": "SDKWork Generations Flutter Android",
+          "sourceType": "GOOGLE_PLAY",
+          "packageFormat": "AAB",
+          "platform": "APP_ANDROID",
+          "architecture": "arm64",
+          "url": "https://play.google.com/store/apps/details?id=com.sdkwork.generations.flutter",
+          "enabled": true,
+          "metadata": {
+            "runtimeTarget": "flutter-android",
+            "releaseArtifact": "google-play"
+          }
+        },
+        {
+          "id": "ios-arm64-app-store",
+          "name": "SDKWork Generations Flutter iOS",
+          "sourceType": "APP_STORE",
+          "packageFormat": "IPA",
+          "platform": "APP_IOS",
+          "architecture": "arm64",
+          "url": "https://apps.apple.com/app/sdkwork-generations-flutter/id000000000",
+          "enabled": true,
+          "metadata": {
+            "runtimeTarget": "flutter-ios",
+            "releaseArtifact": "app-store"
+          }
+        }
+      ],
+      "metadata": {
+        "workspaceRoot": "apps/sdkwork-generations-flutter-mobile",
+        "framework": "flutter",
+        "packageManager": "dart-pub"
+      }
+    }
+  },
+  "release": {
+    "currentVersion": "0.1.0",
+    "defaultChannel": "DEV",
+    "latest": {
+      "DEV": "0.1.0"
+    },
+    "notes": [
+      {
+        "version": "0.1.0",
+        "releaseChannel": "DEV",
+        "title": "SDKWork Generations Flutter Mobile 0.1.0",
+        "summary": "Initial SDKWork App Manifest v3 identity for the Generations Flutter mobile app root.",
+        "content": "Defines the official Flutter mobile application root, package identity, runtime family, and store metadata.",
+        "highlights": [
+          "SDKWork App Manifest v3 identity",
+          "Flutter mobile runtime family",
+          "Standard package and config ownership"
+        ],
+        "packageIds": [
+          "android-arm64-google-play",
+          "ios-arm64-app-store"
+        ],
+        "publishedAt": "2026-06-14T00:00:00Z",
+        "current": true,
+        "forceUpdate": false,
+        "minSupportedVersion": "0.1.0",
+        "metadata": {
+          "releaseState": "development"
+        }
+      }
+    ]
+  },
+  "security": {
+    "checksumRequired": false,
+    "signatureRequired": false,
+    "sbomRequired": false
+  },
+  "devApp": {
+    "enabled": true,
+    "sourceRoot": "apps/sdkwork-generations-flutter-mobile",
+    "build": {
+      "targets": [
+        {
+          "id": "flutter-development",
+          "command": "flutter run",
+          "outputs": [
+            "build"
+          ]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "standardOwner": "sdkwork-platform",
+    "component": "sdkwork-generations-flutter-mobile",
+    "surface": "flutter-mobile",
+    "initializedAt": "2026-06-14T00:00:00Z"
+  }
+}

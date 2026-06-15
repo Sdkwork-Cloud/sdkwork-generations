@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "sdkwork-generations-h5",
+    "name": "SDKWork Generations H5",
+    "displayName": "SDKWork Generations",
+    "description": "H5 mobile application for generation commands, history, results, and provenance.",
+    "vendor": "SDKWork",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/sdkwork-generations-h5",
+    "supportUrl": "https://sdkwork.com/support",
+    "privacyPolicyUrl": "https://sdkwork.com/privacy",
+    "termsOfServiceUrl": "https://sdkwork.com/terms",
+    "iconUrl": "https://cdn.sdkwork.com/apps/sdkwork-generations-h5/assets/icon-1024.png",
+    "appType": "APP_REACT",
+    "versionSource": "package.json",
+    "identifiers": {
+      "packageName": null,
+      "bundleId": null,
+      "desktopAppId": null,
+      "containerImage": "registry.sdkwork.com/apps/sdkwork-generations-h5"
+    }
+  },
+  "backend": {
+    "profileKey": "backend-root-admin",
+    "ownerMode": "tenant",
+    "grantMode": "current",
+    "platform": "WEB",
+    "appId": "sdkwork-generations-h5",
+    "tenantId": null,
+    "organizationId": null
+  },
+  "runtime": {
+    "family": "mobile",
+    "framework": "react-h5",
+    "runtimes": [
+      "WEB"
+    ],
+    "deliveryModes": [
+      "WEB_URL"
+    ],
+    "defaultPlatform": "WEB",
+    "defaultArchitecture": "x64"
+  },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "sdkwork-generations-h5-primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-generations-h5/assets/icon-1024.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "fileSizeBytes": 524288,
+        "alphaChannel": false,
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "assetOwner": "sdkwork-generations",
+          "source": "drive-media-governed"
+        }
+      },
+      "platform": []
+    },
+    "screenshots": [],
+    "previews": [],
+    "metadata": {
+      "assetVersion": "0.1.0",
+      "defaultLocale": "en-US"
+    }
+  },
+  "publish": {
+    "status": "ACTIVE",
+    "installSkill": {
+      "name": "sdkwork-skills-app"
+    },
+    "platforms": [
+      "WEB"
+    ],
+    "installPlatforms": [
+      "WEB"
+    ],
+    "defaultPackageId": "web-x64-web-url",
+    "storeUrl": "https://sdkwork.com/apps/sdkwork-generations-h5",
+    "stores": [],
+    "config": {
+      "workspaceRoot": "apps/sdkwork-generations-h5",
+      "framework": "react-h5",
+      "managedBy": "sdkwork-generations"
+    }
+  },
+  "environments": {
+    "development": {
+      "accessUrl": "http://127.0.0.1:5173",
+      "deployUrl": "http://127.0.0.1:5173",
+      "deployEnv": "development"
+    },
+    "test": {
+      "accessUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-h5",
+      "deployUrl": "https://api-test.sdkwork.com/apps/sdkwork-generations-h5",
+      "deployEnv": "test"
+    },
+    "staging": {
+      "accessUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-h5",
+      "deployUrl": "https://api-staging.sdkwork.com/apps/sdkwork-generations-h5",
+      "deployEnv": "staging"
+    },
+    "production": {
+      "accessUrl": "https://sdkwork.com/apps/sdkwork-generations-h5",
+      "deployUrl": "https://sdkwork.com/apps/sdkwork-generations-h5",
+      "deployEnv": "production"
+    }
+  },
+  "artifacts": {
+    "installConfig": {
+      "defaultPackageId": "web-x64-web-url",
+      "installCommand": "sdkwork install sdkwork-generations-h5",
+      "launchCommand": "sdkwork open sdkwork-generations-h5",
+      "uninstallCommand": "sdkwork uninstall sdkwork-generations-h5",
+      "packages": [
+        {
+          "id": "web-x64-web-url",
+          "name": "SDKWork Generations H5 Web",
+          "sourceType": "WEB_URL",
+          "packageFormat": "OTHER",
+          "platform": "WEB",
+          "architecture": "x64",
+          "url": "https://sdkwork.com/apps/sdkwork-generations-h5",
+          "enabled": true,
+          "metadata": {
+            "runtimeTarget": "browser",
+            "releaseArtifact": "web-url"
+          }
+        }
+      ],
+      "metadata": {
+        "workspaceRoot": "apps/sdkwork-generations-h5",
+        "framework": "react-h5",
+        "packageManager": "pnpm@10.33.0"
+      }
+    }
+  },
+  "release": {
+    "currentVersion": "0.1.0",
+    "defaultChannel": "DEV",
+    "latest": {
+      "DEV": "0.1.0"
+    },
+    "notes": [
+      {
+        "version": "0.1.0",
+        "releaseChannel": "DEV",
+        "title": "SDKWork Generations H5 0.1.0",
+        "summary": "Initial SDKWork App Manifest v3 identity for the Generations H5 app root.",
+        "content": "Defines the official H5 application root, package identity, runtime family, and safe web access package metadata.",
+        "highlights": [
+          "SDKWork App Manifest v3 identity",
+          "H5 mobile runtime family",
+          "Standard package and config ownership"
+        ],
+        "packageIds": [
+          "web-x64-web-url"
+        ],
+        "publishedAt": "2026-06-14T00:00:00Z",
+        "current": true,
+        "forceUpdate": false,
+        "minSupportedVersion": "0.1.0",
+        "metadata": {
+          "releaseState": "development"
+        }
+      }
+    ]
+  },
+  "security": {
+    "checksumRequired": false,
+    "signatureRequired": false,
+    "sbomRequired": false
+  },
+  "devApp": {
+    "enabled": true,
+    "sourceRoot": "apps/sdkwork-generations-h5",
+    "build": {
+      "targets": [
+        {
+          "id": "web-development",
+          "command": "pnpm dev",
+          "outputs": [
+            "dist"
+          ]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "standardOwner": "sdkwork-platform",
+    "component": "sdkwork-generations-h5",
+    "surface": "h5",
+    "initializedAt": "2026-06-14T00:00:00Z"
+  }
+}

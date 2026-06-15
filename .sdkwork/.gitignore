@@ -1,9 +1,16 @@
+# SDKWork local workspace state
 local/
 tmp/
 cache/
 secrets/
-*.local.json
-*.local.toml
-*.local.yaml
-*.local.yml
 
+# Generated SDK control-plane files (owned by sdkgen)
+sdkwork-generator-manifest.json
+sdkwork-generator-changes.json
+sdkwork-generator-report.json
+
+# Runtime user-private data
+*.log
+*.db
+*.sqlite
+*.cache
