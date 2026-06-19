@@ -27,7 +27,6 @@
     "grantMode": "current",
     "platform": "MOBILE",
     "appId": "sdkwork-generations-flutter-mobile",
-    "tenantId": null,
     "organizationId": null
   },
   "runtime": {
@@ -42,7 +41,11 @@
       "GOOGLE_PLAY"
     ],
     "defaultPlatform": "ANDROID",
-    "defaultArchitecture": "arm64"
+    "defaultArchitecture": "arm64",
+    "supportedDeploymentProfiles": [
+      "standalone"
+    ],
+    "defaultDeploymentProfile": "standalone"
   },
   "media": {
     "icons": {
@@ -87,7 +90,7 @@
       "APP_IOS",
       "APP_ANDROID"
     ],
-    "defaultPackageId": "android-arm64-google-play",
+    "defaultPackageId": "android-arm64-standalone-mobile-aab",
     "storeUrl": "https://sdkwork.com/apps/sdkwork-generations-flutter-mobile",
     "stores": [],
     "config": {
@@ -120,13 +123,13 @@
   },
   "artifacts": {
     "installConfig": {
-      "defaultPackageId": "android-arm64-google-play",
+      "defaultPackageId": "android-arm64-standalone-mobile-aab",
       "installCommand": "sdkwork install sdkwork-generations-flutter-mobile",
       "launchCommand": "sdkwork open sdkwork-generations-flutter-mobile",
       "uninstallCommand": "sdkwork uninstall sdkwork-generations-flutter-mobile",
       "packages": [
         {
-          "id": "android-arm64-google-play",
+          "id": "android-arm64-standalone-mobile-aab",
           "name": "SDKWork Generations Flutter Android",
           "sourceType": "GOOGLE_PLAY",
           "packageFormat": "AAB",
@@ -137,10 +140,12 @@
           "metadata": {
             "runtimeTarget": "flutter-android",
             "releaseArtifact": "google-play"
-          }
+          },
+          "deploymentProfile": "standalone",
+          "runtimeTarget": "flutter-android"
         },
         {
-          "id": "ios-arm64-app-store",
+          "id": "ios-arm64-standalone-mobile-ipa",
           "name": "SDKWork Generations Flutter iOS",
           "sourceType": "APP_STORE",
           "packageFormat": "IPA",
@@ -151,7 +156,9 @@
           "metadata": {
             "runtimeTarget": "flutter-ios",
             "releaseArtifact": "app-store"
-          }
+          },
+          "deploymentProfile": "standalone",
+          "runtimeTarget": "flutter-ios"
         }
       ],
       "metadata": {
@@ -180,8 +187,8 @@
           "Standard package and config ownership"
         ],
         "packageIds": [
-          "android-arm64-google-play",
-          "ios-arm64-app-store"
+          "android-arm64-standalone-mobile-aab",
+          "ios-arm64-standalone-mobile-ipa"
         ],
         "publishedAt": "2026-06-14T00:00:00Z",
         "current": true,

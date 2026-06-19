@@ -27,7 +27,6 @@
     "grantMode": "current",
     "platform": "WEB",
     "appId": "sdkwork-generations-h5",
-    "tenantId": null,
     "organizationId": null
   },
   "runtime": {
@@ -40,7 +39,11 @@
       "WEB_URL"
     ],
     "defaultPlatform": "WEB",
-    "defaultArchitecture": "x64"
+    "defaultArchitecture": "x64",
+    "supportedDeploymentProfiles": [
+      "cloud"
+    ],
+    "defaultDeploymentProfile": "cloud"
   },
   "media": {
     "icons": {
@@ -83,7 +86,7 @@
     "installPlatforms": [
       "WEB"
     ],
-    "defaultPackageId": "web-x64-web-url",
+    "defaultPackageId": "h5-universal-cloud-mobile-other",
     "storeUrl": "https://sdkwork.com/apps/sdkwork-generations-h5",
     "stores": [],
     "config": {
@@ -116,24 +119,26 @@
   },
   "artifacts": {
     "installConfig": {
-      "defaultPackageId": "web-x64-web-url",
+      "defaultPackageId": "h5-universal-cloud-mobile-other",
       "installCommand": "sdkwork install sdkwork-generations-h5",
       "launchCommand": "sdkwork open sdkwork-generations-h5",
       "uninstallCommand": "sdkwork uninstall sdkwork-generations-h5",
       "packages": [
         {
-          "id": "web-x64-web-url",
+          "id": "h5-universal-cloud-mobile-other",
           "name": "SDKWork Generations H5 Web",
           "sourceType": "WEB_URL",
           "packageFormat": "OTHER",
           "platform": "WEB",
-          "architecture": "x64",
+          "architecture": "universal",
           "url": "https://sdkwork.com/apps/sdkwork-generations-h5",
           "enabled": true,
           "metadata": {
             "runtimeTarget": "browser",
             "releaseArtifact": "web-url"
-          }
+          },
+          "deploymentProfile": "cloud",
+          "runtimeTarget": "browser"
         }
       ],
       "metadata": {
@@ -162,7 +167,7 @@
           "Standard package and config ownership"
         ],
         "packageIds": [
-          "web-x64-web-url"
+          "h5-universal-cloud-mobile-other"
         ],
         "publishedAt": "2026-06-14T00:00:00Z",
         "current": true,
