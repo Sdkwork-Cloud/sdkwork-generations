@@ -4,22 +4,18 @@ Canonical lifecycle assets for `sdkwork-generations` per `DATABASE_FRAMEWORK_SPE
 
 - moduleId: `generations`
 - serviceCode: `GENERATIONS`
-- tablePrefix: `generations_`
+- tablePrefix: `generation_` (physical tables; manifest module prefix remains `generations_`)
 
 ## Commands
 
 ```bash
+pnpm run db:materialize:contract
 pnpm run db:validate
-pnpm run db:plan
-pnpm run db:init
-pnpm run db:migrate
-pnpm run db:seed
-pnpm run db:status
-pnpm run db:drift:check
+pnpm run db:bootstrap
 ```
 
-## Migration status
+## Baseline
 
-No legacy SQL was auto-imported. Author `contract/schema.yaml` before adding migrations.
+Legacy PostgreSQL schema: `storage/postgres/generation_core.sql` → `database/ddl/baseline/postgres/0001_generations_legacy_baseline.sql`.
 
-Runtime services MUST create pools through `sdkwork-database-sqlx` and register `DefaultDatabaseModule` at bootstrap.
+This repository is Node-only; use `pnpm run db:bootstrap` via `sdkwork-database-cli` for lifecycle operations.

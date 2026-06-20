@@ -1,11 +1,34 @@
 schema_version: 1
 kind: sdkwork.database.schema
 module_id: generations
-contract_version: 0.1.0
+contract_version: 1.0.0
 owner_team: generations-platform
 compliance_level: L2
 engines:
   - postgres
-  - sqlite
-table_prefix: generations_
-tables: []
+table_prefix: generation_
+tables:
+  - name: generation_record
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_record_source_ref
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_dispatch_job
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_source_inbox_event
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_timeline_event
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_result
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_record_projection
+    lifecycle_status: active
+    owner: generations-platform
+  - name: generation_outbox_event
+    lifecycle_status: active
+    owner: generations-platform
