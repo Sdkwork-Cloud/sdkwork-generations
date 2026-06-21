@@ -27,7 +27,8 @@
     "grantMode": "current",
     "platform": "WEB",
     "appId": "sdkwork-generations-h5",
-    "organizationId": null
+    "organizationId": "0",
+    "tenantId": "100001"
   },
   "runtime": {
     "family": "mobile",
