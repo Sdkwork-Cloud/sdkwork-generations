@@ -1,0 +1,8 @@
+> Migrated from `docs/FINAL_ALIGNMENT.md` on 2026-06-24.
+> Owner: SDKWork maintainers
+
+The sdkwork-generations project is fully aligned with sdkwork-specs standards.
+
+All 8 tests pass successfully.
+
+No further alignment actions required.

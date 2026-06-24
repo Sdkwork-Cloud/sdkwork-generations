@@ -45,6 +45,12 @@ No `sdkwork.app.config.json` is present at this root. If the task changes applic
 - `docs/`: repository/application documentation, architecture decisions, runbooks, design notes, changelogs, and user/developer guides.
 - `tests/`: cross-package tests, contract tests, integration tests, end-to-end tests, fixtures, and static verification inputs.
 
+## Documentation Canon
+
+- [docs/README.md](docs/README.md)
+- [docs/product/prd/PRD.md](docs/product/prd/PRD.md)
+- [docs/architecture/tech/TECH_ARCHITECTURE.md](docs/architecture/tech/TECH_ARCHITECTURE.md)
+
 ## Spec Resolution Order
 
 1. Read this `AGENTS.md` and any nearer component-level `AGENTS.md`.

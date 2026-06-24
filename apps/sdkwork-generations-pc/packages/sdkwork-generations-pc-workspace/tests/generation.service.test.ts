@@ -403,7 +403,6 @@ describe("sdkwork-generations-pc-workspace service", () => {
 
     expect(generations.images.textToImage).toHaveBeenCalledWith(
       {
-        tenantId: "tenant-1",
         organizationId: "org-1",
         prompt: "Generate a workspace banner",
         model: "gpt-image-1",
@@ -466,7 +465,6 @@ describe("sdkwork-generations-pc-workspace service", () => {
 
       expect(selectMethod(generations)).toHaveBeenCalledWith(
         {
-          tenantId: "tenant-1",
           prompt: "Create media",
         },
         undefined,
@@ -594,7 +592,6 @@ describe("sdkwork-generations-pc-workspace service", () => {
       "generation-1",
       "result-1",
       {
-        tenantId: "tenant-1",
         collectionId: "collection-1",
         title: "Workspace banner",
         tags: ["workspace", "banner"],

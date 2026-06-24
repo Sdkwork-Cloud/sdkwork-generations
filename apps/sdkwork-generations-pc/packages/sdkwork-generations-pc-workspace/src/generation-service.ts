@@ -65,7 +65,7 @@ export interface SdkworkGenerationCommandInput {
   organizationId?: string;
   parameters?: Record<string, unknown>;
   prompt: string;
-  tenantId: string;
+  tenantId?: string;
 }
 
 export interface SdkworkGenerationCommandRequest {
@@ -74,7 +74,6 @@ export interface SdkworkGenerationCommandRequest {
   organizationId?: string;
   parameters?: Record<string, unknown>;
   prompt: string;
-  tenantId: string;
 }
 
 export interface SdkworkGenerationCommandParams {
@@ -128,7 +127,7 @@ export interface SdkworkGenerationSaveResultToAssetsInput {
   idempotencyKey?: string;
   resultId: string;
   tags?: readonly string[];
-  tenantId: string;
+  tenantId?: string;
   title?: string;
 }
 
@@ -143,7 +142,6 @@ export interface SdkworkGenerationFavoriteRequest {
 export interface SdkworkGenerationSaveResultToAssetsRequest {
   collectionId?: string;
   tags?: string[];
-  tenantId: string;
   title?: string;
 }
 
@@ -466,7 +464,6 @@ function requireGenerationsResourceClient(
 
 function createCommandRequest(input: SdkworkGenerationCommandInput): SdkworkGenerationCommandRequest {
   return {
-    tenantId: input.tenantId,
     ...(input.organizationId ? { organizationId: input.organizationId } : {}),
     prompt: input.prompt,
     ...(input.model ? { model: input.model } : {}),
@@ -659,7 +656,6 @@ export function createSdkworkGenerationService(
         input.generationId,
         input.resultId,
         {
-          tenantId: input.tenantId,
           ...(input.collectionId ? { collectionId: input.collectionId } : {}),
           ...(input.title ? { title: input.title } : {}),
           ...(input.tags ? { tags: [...input.tags] } : {}),
