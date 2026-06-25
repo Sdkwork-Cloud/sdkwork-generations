@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.component.spec",
+  "component": {
+    "name": "@sdkwork/generations-pc-core",
+    "type": "typescript-package",
+    "root": "sdkwork-generations-pc/packages/sdkwork-generations-pc-core",
+    "domain": "generations",
+    "capability": "core",
+    "surface": "app",
+    "languages": [
+      "typescript"
+    ],
+    "generated": false
+  },
+  "contracts": {
+    "sdkDependencies": [],
+    "dependencyApiExports": [],
+    "dependencyApiSurfaces": [],
+    "dependencyComposition": "../../../specs/dependency.composition.json"
+  }
+}

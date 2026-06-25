@@ -61,7 +61,7 @@ test("sdkwork-generations-pc declares Drive SDK composition dependencies", () =>
   );
   assert.match(
     workspaceYaml,
-    /sdkwork-appbase\/sdks\/sdkwork-appbase-app-sdk\/sdkwork-appbase-app-sdk-typescript\/generated\/server-openapi/u,
+    /sdkwork-iam\/sdks\/sdkwork-iam-app-sdk\/sdkwork-iam-app-sdk-typescript\/generated\/server-openapi/u,
   );
   assert.match(workspaceYaml, /sdkwork-ui\/sdkwork-ui-pc-react/u);
 });
