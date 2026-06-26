@@ -1,27 +1,41 @@
-# Applications
+# apps/
 
-This directory contains independently runnable application roots, application surfaces, app shells, and demos promoted to runnable apps.
+Application: generations
+Status: active
+Owner: SDKWork maintainers
+Specs: APPLICATION_SPEC.md, SDKWORK_WORKSPACE_SPEC.md
 
-## Application Roots
+## Primary App Surface
 
-| Application | Architecture | Standard | Description |
-| --- | --- | --- | --- |
-| `sdkwork-generations-pc/` | PC browser/desktop | `APP_PC_ARCHITECTURE_SPEC.md` | PC browser application for generation commands, history, results, and provenance |
-| `sdkwork-generations-h5/` | H5 mobile web | `APP_H5_ARCHITECTURE_SPEC.md` | H5 mobile application for generation commands, history, results, and provenance |
-| `sdkwork-generations-flutter-mobile/` | Flutter mobile | `FLUTTER_APP_MOBILE_ARCHITECTURE_SPEC.md` | Flutter mobile application for generation commands, history, results, and provenance |
+The repository root is not the primary runnable app surface.
+Runnable application roots live under `apps/<application-root>/`.
 
-## Architecture Alignment
+## Directory Index
 
-Each application root follows its corresponding SDKWork architecture standard and maintains:
+| Directory | Surface role | Runnable | Purpose | Entry |
+| --- | --- | --- | --- | --- |
+| sdkwork-generations-flutter-mobile | flutter-mobile | yes | SDKWork Generations flutter-mobile application root. | [README](sdkwork-generations-flutter-mobile/README.md) |
+| sdkwork-generations-h5 | h5 | yes | SDKWork Generations h5 application root. | [README](sdkwork-generations-h5/README.md) |
+| sdkwork-generations-pc | pc | yes | SDKWork Generations pc application root. | `sdkwork-generations-pc/` |
 
-- Standard directory layout (`.sdkwork/`, `src/` or `lib/`, `packages/`, `config/`, `sdks/`, `specs/`)
-- Package taxonomy with surface-specific naming
-- SDK/IAM integration boundaries
-- App/console/admin surface separation
-- Platform-specific configuration templates
+## Allowed Content
+
+- Selected language/architecture application roots with `README.md`, `AGENTS.md`, `.sdkwork/`, and `specs/` when authored packages exist.
+- Architecture-local `packages/`, `config/`, `src/`, `lib/`, `App/`, or `entry/` directories required by the owning architecture standard.
+
+## Forbidden Content
+
+- Repository-root API contracts, generated SDK workspaces, Rust crates, or deployment descriptors moved under `apps/`.
+- Runtime secrets, user-private state, generated SDK transport output, or cross-application copied business logic.
 
 ## Related Specs
 
-- `../../sdkwork-specs/SDKWORK_WORKSPACE_SPEC.md`
-- `../../sdkwork-specs/APPLICATION_SPEC.md`
-- `../../sdkwork-specs/APP_CLIENT_ARCHITECTURE_ALIGNMENT_SPEC.md`
+- `../sdkwork-specs/APPLICATION_SPEC.md`
+- `../sdkwork-specs/SDKWORK_WORKSPACE_SPEC.md`
+- `../sdkwork-specs/APP_CLIENT_ARCHITECTURE_ALIGNMENT_SPEC.md`
+
+## Verification
+
+```bash
+node ../sdkwork-specs/tools/check-apps-directory-index.mjs --root .
+```
