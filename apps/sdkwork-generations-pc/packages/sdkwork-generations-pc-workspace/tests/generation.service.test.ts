@@ -7,8 +7,8 @@ import {
 
 const sdkGenerationRecord = {
   id: "generation-1",
-  tenantId: "tenant-1",
-  organizationId: "org-1",
+  tenantId: "100001",
+  organizationId: "0",
   userId: "user-1",
   modality: "image",
   operationType: "text_to_image",
@@ -159,7 +159,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
       items: [
         {
           id: "sdk-run",
-          tenantId: "tenant-1",
+          tenantId: "100001",
           userId: "user-1",
           modality: "image",
           operationType: "text_to_image",
@@ -388,8 +388,8 @@ describe("sdkwork-generations-pc-workspace service", () => {
     });
 
     const result = await service.createGenerationCommand({
-      tenantId: "tenant-1",
-      organizationId: "org-1",
+      tenantId: "100001",
+      organizationId: "0",
       modality: "image",
       operationType: "text_to_image",
       prompt: "Generate a workspace banner",
@@ -403,7 +403,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
 
     expect(generations.images.textToImage).toHaveBeenCalledWith(
       {
-        organizationId: "org-1",
+        organizationId: "0",
         prompt: "Generate a workspace banner",
         model: "gpt-image-1",
         inputAssetIds: ["asset-1"],
@@ -457,7 +457,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
       });
 
       await service.createGenerationCommand({
-        tenantId: "tenant-1",
+        tenantId: "100001",
         modality,
         operationType,
         prompt: "Create media",
@@ -476,7 +476,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
     const service = createSdkworkGenerationService();
 
     await expect(service.createGenerationCommand({
-      tenantId: "tenant-1",
+      tenantId: "100001",
       modality: "image",
       operationType: "text_to_image",
       prompt: "Create media",
@@ -493,7 +493,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
     });
 
     await expect(service.createGenerationCommand({
-      tenantId: "tenant-1",
+      tenantId: "100001",
       modality: "image",
       operationType: "text_to_video",
       prompt: "Create media",
@@ -563,7 +563,7 @@ describe("sdkwork-generations-pc-workspace service", () => {
     await expect(service.saveGenerationResultToAssets({
       generationId: "generation-1",
       resultId: "result-1",
-      tenantId: "tenant-1",
+      tenantId: "100001",
       collectionId: "collection-1",
       title: "Workspace banner",
       tags: ["workspace", "banner"],
