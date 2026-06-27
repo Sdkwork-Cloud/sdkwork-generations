@@ -20,3 +20,7 @@ dist/
 config/*.local.toml
 node_modules/
 **/node_modules/
+
+# SDKWork local runtime state
+.runtime/
+**/.runtime/
