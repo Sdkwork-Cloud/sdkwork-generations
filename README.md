@@ -1,4 +1,5 @@
 # sdkwork-generations-workspace
+repository-kind: application
 
 Domain: intelligence
 Capability: generations-workspace

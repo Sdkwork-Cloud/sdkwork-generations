@@ -92,8 +92,7 @@
     "configKeys": [
       "sdkwork.app.config.json"
     ],
-    "routeManifest": null,
-    "dependencyComposition": "specs/dependency.composition.json"
+    "routeManifest": null
   },
   "verification": {
     "commands": [

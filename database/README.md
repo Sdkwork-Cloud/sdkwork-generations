@@ -6,16 +6,23 @@ Canonical lifecycle assets for `sdkwork-generations` per `DATABASE_FRAMEWORK_SPE
 - serviceCode: `GENERATIONS`
 - tablePrefix: `generation_` (physical tables; manifest module prefix remains `generations_`)
 
+## Initialization state
+
+This module is in **initialization state** for greenfield deployments:
+
+1. **Baseline** — `database/ddl/baseline/{engine}/0001_generations_baseline.sql` contains the full DDL snapshot.
+2. **Migrations** — `database/migrations/{engine}/` is reserved for post-GA incremental schema changes only. It is intentionally empty at initialization.
+3. **Drift** — run `pnpm db:drift:check` before release.
+
 ## Commands
 
 ```bash
-pnpm run db:materialize:contract
 pnpm run db:validate
-pnpm run db:bootstrap
+pnpm run db:materialize:contract
+pnpm run db:plan
+pnpm run db:init
+pnpm run db:migrate
+pnpm run db:seed
+pnpm run db:status
+pnpm run db:drift:check
 ```
-
-## Baseline
-
-Legacy PostgreSQL schema: `storage/postgres/generation_core.sql` → `database/ddl/baseline/postgres/0001_generations_legacy_baseline.sql`.
-
-This repository is Node-only; use `pnpm run db:bootstrap` via `sdkwork-database-cli` for lifecycle operations.
