@@ -5,6 +5,8 @@
   "language": "typescript",
   "sdkType": "backend",
   "packageName": "sdkwork-generations-backend-sdk-generated-typescript",
+  "transportPackageName": "sdkwork-generations-backend-sdk-generated-typescript",
+  "consumerPackageName": "@sdkwork/generations-backend-sdk",
   "generator": "@sdkwork/sdk-generator",
   "capabilities": {
     "supportsGeneratedTests": true,
@@ -26,6 +28,5 @@
     "stateRoots": [
       ".sdkwork/"
     ]
-  },
-  "description": "Generator-owned TypeScript transport SDK for sdkwork-generations-backend-sdk."
+  }
 }

@@ -1,7 +1,7 @@
 import { appApiPath } from './paths';
 import type { HttpClient } from '../http/client';
 
-import type { CreateGenerationCommandRequest, FavoriteGenerationRequest, GenerationActionRequest, GenerationCommandResponse, GenerationModality, GenerationRecord, GenerationRecordPage, GenerationResult, GenerationResultPage, GenerationStatus, GenerationTimelineEventPage, SaveGenerationResultToAssetsRequest } from '../types';
+import type { CreateGenerationCommandRequest, FavoriteGenerationRequest, GenerationActionRequest, GenerationCommandResponse, GenerationModality, GenerationRecord, GenerationResult, GenerationStatus, GenerationTimelineEvent, SaveGenerationResultToAssetsRequest } from '../types';
 
 
 export interface GenerationsTimelineListParams {
@@ -17,12 +17,12 @@ export class GenerationsTimelineApi {
   }
 
 
-async list(generationId: string, params?: GenerationsTimelineListParams): Promise<GenerationTimelineEventPage> {
+async list(generationId: string, params?: GenerationsTimelineListParams): Promise<Record<string, unknown>> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<GenerationTimelineEventPage>(appendQueryString(appApiPath(`/generations/${serializePathParameter(generationId, { name: 'generationId', style: 'simple', explode: false })}/timeline`), query));
+    return this.client.get<Record<string, unknown>>(appendQueryString(appApiPath(`/generations/${serializePathParameter(generationId, { name: 'generationId', style: 'simple', explode: false })}/timeline`), query));
   }
 }
 
@@ -43,12 +43,12 @@ export class GenerationsResultsApi {
   }
 
 
-async list(generationId: string, params?: GenerationsResultsListParams): Promise<GenerationResultPage> {
+async list(generationId: string, params?: GenerationsResultsListParams): Promise<Record<string, unknown>> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<GenerationResultPage>(appendQueryString(appApiPath(`/generations/${serializePathParameter(generationId, { name: 'generationId', style: 'simple', explode: false })}/results`), query));
+    return this.client.get<Record<string, unknown>>(appendQueryString(appApiPath(`/generations/${serializePathParameter(generationId, { name: 'generationId', style: 'simple', explode: false })}/results`), query));
   }
 
 async saveToAssets(generationId: string, resultId: string, body: SaveGenerationResultToAssetsRequest, params?: GenerationsResultsSaveToAssetsParams): Promise<GenerationResult> {
@@ -300,7 +300,7 @@ export class GenerationsApi {
   }
 
 
-async list(params?: GenerationsListParams): Promise<GenerationRecordPage> {
+async list(params?: GenerationsListParams): Promise<Record<string, unknown>> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
@@ -309,7 +309,7 @@ async list(params?: GenerationsListParams): Promise<GenerationRecordPage> {
       { name: 'operation_type', value: params?.operationType, style: 'form', explode: true, allowReserved: false },
       { name: 'q', value: params?.q, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<GenerationRecordPage>(appendQueryString(appApiPath(`/generations`), query));
+    return this.client.get<Record<string, unknown>>(appendQueryString(appApiPath(`/generations`), query));
   }
 
 async get(generationId: string): Promise<GenerationRecord> {

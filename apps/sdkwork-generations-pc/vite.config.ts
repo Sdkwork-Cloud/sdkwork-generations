@@ -11,9 +11,9 @@ export default defineConfig(({ mode }) => {
           plugins: [react()],
   resolve: {
     alias: {
-      "sdkwork-generations-app-sdk-generated-typescript": path.resolve(
+      "@sdkwork/generations-app-sdk": path.resolve(
         __dirname,
-        "../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi/src/index.ts",
+        "../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/src/index.ts",
       ),
     },
   },

@@ -13,8 +13,6 @@ export class SdkworkAppClient {
     this.httpClient = createHttpClient(config);
     this.generations = createGenerationsApi(this.httpClient);
   }
-
-
   setAuthToken(token: string): this {
     this.httpClient.setAuthToken(token);
     return this;

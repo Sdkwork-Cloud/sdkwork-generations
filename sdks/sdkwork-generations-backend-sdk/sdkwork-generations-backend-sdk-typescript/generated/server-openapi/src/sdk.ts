@@ -13,8 +13,6 @@ export class SdkworkBackendClient {
     this.httpClient = createHttpClient(config);
     this.generationsBackend = createGenerationsBackendApi(this.httpClient);
   }
-
-
   setAuthToken(token: string): this {
     this.httpClient.setAuthToken(token);
     return this;

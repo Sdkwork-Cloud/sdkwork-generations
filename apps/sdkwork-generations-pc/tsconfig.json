@@ -12,8 +12,10 @@
     "paths": {
       "@sdkwork/generations-pc-workspace": ["packages/sdkwork-generations-pc-workspace/src/index.ts"],
       "@sdkwork/generations-pc-workspace/react": ["packages/sdkwork-generations-pc-workspace/src/react.ts"],
-      "sdkwork-generations-app-sdk-generated-typescript": [
-        "../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi/src/index.ts"
+      "@sdkwork/generations-pc-playground": ["packages/sdkwork-generations-pc-playground/src/index.ts"],
+      "@sdkwork/generations-pc-playground/react": ["packages/sdkwork-generations-pc-playground/src/react.ts"],
+      "@sdkwork/generations-app-sdk": [
+        "../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/src/index.ts"
       ]
     },
     "resolveJsonModule": true,

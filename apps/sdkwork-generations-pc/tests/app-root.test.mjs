@@ -35,8 +35,8 @@ test("sdkwork-generations-pc declares Drive SDK composition dependencies", () =>
   const workspaceYaml = readText("pnpm-workspace.yaml");
 
   assert.equal(
-    appPackage.dependencies["sdkwork-generations-app-sdk-generated-typescript"],
-    "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi",
+    appPackage.dependencies["@sdkwork/generations-app-sdk"],
+    "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/src/index.ts",
   );
   assert.equal(appPackage.dependencies["@sdkwork/drive-app-sdk"], "workspace:*");
   assert.equal(appPackage.dependencies["@sdkwork/sdk-common"], "^1.0.3");

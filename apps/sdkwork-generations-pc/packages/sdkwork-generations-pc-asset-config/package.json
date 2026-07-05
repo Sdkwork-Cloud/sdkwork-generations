@@ -1,0 +1,28 @@
+{
+  "name": "@sdkwork/generations-pc-asset-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Canonical generation asset config, pricing, and serialization for PC generation panels.",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "sdkwork": {
+    "workspace": "sdkwork-generations-pc",
+    "architecture": "pc-react",
+    "domain": "intelligence",
+    "capability": "generation-asset-config",
+    "status": "ready"
+  }
+}

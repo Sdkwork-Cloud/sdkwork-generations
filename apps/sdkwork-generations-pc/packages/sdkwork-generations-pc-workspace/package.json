@@ -34,6 +34,21 @@
       "types": "./src/generation-service.ts",
       "import": "./src/generation-service.ts",
       "default": "./src/generation-service.ts"
+    },
+    "./generation-playground-workspace": {
+      "types": "./src/generationPlaygroundWorkspace.ts",
+      "import": "./src/generationPlaygroundWorkspace.ts",
+      "default": "./src/generationPlaygroundWorkspace.ts"
+    },
+    "./generation-panel": {
+      "types": "./src/generationPanel.ts",
+      "import": "./src/generationPanel.ts",
+      "default": "./src/generationPanel.ts"
+    },
+    "./generation-history-ui": {
+      "types": "./src/generationHistoryUi.ts",
+      "import": "./src/generationHistoryUi.ts",
+      "default": "./src/generationHistoryUi.ts"
     }
   },
   "files": [
@@ -45,8 +60,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@sdkwork/assets-pc-commons": "workspace:*",
+    "@sdkwork/audio-pc-generation": "workspace:*",
+    "@sdkwork/generations-pc-asset-config": "workspace:*",
+    "@sdkwork/generations-pc-studio": "workspace:*",
+    "@sdkwork/image-pc-generation": "workspace:*",
+    "@sdkwork/models-pc-picker": "workspace:*",
+    "@sdkwork/music-pc-generation": "workspace:*",
     "@sdkwork/ui-pc-react": "workspace:*",
-    "lucide-react": "catalog:"
+    "@sdkwork/video-pc-generation": "workspace:*",
+    "lucide-react": "catalog:",
+    "react-i18next": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18.2.0 <20.0.0",

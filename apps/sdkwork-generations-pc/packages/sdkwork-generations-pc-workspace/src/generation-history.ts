@@ -4,34 +4,13 @@ import {
   type SdkworkGenerationAssetModality,
   type SdkworkGenerationSerializedAssetConfig,
 } from "./generation-asset-config.ts";
+import {
+  readMediaResourceThumb,
+  readMediaResourceUrl,
+  type MediaResource,
+} from '@sdkwork/assets-pc-commons';
 
-export interface SdkworkMediaResource {
-  access?: {
-    expiresAt?: string;
-    visibility?: "organization" | "private" | "public" | "signed" | "tenant";
-  };
-  ai?: Record<string, unknown>;
-  altText?: string;
-  checksum?: Record<string, unknown>;
-  durationSeconds?: number;
-  fileName?: string;
-  height?: number;
-  id?: string;
-  kind?: "archive" | "audio" | "document" | "image" | "model" | "other" | "video" | "voice";
-  metadata?: Record<string, unknown>;
-  mimeType?: string;
-  objectBlobId?: string;
-  poster?: SdkworkMediaResource;
-  publicUrl?: string;
-  sizeBytes?: string;
-  source?: "data_url" | "drive" | "external_url" | "generated" | "provider_asset";
-  thumbnails?: SdkworkMediaResource[];
-  title?: string;
-  uri?: string;
-  url?: string;
-  variants?: SdkworkMediaResource[];
-  width?: number;
-}
+export type SdkworkMediaResource = MediaResource;
 
 export type SdkworkGenerationHistoryType =
   | "text"
@@ -325,26 +304,22 @@ function cloneSdkworkGenerationMediaResource(
   if (resource.thumbnails) {
     clone.thumbnails = resource.thumbnails.map(cloneSdkworkGenerationMediaResource);
   }
+  if (resource.variants) {
+    clone.variants = resource.variants.map(cloneSdkworkGenerationMediaResource);
+  }
   return clone;
 }
 
 export function readSdkworkGenerationMediaUrl(
   media: SdkworkGenerationMedia | undefined,
 ): string | undefined {
-  const mediaKey = getSdkworkMediaDeliveryUrl(media)
-    || media?.uri
-    || media?.id;
-  return mediaKey;
+  const url = readMediaResourceUrl(media);
+  return url || undefined;
 }
 
 export function readSdkworkGenerationMediaThumb(
   media: SdkworkGenerationMedia | undefined,
 ): string | undefined {
-  return readSdkworkGenerationMediaUrl(media?.poster)
-    || readSdkworkGenerationMediaUrl(media?.thumbnails?.[0])
-    || readSdkworkGenerationMediaUrl(media);
-}
-
-function getSdkworkMediaDeliveryUrl(media: SdkworkMediaResource | undefined): string | undefined {
-  return media?.url || media?.publicUrl || media?.uri;
+  const thumb = readMediaResourceThumb(media);
+  return thumb || undefined;
 }

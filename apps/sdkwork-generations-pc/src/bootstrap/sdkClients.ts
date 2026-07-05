@@ -10,7 +10,7 @@ import type { SdkworkGenerationSdkClients } from "@sdkwork/generations-pc-worksp
 import {
   createClient as createGenerationsAppClient,
   type SdkworkAppClient as SdkworkGenerationsAppClient,
-} from "sdkwork-generations-app-sdk-generated-typescript";
+} from "@sdkwork/generations-app-sdk";
 
 const APP_API_PREFIX = "/app/v3/api";
 

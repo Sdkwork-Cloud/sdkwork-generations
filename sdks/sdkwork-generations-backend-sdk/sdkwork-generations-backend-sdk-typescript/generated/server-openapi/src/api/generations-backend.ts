@@ -1,7 +1,7 @@
 import { backendApiPath } from './paths';
 import type { HttpClient } from '../http/client';
 
-import type { CreateReconciliationRunRequest, GenerationDispatchJob, GenerationDispatchJobPage, GenerationSourceEventPage, ReconciliationRun } from '../types';
+import type { CreateReconciliationRunRequest, GenerationDispatchJob, GenerationSourceEvent, ReconciliationRun } from '../types';
 
 
 export interface GenerationsBackendGenerationReconciliationRunsCreateParams {
@@ -41,13 +41,13 @@ export class GenerationsBackendGenerationSourceEventsApi {
   }
 
 
-async list(params?: GenerationsBackendGenerationSourceEventsListParams): Promise<GenerationSourceEventPage> {
+async list(params?: GenerationsBackendGenerationSourceEventsListParams): Promise<Record<string, unknown>> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'source_provider', value: params?.sourceProvider, style: 'form', explode: true, allowReserved: false },
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<GenerationSourceEventPage>(appendQueryString(backendApiPath(`/generations/source_events`), query));
+    return this.client.get<Record<string, unknown>>(appendQueryString(backendApiPath(`/generations/source_events`), query));
   }
 }
 
@@ -66,14 +66,14 @@ export class GenerationsBackendGenerationDispatchJobsApi {
   }
 
 
-async list(params?: GenerationsBackendGenerationDispatchJobsListParams): Promise<GenerationDispatchJobPage> {
+async list(params?: GenerationsBackendGenerationDispatchJobsListParams): Promise<Record<string, unknown>> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
       { name: 'lease_owner', value: params?.leaseOwner, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<GenerationDispatchJobPage>(appendQueryString(backendApiPath(`/generations/dispatch_jobs`), query));
+    return this.client.get<Record<string, unknown>>(appendQueryString(backendApiPath(`/generations/dispatch_jobs`), query));
   }
 
 async get(dispatchJobId: string): Promise<GenerationDispatchJob> {

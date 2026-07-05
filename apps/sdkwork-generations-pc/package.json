@@ -17,7 +17,7 @@
     "@sdkwork/ui-pc-react": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "sdkwork-generations-app-sdk-generated-typescript": "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/generated/server-openapi"
+    "@sdkwork/generations-app-sdk": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "catalog:",
@@ -32,5 +32,12 @@
     "domain": "intelligence",
     "capability": "generations-pc",
     "status": "standardizing"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
   }
 }

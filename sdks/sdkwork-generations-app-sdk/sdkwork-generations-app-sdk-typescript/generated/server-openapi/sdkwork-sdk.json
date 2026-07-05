@@ -5,6 +5,8 @@
   "language": "typescript",
   "sdkType": "app",
   "packageName": "sdkwork-generations-app-sdk-generated-typescript",
+  "transportPackageName": "sdkwork-generations-app-sdk-generated-typescript",
+  "consumerPackageName": "@sdkwork/generations-app-sdk",
   "generator": "@sdkwork/sdk-generator",
   "capabilities": {
     "supportsGeneratedTests": true,
@@ -26,6 +28,5 @@
     "stateRoots": [
       ".sdkwork/"
     ]
-  },
-  "description": "Generator-owned TypeScript transport SDK for sdkwork-generations-app-sdk."
+  }
 }

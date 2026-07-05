@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.component.spec",
+  "component": {
+    "name": "@sdkwork/generations-pc-studio",
+    "displayName": "SDKWork Generations PC Studio",
+    "version": "0.1.0",
+    "type": "react-package",
+    "root": "sdkwork-generations/apps/sdkwork-generations-pc/packages/sdkwork-generations-pc-studio",
+    "domain": "intelligence",
+    "declaredDomain": "intelligence",
+    "capability": "generation-studio",
+    "surface": "app",
+    "status": "ready",
+    "languages": [
+      "typescript",
+      "react"
+    ],
+    "generated": false,
+    "private": true,
+    "manifests": [
+      "package.json"
+    ]
+  },
+  "contracts": {
+    "publicExports": [
+      ".",
+      "./react"
+    ],
+    "runtimeEntrypoints": [
+      "package.json#scripts.test",
+      "package.json#scripts.typecheck"
+    ],
+    "sdkClients": [],
+    "events": [],
+    "configKeys": [
+      "package.json#sdkwork"
+    ],
+    "routeManifest": null
+  },
+  "verification": {
+    "commands": [
+      "pnpm --filter @sdkwork/generations-pc-studio test",
+      "pnpm --filter @sdkwork/generations-pc-studio typecheck"
+    ]
+  },
+  "metadata": {
+    "managedBy": "apps/scripts/initialize-component-specs.mjs",
+    "standardVersion": "2026-05-13"
+  }
+}
