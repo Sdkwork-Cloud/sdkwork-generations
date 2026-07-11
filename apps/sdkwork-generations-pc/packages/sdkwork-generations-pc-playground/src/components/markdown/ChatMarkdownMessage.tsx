@@ -1305,7 +1305,7 @@ function readCompactOpeningFenceLineRepair(
   const lineEnd = sameLineClosingIndex >= 0 && sameLineClosingIndex < newlineIndex
     ? sameLineClosingIndex
     : newlineIndex;
-  const lineRemainder = value.slice(startIndex, lineEnd);
+  const lineRemainder = value.slice(fromIdx, lineEnd);
   const collapsedLanguage = readCollapsedLanguageFenceRepair(lineRemainder);
   if (collapsedLanguage) {
     return {
