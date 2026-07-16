@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "test": "node --test sdks/test/*.test.mjs tests/*.test.mjs",
+    "stop": "node ../sdkwork-specs/tools/stop-sdkwork-workspace-processes.mjs --workspace .",    "test": "node --test sdks/test/*.test.mjs tests/*.test.mjs",
     "sdk:generate": "node tools/generations_sdk_generate.mjs",
     "db:validate": "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
     "db:materialize:contract": "node ../sdkwork-specs/tools/materialize-database-contract-from-baseline.mjs --root . --baseline database/ddl/baseline/postgres/0001_generations_baseline.sql --module-id generations --owner generations-platform --prefixes generations_ --engines postgres",

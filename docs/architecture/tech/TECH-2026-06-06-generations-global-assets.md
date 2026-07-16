@@ -18,11 +18,11 @@
 - Create: `tools/generations_sdk_generator_runner.mjs`
 - Create: `tools/generations_sdk_generate.mjs`
 - Create: `sdks/test/verify-generations-contract.test.mjs`
-- Create: `sdks/sdkwork-generations-app-sdk/.sdkwork-assembly.json`
+- Create: `sdks/sdkwork-generations-app-sdk/sdk-manifest.json`
 - Create: `sdks/sdkwork-generations-app-sdk/specs/component.spec.json`
 - Create: `sdks/sdkwork-generations-app-sdk/bin/generate-sdk.mjs`
 - Create: `sdks/sdkwork-generations-app-sdk/openapi/sdkwork-generations-app-api.openapi.json`
-- Create: `sdks/sdkwork-generations-backend-sdk/.sdkwork-assembly.json`
+- Create: `sdks/sdkwork-generations-backend-sdk/sdk-manifest.json`
 - Create: `sdks/sdkwork-generations-backend-sdk/specs/component.spec.json`
 - Create: `sdks/sdkwork-generations-backend-sdk/bin/generate-sdk.mjs`
 - Create: `sdks/sdkwork-generations-backend-sdk/openapi/sdkwork-generations-backend-api.openapi.json`

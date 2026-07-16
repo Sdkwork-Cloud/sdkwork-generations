@@ -253,9 +253,9 @@ test("generations backend OpenAPI keeps technical dispatch APIs off the app surf
 });
 
 test("generations SDK family metadata declares owner-only SDK generation and dependencies", () => {
-  const appAssembly = readJson(path.join(appFamilyRoot, ".sdkwork-assembly.json"));
+  const appAssembly = readJson(path.join(appFamilyRoot, "sdk-manifest.json"));
   const appManifest = readJson(path.join(appFamilyRoot, "sdk-manifest.json"));
-  const backendAssembly = readJson(path.join(backendFamilyRoot, ".sdkwork-assembly.json"));
+  const backendAssembly = readJson(path.join(backendFamilyRoot, "sdk-manifest.json"));
   const appComponent = readJson(path.join(appFamilyRoot, "specs", "component.spec.json"));
   const backendComponent = readJson(path.join(backendFamilyRoot, "specs", "component.spec.json"));
 

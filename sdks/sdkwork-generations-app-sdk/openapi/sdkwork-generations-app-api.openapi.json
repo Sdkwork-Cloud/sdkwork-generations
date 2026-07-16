@@ -1006,7 +1006,7 @@
           "$ref": "#/components/requestBodies/GenerationCommand"
         },
         "responses": {
-          "202": {
+          "201": {
             "description": "Generation accepted.",
             "content": {
               "application/json": {
@@ -1425,7 +1425,7 @@
         "tags": [
           "generations"
         ],
-        "operationId": "generations.get",
+        "operationId": "generations.retrieve",
         "x-sdkwork-owner": "sdkwork-generations",
         "x-sdkwork-api-authority": "sdkwork-generations-app-api",
         "security": [
