@@ -37,8 +37,8 @@ pnpm test
 
 ```bash
 pnpm build:browser
-pnpm h5:build:staging
-pnpm h5:build:prod
+pnpm build:staging
+pnpm build:prod
 ```
 
 ## Related Specs
