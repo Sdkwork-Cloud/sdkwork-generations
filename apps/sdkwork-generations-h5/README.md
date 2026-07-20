@@ -36,7 +36,7 @@ pnpm test
 ## Build
 
 ```bash
-pnpm h5:build
+pnpm build:browser
 pnpm h5:build:staging
 pnpm h5:build:prod
 ```

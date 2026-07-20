@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "h5:dev": "vite",
-    "h5:build": "vite build",
+    "dev:browser": "vite",
+    "build:browser": "vite build",
     "h5:build:staging": "vite build --mode staging",
     "h5:build:prod": "vite build --mode production",
     "h5:preview": "vite preview",
