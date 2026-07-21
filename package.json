@@ -1,30 +1,31 @@
-{
-  "name": "sdkwork-generations-workspace",
-  "private": true,
-  "license": "SEE LICENSE IN LICENSE",
-  "type": "module",
-  "packageManager": "pnpm@10.33.0",
-  "scripts": {
-    "stop": "node ../sdkwork-specs/tools/stop-sdkwork-workspace-processes.mjs --workspace .",    "test": "node --test sdks/test/*.test.mjs tests/*.test.mjs",
-    "sdk:generate": "node tools/generations_sdk_generate.mjs",
-    "db:validate": "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
-    "db:materialize:contract": "node ../sdkwork-specs/tools/materialize-database-contract-from-baseline.mjs --root . --baseline database/ddl/baseline/postgres/0001_generations_baseline.sql --module-id generations --owner generations-platform --prefixes generations_ --engines postgres",
-    "db:plan": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . plan",
-    "db:init": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . init",
-    "db:migrate": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . migrate",
-    "db:seed": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . seed",
-    "db:status": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . status",
-    "db:drift": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . drift",
-    "db:drift:check": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . drift-check",
-    "db:bootstrap": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . bootstrap",
-    "test:contract:database": "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
-    "check:app-composition": "node ../sdkwork-specs/tools/verify-repo.mjs --root ."
-  },
-  "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
-    }
-  }
+﻿{
+    "name":  "sdkwork-generations-workspace",
+    "private":  true,
+    "license": "AGPL-3.0-or-later",
+    "type":  "module",
+    "packageManager":  "pnpm@10.33.0",
+    "scripts":  {
+                    "stop":  "node ../sdkwork-specs/tools/stop-sdkwork-workspace-processes.mjs --workspace .",
+                    "test":  "node --test sdks/test/*.test.mjs tests/*.test.mjs",
+                    "sdk:generate":  "node tools/generations_sdk_generate.mjs",
+                    "db:validate":  "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
+                    "db:materialize:contract":  "node ../sdkwork-specs/tools/materialize-database-contract-from-baseline.mjs --root . --baseline database/ddl/baseline/postgres/0001_generations_baseline.sql --module-id generations --owner generations-platform --prefixes generations_ --engines postgres",
+                    "db:plan":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . plan",
+                    "db:init":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . init",
+                    "db:migrate":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . migrate",
+                    "db:seed":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . seed",
+                    "db:status":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . status",
+                    "db:drift":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . drift",
+                    "db:drift:check":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . drift-check",
+                    "db:bootstrap":  "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . bootstrap",
+                    "test:contract:database":  "node ../sdkwork-specs/tools/check-database-framework-standard.mjs --root .",
+                    "check:app-composition":  "node ../sdkwork-specs/tools/verify-repo.mjs --root ."
+                },
+    "exports":  {
+                    ".":  {
+                              "types":  "./src/index.ts",
+                              "import":  "./src/index.ts",
+                              "default":  "./src/index.ts"
+                          }
+                }
 }
