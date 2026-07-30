@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   filterItemsByAssetWorkspaceKind,
   resolveAssetWorkspaceKindFromModality,
-} from './assetWorkspaceKind';
+} from './generationWorkspaceKind';
 
 describe('filterItemsByAssetWorkspaceKind', () => {
   const items = [

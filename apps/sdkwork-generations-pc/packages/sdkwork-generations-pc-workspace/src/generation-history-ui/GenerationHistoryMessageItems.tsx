@@ -180,7 +180,7 @@ export function GenerationHistoryAudioItem({
   );
 }
 
-function aspectRatioClass(value: SdkworkGenerationHistoryItem['aspectRatio']): string {
+function aspectRatioClass(value: string | undefined): string {
   switch (value) {
     case '1:1':
       return 'aspect-square';

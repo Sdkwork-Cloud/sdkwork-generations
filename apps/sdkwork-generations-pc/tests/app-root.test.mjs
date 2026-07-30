@@ -36,7 +36,7 @@ test("sdkwork-generations-pc declares Drive SDK composition dependencies", () =>
 
   assert.equal(
     appPackage.dependencies["@sdkwork/generations-app-sdk"],
-    "file:../../sdks/sdkwork-generations-app-sdk/sdkwork-generations-app-sdk-typescript/src/index.ts",
+    "workspace:*",
   );
   assert.equal(appPackage.dependencies["@sdkwork/drive-app-sdk"], "workspace:*");
   assert.equal(appPackage.dependencies["@sdkwork/sdk-common"], "^1.0.3");
@@ -60,6 +60,10 @@ test("sdkwork-generations-pc declares Drive SDK composition dependencies", () =>
     /sdkwork-generations-app-sdk\/sdkwork-generations-app-sdk-typescript\/generated\/server-openapi/u,
   );
   assert.match(
+    workspaceYaml,
+    /sdkwork-iam\/sdks\/sdkwork-iam-app-sdk\/sdkwork-iam-app-sdk-typescript/u,
+  );
+  assert.doesNotMatch(
     workspaceYaml,
     /sdkwork-iam\/sdks\/sdkwork-iam-app-sdk\/sdkwork-iam-app-sdk-typescript\/generated\/server-openapi/u,
   );

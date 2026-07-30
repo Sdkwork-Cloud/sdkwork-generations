@@ -82,13 +82,17 @@ export type SdkworkGenerationModelBuckets<TModel> = {
   [Bucket in SdkworkGenerationModelBucket]: readonly TModel[];
 };
 
+export type SdkworkGenerationPartialModelBuckets<TModel> = Partial<
+  SdkworkGenerationModelBuckets<TModel>
+>;
+
 export interface SdkworkGenerationCreditEstimate {
   detail: string;
   points: number | null;
   reference: boolean;
 }
 
-export interface EstimateSdkworkGenerationCreditsInput<TModel extends SdkworkGenerationPricedModel> {
+export interface EstimateSdkworkGenerationCreditsInput<TModel extends Partial<SdkworkGenerationPricedModel>> {
   config: SdkworkGenerationAssetConfig;
   modality: SdkworkGenerationAssetModality;
   model: TModel | null | undefined;
@@ -371,12 +375,12 @@ export function getSdkworkGenerationModelBucket(
 }
 
 export function findSdkworkGenerationModelById<TModel extends { id: string }>(
-  groups: readonly SdkworkGenerationModelBuckets<TModel>[],
+  groups: readonly SdkworkGenerationPartialModelBuckets<TModel>[],
   modelId: string,
 ): TModel | null {
   for (const group of groups) {
     for (const bucket of ["llms", "images", "videos", "audios", "music", "sfx"] as const) {
-      const model = group[bucket].find((item) => item.id === modelId);
+      const model = group[bucket]?.find((item) => item.id === modelId);
       if (model) {
         return model;
       }
@@ -386,12 +390,12 @@ export function findSdkworkGenerationModelById<TModel extends { id: string }>(
 }
 
 export function findFirstSdkworkGenerationModelForModality<TModel>(
-  groups: readonly SdkworkGenerationModelBuckets<TModel>[],
+  groups: readonly SdkworkGenerationPartialModelBuckets<TModel>[],
   modality: SdkworkGenerationAssetModality,
 ): TModel | null {
   const bucket = getSdkworkGenerationModelBucket(modality);
   for (const group of groups) {
-    const model = group[bucket][0];
+    const model = group[bucket]?.[0];
     if (model) {
       return model;
     }
@@ -415,18 +419,18 @@ export function getSdkworkGenerationDurationOptions(
   }
 }
 
-export function estimateSdkworkGenerationCredits<TModel extends SdkworkGenerationPricedModel>({
+export function estimateSdkworkGenerationCredits<TModel extends Partial<SdkworkGenerationPricedModel>>({
   config,
   modality,
   model,
   pointsPerUsd = DEFAULT_SDKWORK_GENERATION_POINTS_PER_USD,
   unavailableDetail = DEFAULT_SDKWORK_GENERATION_COST_UNAVAILABLE_DETAIL,
 }: EstimateSdkworkGenerationCreditsInput<TModel>): SdkworkGenerationCreditEstimate {
-  if (!model || model.priceAvailability.status === "unavailable") {
+  if (!model || model.priceAvailability?.status === "unavailable") {
     return createUnavailableSdkworkGenerationCreditEstimate(unavailableDetail);
   }
 
-  const price = selectSdkworkGenerationReferencePrice(model.officialReferencePrices, modality)
+  const price = selectSdkworkGenerationReferencePrice(model.officialReferencePrices ?? [], modality)
     ?? createFallbackSdkworkGenerationReferencePrice(model);
   if (!price) {
     return createUnavailableSdkworkGenerationCreditEstimate(unavailableDetail);
@@ -442,7 +446,7 @@ export function estimateSdkworkGenerationCredits<TModel extends SdkworkGeneratio
   return {
     detail: describeSdkworkGenerationCreditEstimate(price, quantity),
     points,
-    reference: model.priceAvailability.status === "reference",
+    reference: model.priceAvailability?.status === "reference",
   };
 }
 
@@ -479,7 +483,7 @@ function selectSdkworkGenerationReferencePrice(
 }
 
 function createFallbackSdkworkGenerationReferencePrice(
-  model: SdkworkGenerationPricedModel,
+  model: Partial<SdkworkGenerationPricedModel>,
 ): SdkworkGenerationReferencePrice | null {
   if (!model.officialReferenceUnitPrice || readPositiveSdkworkGenerationNumber(model.officialReferenceUnitPrice) === null) {
     return null;

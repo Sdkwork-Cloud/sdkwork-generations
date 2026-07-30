@@ -7,10 +7,10 @@ import {
 import {
   readMediaResourceThumb,
   readMediaResourceUrl,
-  type MediaResource,
+  type MediaResourceLike,
 } from '@sdkwork/assets-pc-commons';
 
-export type SdkworkMediaResource = MediaResource;
+export type SdkworkMediaResource = MediaResourceLike;
 
 export type SdkworkGenerationHistoryType =
   | "text"

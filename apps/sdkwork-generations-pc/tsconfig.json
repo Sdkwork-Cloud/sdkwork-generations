@@ -24,5 +24,10 @@
     "target": "ES2022",
     "types": ["vite/client"]
   },
-  "include": ["src", "packages/*/src", "packages/*/tests"]
+  "include": [
+    "src",
+    "packages/sdkwork-generations-pc-asset-config/src",
+    "packages/sdkwork-generations-pc-studio/src",
+    "packages/sdkwork-generations-pc-workspace/src"
+  ]
 }

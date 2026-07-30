@@ -9,12 +9,14 @@ export {
   DEFAULT_IMAGE_GENERATION_CONFIG,
   ImageGenerationModePopup,
   type ImageGenerationConfig,
+} from '@sdkwork/image-pc-generation/react';
+export {
   resolveImageReferenceCapability,
   resolveImageReferenceModeUpload,
   IMAGE_REFERENCE_MODE_ORDER,
   type ImageReferenceCapability,
   type ImageReferenceMode,
-} from '@sdkwork/image-pc-generation/react';
+} from '@sdkwork/image-pc-generation';
 export {
   resolveVideoReferenceCapability,
   resolveVideoReferenceModeUpload,

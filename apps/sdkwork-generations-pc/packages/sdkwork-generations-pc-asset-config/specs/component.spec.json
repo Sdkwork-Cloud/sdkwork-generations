@@ -2,17 +2,17 @@
   "schemaVersion": 1,
   "kind": "sdkwork.component.spec",
   "component": {
-    "name": "@sdkwork/generations-pc-studio",
-    "displayName": "SDKWork Generations PC Studio",
+    "name": "@sdkwork/generations-pc-asset-config",
+    "displayName": "SDKWork Generations PC Asset Config",
     "version": "0.1.0",
-    "type": "react-package",
-    "root": "sdkwork-generations/apps/sdkwork-generations-pc/packages/sdkwork-generations-pc-studio",
+    "type": "typescript-package",
+    "root": "sdkwork-generations/apps/sdkwork-generations-pc/packages/sdkwork-generations-pc-asset-config",
     "domain": "intelligence",
     "declaredDomain": "intelligence",
-    "capability": "generation-studio",
+    "capability": "generation-asset-config",
     "surface": "app",
     "status": "ready",
-    "languages": ["typescript", "react"],
+    "languages": ["typescript"],
     "generated": false,
     "private": true,
     "manifests": ["package.json"]
@@ -27,7 +27,7 @@
     { "file": "TYPESCRIPT_CODE_SPEC.md", "path": "../../../../../sdkwork-specs/TYPESCRIPT_CODE_SPEC.md", "purpose": "TypeScript package rules." }
   ],
   "contracts": {
-    "publicExports": [".", "./react"],
+    "publicExports": ["."],
     "runtimeEntrypoints": ["package.json#scripts.typecheck"],
     "sdkClients": [],
     "events": [],
@@ -37,10 +37,10 @@
   "integration": {
     "authority": "Root SDKWork specs remain authoritative.",
     "dependencyPolicy": "Consumers integrate through declared package exports.",
-    "sdkPolicy": "This package renders injected generation state and does not create SDK clients.",
-    "languagePolicy": "TypeScript and React source remain strict and package-owned."
+    "sdkPolicy": "This package defines UI-facing generation configuration and does not create SDK clients.",
+    "languagePolicy": "TypeScript source remains strict and package-owned."
   },
   "verification": {
-    "commands": ["pnpm --filter @sdkwork/generations-pc-studio typecheck"]
+    "commands": ["pnpm --filter @sdkwork/generations-pc-asset-config typecheck"]
   }
 }

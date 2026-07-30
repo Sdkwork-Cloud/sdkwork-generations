@@ -4,7 +4,7 @@ Canonical lifecycle assets for `sdkwork-generations` per `DATABASE_FRAMEWORK_SPE
 
 - moduleId: `generations`
 - serviceCode: `GENERATIONS`
-- tablePrefix: `generation_` (physical tables; manifest module prefix remains `generations_`)
+- tablePrefix: `generation_`
 
 ## Initialization state
 

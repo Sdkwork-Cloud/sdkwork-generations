@@ -20,7 +20,7 @@ export interface SdkworkGenerationModeSection<Config extends object = Record<str
   label: string;
   max?: number;
   min?: number;
-  options?: SdkworkGenerationModeOption<ConfigValue>[];
+  options?: readonly SdkworkGenerationModeOption<ConfigValue>[];
   step?: number;
   type: "select" | "slider" | "toggle";
   unit?: string;
@@ -37,7 +37,7 @@ export interface SdkworkGenerationModePopupBaseProps<Config extends object> {
   onChangeConfig: (config: Config) => void;
   onGenerate: () => void;
   renderExtraControls?: () => ReactNode;
-  sections: SdkworkGenerationModeSection<Config>[];
+  sections: readonly SdkworkGenerationModeSection<Config>[];
   title?: string;
   barClassName?: string;
   popupClassName?: string;

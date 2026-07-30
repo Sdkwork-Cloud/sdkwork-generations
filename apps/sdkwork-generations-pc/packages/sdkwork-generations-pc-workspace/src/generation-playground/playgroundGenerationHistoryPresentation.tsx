@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Bot, FileAudio, Headphones, Image as ImageIcon, Music, Video } from 'lucide-react';
 import { getSdkworkGenerationPreviewKind } from '@sdkwork/generations-pc-workspace/generation-history';
 import type { SdkworkGenerationHistoryItem } from '@sdkwork/generations-pc-workspace/generation-history';
-import type { AssetWorkspaceKindTab } from '../utils/assetWorkspaceKind';
+import type { AssetWorkspaceKindTab } from '../generation-workspace/generationWorkspaceKind';
 
 export const PLAYGROUND_GENERATION_HISTORY_KIND_TABS: readonly AssetWorkspaceKindTab[] = [
   { id: 'all', labelKey: 'playground.history.filter.all' },
