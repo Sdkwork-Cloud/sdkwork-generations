@@ -33,7 +33,7 @@ It consumes app-api capability through the `sdkwork-generations-app-sdk` family 
 - `sdkwork-react-generation-history`
 - previous appbase residual generation workspace package
 
-Generation playground UI theme tokens and modality-specific panel styling live in the host app stylesheet (`apps/sdkwork-clawrouter-pc/src/index.css`) and domain packages (`sdkwork-image-pc-generation`, `sdkwork-video-pc-generation`, `sdkwork-music-pc-generation`, `sdkwork-audio-pc-generation`). Workspace exports domain workspace composition only; do not duplicate panel implementations here.
+Generation playground UI theme tokens and modality-specific panel styling live in the host app stylesheet (`apps/sdkwork-cloudrouter-pc/src/index.css`) and domain packages (`sdkwork-image-pc-generation`, `sdkwork-video-pc-generation`, `sdkwork-music-pc-generation`, `sdkwork-audio-pc-generation`). Workspace exports domain workspace composition only; do not duplicate panel implementations here.
 
 ## SDKWork Documentation Contract
 
