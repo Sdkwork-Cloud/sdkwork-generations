@@ -40,7 +40,10 @@
     "lucide-react": "catalog:",
     "react-markdown": "10.1.0",
     "rehype-sanitize": "6.0.0",
-    "remark-gfm": "4.0.1"
+    "remark-gfm": "4.0.1",
+    "react": "catalog:",
+    "react-i18next": "catalog:",
+    "react-router-dom": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18.2.0 <20.0.0",

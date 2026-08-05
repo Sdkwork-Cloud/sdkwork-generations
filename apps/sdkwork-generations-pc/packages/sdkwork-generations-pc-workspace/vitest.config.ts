@@ -9,7 +9,6 @@ export default defineConfig({
   resolve: {
     alias: {
       react: path.join(appRoot, "node_modules/react"),
-      "react-dom": path.join(appRoot, "node_modules/react-dom"),
     },
     dedupe: ["react", "react-dom"],
   },

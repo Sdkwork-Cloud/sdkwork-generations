@@ -20,7 +20,7 @@ export interface DomainGenerationWorkspaceViewProps {
   onSubmitGeneration: (input: GenerationSubmitInput) => Promise<void>;
   submitting: boolean;
   submitError: string | null;
-  modality: SdkworkGenerationAssetModality;
+  modality: SdkworkGenerationAssetModality | 'agent';
   bucket: SdkworkGenerationModelBucket;
   placeholderKey: string;
   fallbackModel?: ModelsPickerOption;

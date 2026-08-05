@@ -5,7 +5,7 @@ import {
   PLAYGROUND_GENERATION_HISTORY_KIND_TABS,
 } from '@sdkwork/generations-pc-workspace/generation-playground-workspace';
 import { ChatMarkdownMessage } from '../markdown/ChatMarkdownMessage.tsx';
-import type { PlaygroundHistoryItem, PlaygroundPreviewSetter } from '../../playground-types.ts';
+import type { PlaygroundGenerationTargetType, PlaygroundHistoryItem, PlaygroundPreviewSetter } from '../../playground-types.ts';
 
 export function SharedHistoryView({
   agentHistory,
@@ -14,7 +14,7 @@ export function SharedHistoryView({
 }: {
   agentHistory: PlaygroundHistoryItem[];
   setPreviewItem: PlaygroundPreviewSetter;
-  modality: string;
+  modality: PlaygroundGenerationTargetType | 'agent';
 }) {
   const { t } = useTranslation();
   const presentation = createPlaygroundGenerationHistoryPresentation(t);
