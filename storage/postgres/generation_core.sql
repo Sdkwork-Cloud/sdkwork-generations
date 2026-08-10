@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS generation_record (
     id TEXT PRIMARY KEY,
     tenant_id TEXT NOT NULL,
-    organization_id TEXT,
+    organization_id TEXT NOT NULL DEFAULT '0',
     user_id TEXT NOT NULL,
     modality TEXT NOT NULL,
     operation_type TEXT NOT NULL,
@@ -127,7 +127,7 @@ CREATE INDEX IF NOT EXISTS idx_generation_result_asset
 CREATE TABLE IF NOT EXISTS generation_record_projection (
     generation_id TEXT PRIMARY KEY REFERENCES generation_record(id) ON DELETE CASCADE,
     tenant_id TEXT NOT NULL,
-    organization_id TEXT,
+    organization_id TEXT NOT NULL DEFAULT '0',
     user_id TEXT NOT NULL,
     modality TEXT NOT NULL,
     operation_type TEXT NOT NULL,
