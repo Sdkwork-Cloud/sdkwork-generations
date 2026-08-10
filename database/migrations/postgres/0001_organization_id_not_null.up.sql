@@ -18,10 +18,12 @@
 
 BEGIN;
 
+ALTER TABLE generation_record ADD COLUMN IF NOT EXISTS organization_id TEXT NOT NULL DEFAULT '0';
 UPDATE generation_record SET organization_id = '0' WHERE organization_id IS NULL;
 ALTER TABLE generation_record ALTER COLUMN organization_id SET DEFAULT '0';
 ALTER TABLE generation_record ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE generation_record_projection ADD COLUMN IF NOT EXISTS organization_id TEXT NOT NULL DEFAULT '0';
 UPDATE generation_record_projection SET organization_id = '0' WHERE organization_id IS NULL;
 ALTER TABLE generation_record_projection ALTER COLUMN organization_id SET DEFAULT '0';
 ALTER TABLE generation_record_projection ALTER COLUMN organization_id SET NOT NULL;
