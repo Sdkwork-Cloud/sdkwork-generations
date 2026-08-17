@@ -37,8 +37,8 @@ packages:
   - "../sdkwork-models/apps/sdkwork-models-pc/packages/sdkwork-models-pc-picker"
   - "../sdkwork-music/apps/sdkwork-music-pc/packages/sdkwork-music-pc-generation"
   - "../sdkwork-video/apps/sdkwork-video-pc/packages/sdkwork-video-pc-generation"
-
   - "../sdkwork-iam/apps/sdkwork-iam-pc/packages/sdkwork-user-center-core-pc-react"
+
 catalog:
   "@monaco-editor/react": ^4.7.0
   "@playwright/test": ^1.52.0
