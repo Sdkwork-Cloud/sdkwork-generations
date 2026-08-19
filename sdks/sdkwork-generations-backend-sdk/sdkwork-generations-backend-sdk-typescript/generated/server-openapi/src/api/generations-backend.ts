@@ -1,5 +1,5 @@
 import { backendApiPath } from './paths';
-import type { HttpClient } from '../http/client';
+import type { ApiRequestOptions, HttpClient } from '../http/client';
 
 import type { CreateReconciliationRunRequest, GenerationDispatchJob, GenerationSourceEvent, ReconciliationRun } from '../types';
 
@@ -16,14 +16,14 @@ export class GenerationsBackendGenerationReconciliationRunsApi {
   }
 
 
-async create(body: CreateReconciliationRunRequest, params?: GenerationsBackendGenerationReconciliationRunsCreateParams): Promise<ReconciliationRun> {
+async create(body: CreateReconciliationRunRequest, params?: GenerationsBackendGenerationReconciliationRunsCreateParams, requestOptions?: ApiRequestOptions): Promise<ReconciliationRun> {
     const requestHeaders = buildRequestHeaders(
       {
         'Idempotency-Key': { value: params?.idempotencyKey, style: 'simple', explode: false },
       },
       {}
     );
-    return this.client.post<ReconciliationRun>(backendApiPath(`/generations/reconciliation/runs`), body, undefined, requestHeaders, 'application/json');
+    return this.client.request<ReconciliationRun>(backendApiPath(`/generations/reconciliation/runs`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'POST' as any, body, contentType: 'application/json', ...(requestHeaders !== undefined ? { headers: requestHeaders } : {}), sdkworkUnwrapKind: 'item' });
   }
 }
 
@@ -41,13 +41,13 @@ export class GenerationsBackendGenerationSourceEventsApi {
   }
 
 
-async list(params?: GenerationsBackendGenerationSourceEventsListParams): Promise<Record<string, unknown>> {
+async list(params?: GenerationsBackendGenerationSourceEventsListParams, requestOptions?: ApiRequestOptions): Promise<{ items: GenerationSourceEvent[]; pageInfo: { mode: 'cursor'; nextCursor?: string | null; hasMore: boolean; }; }> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'source_provider', value: params?.sourceProvider, style: 'form', explode: true, allowReserved: false },
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<Record<string, unknown>>(appendQueryString(backendApiPath(`/generations/source_events`), query));
+    return this.client.request<{ items: GenerationSourceEvent[]; pageInfo: { mode: 'cursor'; nextCursor?: string | null; hasMore: boolean; }; }>(appendQueryString(backendApiPath(`/generations/source_events`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 }
 
@@ -66,29 +66,27 @@ export class GenerationsBackendGenerationDispatchJobsApi {
   }
 
 
-async list(params?: GenerationsBackendGenerationDispatchJobsListParams): Promise<Record<string, unknown>> {
+async list(params?: GenerationsBackendGenerationDispatchJobsListParams, requestOptions?: ApiRequestOptions): Promise<{ items: GenerationDispatchJob[]; pageInfo: { mode: 'cursor'; nextCursor?: string | null; hasMore: boolean; }; }> {
     const query = buildQueryString([
       { name: 'cursor', value: params?.cursor, style: 'form', explode: true, allowReserved: false },
       { name: 'page_size', value: params?.pageSize, style: 'form', explode: true, allowReserved: false },
       { name: 'status', value: params?.status, style: 'form', explode: true, allowReserved: false },
       { name: 'lease_owner', value: params?.leaseOwner, style: 'form', explode: true, allowReserved: false },
     ]);
-    return this.client.get<Record<string, unknown>>(appendQueryString(backendApiPath(`/generations/dispatch_jobs`), query));
+    return this.client.request<{ items: GenerationDispatchJob[]; pageInfo: { mode: 'cursor'; nextCursor?: string | null; hasMore: boolean; }; }>(appendQueryString(backendApiPath(`/generations/dispatch_jobs`), query), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'page' });
   }
 
-async get(dispatchJobId: string): Promise<GenerationDispatchJob> {
-    return this.client.get<GenerationDispatchJob>(backendApiPath(`/generations/dispatch_jobs/${serializePathParameter(dispatchJobId, { name: 'dispatchJobId', style: 'simple', explode: false })}`));
+async retrieve(dispatchJobId: string, requestOptions?: ApiRequestOptions): Promise<GenerationDispatchJob> {
+    return this.client.request<GenerationDispatchJob>(backendApiPath(`/generations/dispatch_jobs/${serializePathParameter(dispatchJobId, { name: 'dispatchJobId', style: 'simple', explode: false })}`), { ...(requestOptions?.signal !== undefined ? { signal: requestOptions.signal } : {}), ...(requestOptions?.timeout !== undefined ? { timeout: requestOptions.timeout } : {}), method: 'GET' as any, sdkworkUnwrapKind: 'item' });
   }
 }
 
 export class GenerationsBackendApi {
-  private client: HttpClient;
   public readonly generationDispatchJobs: GenerationsBackendGenerationDispatchJobsApi;
   public readonly generationSourceEvents: GenerationsBackendGenerationSourceEventsApi;
   public readonly generationReconciliationRuns: GenerationsBackendGenerationReconciliationRunsApi;
 
   constructor(client: HttpClient) {
-    this.client = client;
     this.generationDispatchJobs = new GenerationsBackendGenerationDispatchJobsApi(client);
     this.generationSourceEvents = new GenerationsBackendGenerationSourceEventsApi(client);
     this.generationReconciliationRuns = new GenerationsBackendGenerationReconciliationRunsApi(client);

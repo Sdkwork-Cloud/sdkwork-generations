@@ -32,11 +32,11 @@ export type { GenerationsVideosImageToResponse202 } from './generations-videos-i
 export type { GenerationsVideosExtendResponse202 } from './generations-videos-extend-response202';
 export type { GenerationsMusicTextToResponse202 } from './generations-music-text-to-response202';
 export type { GenerationsMusicLyricsToResponse202 } from './generations-music-lyrics-to-response202';
-export type { GenerationsSoundEffectsCreateResponse202 } from './generations-sound-effects-create-response202';
+export type { GenerationsSoundEffectsCreateResponse201 } from './generations-sound-effects-create-response201';
 export type { GenerationsVoiceSpeechResponse202 } from './generations-voice-speech-response202';
 export type { GenerationsVoiceTranscriptionResponse202 } from './generations-voice-transcription-response202';
 export type { GenerationsVoiceTranslationResponse202 } from './generations-voice-translation-response202';
-export type { GenerationsGetResponse } from './generations-get-response';
+export type { GenerationsRetrieveResponse } from './generations-retrieve-response';
 export type { GenerationsResultsListResponse } from './generations-results-list-response';
 export type { GenerationsTimelineListResponse } from './generations-timeline-list-response';
 export type { GenerationsCancelResponse } from './generations-cancel-response';

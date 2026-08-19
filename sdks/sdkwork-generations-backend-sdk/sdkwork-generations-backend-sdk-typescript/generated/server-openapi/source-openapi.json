@@ -172,7 +172,7 @@
         "tags": [
           "generationsBackend"
         ],
-        "operationId": "generationDispatchJobs.get",
+        "operationId": "generationDispatchJobs.retrieve",
         "x-sdkwork-owner": "sdkwork-generations",
         "x-sdkwork-api-authority": "sdkwork-generations-backend-api",
         "security": [
@@ -395,7 +395,7 @@
           }
         },
         "responses": {
-          "202": {
+          "201": {
             "description": "Reconciliation run accepted.",
             "content": {
               "application/json": {

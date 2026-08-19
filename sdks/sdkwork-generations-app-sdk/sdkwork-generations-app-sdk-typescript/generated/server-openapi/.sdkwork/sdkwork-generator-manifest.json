@@ -12,7 +12,7 @@
   "generatedFiles": [
     {
       "path": "bin/publish-core.mjs",
-      "sha256": "98ad0918a78bfbe22bf8f12fec709b0bed545b9e01edd40f5e4abf31a23378a5"
+      "sha256": "a47e95119bf3eafcbcb2102f7024c147f967924e4e3f343d1a29effb4b6765df"
     },
     {
       "path": "bin/publish.ps1",
@@ -40,11 +40,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "38bd51bc9ce93558fdea5c23cc9a79f8d03d0f40f6c4691762caaedf7d68bbbd"
+      "sha256": "e96211710c0eed3b8c1c65a3bb54b50cf482a7ab5285c20f54fb696493f62e62"
     },
     {
       "path": "README.md",
-      "sha256": "3c9bbdf1bbc06941b7e417cd3cbb17c8dd53fbfad424bbf8f2bb57d1b0db9e10"
+      "sha256": "09792de8b3c7854bb71dd6d4f35181a45eb7e82d89f02758553254fca1bc76c2"
     },
     {
       "path": "sdkwork-sdk.json",
@@ -52,11 +52,11 @@
     },
     {
       "path": "src/api/base.ts",
-      "sha256": "02ad25e6bf331ff241ba387c2947ddf1900dd849038e08c2757416a3aa788a04"
+      "sha256": "94d136c54a008dfe7602e373a0b2c79176bbf2fc6e7c899fc23b1f12f750380f"
     },
     {
       "path": "src/api/generations.ts",
-      "sha256": "6785486bf1d6eebf7e5bd0cdbc36480cc59f4e378c0a0193c158a3d5546039bf"
+      "sha256": "be1703fc2e8a76a1d39f00463136a0ab9dd227e7143544a76476d2483f7ab379"
     },
     {
       "path": "src/api/index.ts",
@@ -72,7 +72,7 @@
     },
     {
       "path": "src/http/client.ts",
-      "sha256": "902ecbf9b15072c147ac9716f22209cd50b770e517b55d1ce1583671ab4d2c3e"
+      "sha256": "868b7785497a93658b628de2d9b520d9d2456406bcf2ef717319beaa6913146d"
     },
     {
       "path": "src/http/index.ts",
@@ -144,83 +144,83 @@
     },
     {
       "path": "src/types/generations-cancel-response.ts",
-      "sha256": "5fb3849352931bfc48ca8556e51d831d265308dabf0203fbd7f2c3e34e2e0014"
+      "sha256": "4f1286f34fce74b814686e46d751bf263743f06a673afb4c12d44b69c5d2fcce"
     },
     {
       "path": "src/types/generations-favorite-response.ts",
-      "sha256": "90c3b9e209beda9e861f7bfce3be3ec05ee8e688c034ec8624efcb09f385f8ec"
-    },
-    {
-      "path": "src/types/generations-get-response.ts",
-      "sha256": "ff09794c99630346ee4606ff8c42bc74e18b68a10a6c94139c2ccc80b33be7ec"
+      "sha256": "3daab3ee97ebc0511a0a64b9c1d0c80ba77f149d2381f116e31ae39a42afd7a6"
     },
     {
       "path": "src/types/generations-images-edit-response202.ts",
-      "sha256": "bdc0170d00c18f949603c3b8203895c0b454ee7de72e029129f6047259bbfc47"
+      "sha256": "d2dcf123e5eeb04f1a3413d75294d988d0f284364cf2aa21edc280a772eaa328"
     },
     {
       "path": "src/types/generations-images-text-to-response202.ts",
-      "sha256": "2027e982a24b8512e5551024676151a4dc72df2979dbf628ba88f0d42aa9f679"
+      "sha256": "c4f9d5177e34a7015163647c5239e9bf8d7e6c2c335212b14ba429d648c6936b"
     },
     {
       "path": "src/types/generations-list-response.ts",
-      "sha256": "df6d63eccd6acfcaf971be6868e9084d364e6ded43971439ea0948f2ae29f8cd"
+      "sha256": "5439acb52aa13516460ceb41094d6fbc35622f2096ec670c46f343351a734244"
     },
     {
       "path": "src/types/generations-music-lyrics-to-response202.ts",
-      "sha256": "4be286d2e53c43eebafde748709f76489cd19b50f5815b7e27de1612b7b96a0e"
+      "sha256": "fc104eddc9677c9a171303716bbb4d84f0ab71e012207a3bd3de127aa7d8d70e"
     },
     {
       "path": "src/types/generations-music-text-to-response202.ts",
-      "sha256": "baebd5506aefe4e81b2937d1001347823b6900ed4471863924ed5d81538bfcc7"
+      "sha256": "54029be8253a4afd79c461e9040149a46df52578e4eeecfe9745638cff229431"
     },
     {
       "path": "src/types/generations-results-list-response.ts",
-      "sha256": "2f8e48f00f38ea72d6a6404ecb6dfdd4db36edf584fe1bccfadc6cd5a13cf056"
+      "sha256": "2c7841315865fba85690dc670f8dfcd3e49fccd3c24252edd332bc376c0fa09d"
     },
     {
       "path": "src/types/generations-results-save-to-assets-response.ts",
-      "sha256": "b467724dc55a182b203abee77ae0edab03aca8bfc459f36efc702b7561c76f02"
+      "sha256": "89a4a2aac77e203492193fc719274abddb6b8343e0e160844ba3902a44a34969"
+    },
+    {
+      "path": "src/types/generations-retrieve-response.ts",
+      "sha256": "bae50f889ea86b5cfbaab652a0f7040431902d52081e8492d3043946df4530fe"
     },
     {
       "path": "src/types/generations-retry-response202.ts",
-      "sha256": "d2275b54ed301b53330f5ecac1982e45e40fe6e54e888ac46e5ca9e18379b274"
+      "sha256": "6f024d8e06de2d5ae328cb5724125498b0d57abbbae9b6f820e8c1b571578396"
     },
     {
-      "path": "src/types/generations-sound-effects-create-response202.ts",
-      "sha256": "05d26023266b29443065bbbc99b888c0e25053e9360106ee4d0c4a3832dc7d90"
+      "path": "src/types/generations-sound-effects-create-response201.ts",
+      "sha256": "e24aab229c9c4e9eedaf1c5402bf548cdcca6b230977015142a7ac0d0617adde"
     },
     {
       "path": "src/types/generations-timeline-list-response.ts",
-      "sha256": "7402d0c9e73e6c676999fedf2c77e064e354487492c1a4603112054a39dddb11"
+      "sha256": "94c3a84eae4a065a2c0de8bb907e83225bbb820f1f71057eb566de0c704d76a5"
     },
     {
       "path": "src/types/generations-videos-extend-response202.ts",
-      "sha256": "acdd6354b49cc1fb17699caf51d7d4c8762a19037b489e0374629d2da5b14330"
+      "sha256": "be8b5af54c3ab05576ece363d5113aacfef0422dccea7ee28f93770b0ecb93c1"
     },
     {
       "path": "src/types/generations-videos-image-to-response202.ts",
-      "sha256": "7af410d7abcabfee5c090444a2338666c1a448548b263f1140ba7b4228c7f4d8"
+      "sha256": "e2e99679cd2d02c196b903a6015e15ca8931ce6168b960b217d13e5cb5091e3a"
     },
     {
       "path": "src/types/generations-videos-text-to-response202.ts",
-      "sha256": "df3888348db3ec75dfff54af1698eb27f24f5d0a1aad940181f169efd99d8e36"
+      "sha256": "e0c56e1bc0a02682b5936d7251ccff005180d727892fa1eaa5ed0805f73bc917"
     },
     {
       "path": "src/types/generations-voice-speech-response202.ts",
-      "sha256": "53f5ad3ad67b7c0b6d588a2cde896f0eecbe94797a11273b307006221dd21100"
+      "sha256": "146fa91a611df5f9e3ce5566469a2dc0a431b889f06389e2f5225f20b9c7462f"
     },
     {
       "path": "src/types/generations-voice-transcription-response202.ts",
-      "sha256": "77510b8f693b6a30eb7098396d40ecb0b79215665eaaf4ef6a0a838bb554eba8"
+      "sha256": "e6917e377ec2133165631e00f04c5d2404fa0d367d6b7aa2e90de43f37cfd18d"
     },
     {
       "path": "src/types/generations-voice-translation-response202.ts",
-      "sha256": "cc1e9aa111ccbe461dbdec0625f3d048e0838b0b84756b2fa016461aec3fa81c"
+      "sha256": "a7711f94670ce2b74942256f7dd2ed1b1697bee450176a95e656c175592e7757"
     },
     {
       "path": "src/types/index.ts",
-      "sha256": "e6fd473eb5bc2825df73faad8ca71aecd5993126d53b54acdf1becf536e45bd3"
+      "sha256": "217765287e69198724b7490e567c0a9fd61bc9ecce94fe7ac6b63d1311b8f526"
     },
     {
       "path": "src/types/media-resource.ts",

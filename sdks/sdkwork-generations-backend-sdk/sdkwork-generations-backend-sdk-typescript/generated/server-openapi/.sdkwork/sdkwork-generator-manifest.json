@@ -12,7 +12,7 @@
   "generatedFiles": [
     {
       "path": "bin/publish-core.mjs",
-      "sha256": "98ad0918a78bfbe22bf8f12fec709b0bed545b9e01edd40f5e4abf31a23378a5"
+      "sha256": "a47e95119bf3eafcbcb2102f7024c147f967924e4e3f343d1a29effb4b6765df"
     },
     {
       "path": "bin/publish.ps1",
@@ -40,11 +40,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "5359acb81a1039ec14b52f2e34c9ee469ba6dfe1cdf415643c7ca2a624fdf056"
+      "sha256": "1d672550a748d0a8a6588fc83c5f644e42d252864f4ace39abc053680a1d6b34"
     },
     {
       "path": "README.md",
-      "sha256": "dd8e4080450541b494e8523a8f34bd4a55320db9efda87c0347afdd5e6fdbe03"
+      "sha256": "7bb4cbccc39a71305792fbe60e5ba59dd64e62575b0fc0b44b58116065984326"
     },
     {
       "path": "sdkwork-sdk.json",
@@ -52,11 +52,11 @@
     },
     {
       "path": "src/api/base.ts",
-      "sha256": "02ad25e6bf331ff241ba387c2947ddf1900dd849038e08c2757416a3aa788a04"
+      "sha256": "94d136c54a008dfe7602e373a0b2c79176bbf2fc6e7c899fc23b1f12f750380f"
     },
     {
       "path": "src/api/generations-backend.ts",
-      "sha256": "512ffaa05b0366932621a4d446f602e5256ed8fe7d5007ae59c662219b4844c3"
+      "sha256": "1f1ecfa5213252f4e87cc3be40b88b1004aafbfb14ea29b2f265427462e5380b"
     },
     {
       "path": "src/api/index.ts",
@@ -72,7 +72,7 @@
     },
     {
       "path": "src/http/client.ts",
-      "sha256": "6e389d5c14fb5845365972b6776af185d8af8eb8da7bb398e59be6c29e394ddf"
+      "sha256": "bab0f740731f04f1f6e3c591cba91b1577f0ca521054d187755f437925d3dc6d"
     },
     {
       "path": "src/http/index.ts",
@@ -107,16 +107,16 @@
       "sha256": "2c0f6830ecd853fc8985ddcb353beb997f7b3cc2ce86e8b29553f5221c837254"
     },
     {
-      "path": "src/types/generation-dispatch-jobs-get-response.ts",
-      "sha256": "1334ecf6419018392287fefc1491b56129573d45f42df7898baa42cb5cbf54d6"
-    },
-    {
       "path": "src/types/generation-dispatch-jobs-list-response.ts",
-      "sha256": "31d4f84a30c7f20f2c2866f390ae3418589ad6c2c91acdb3d954ab906035498b"
+      "sha256": "6be9d3a6d9b6b383c47d684aab6e097dd696c21692caf569a0f87c26a6f281d3"
     },
     {
-      "path": "src/types/generation-reconciliation-runs-create-response202.ts",
-      "sha256": "7df876b3a428b416a829ddb59869f9ba69193815b1ee1f5d01ffc5d11ddaaa7b"
+      "path": "src/types/generation-dispatch-jobs-retrieve-response.ts",
+      "sha256": "d4b01f0e2803e9590eadc996a7fd5d84e45d04bdc22f18b3b8c45430349f94a1"
+    },
+    {
+      "path": "src/types/generation-reconciliation-runs-create-response201.ts",
+      "sha256": "f0b63f7d5a34962f4cfe00c97d309ffb317d46b8c7de68300057ecd764b585f5"
     },
     {
       "path": "src/types/generation-source-event-page.ts",
@@ -128,11 +128,11 @@
     },
     {
       "path": "src/types/generation-source-events-list-response.ts",
-      "sha256": "3b886e18ca54c1f4b512c94717c4408e55e5452776fd6aeb2c8fac1c7bcc8be4"
+      "sha256": "f8aaa6ab22784a9a87758f46269f062240de0b4ce99e81b05c1d048694cb1c77"
     },
     {
       "path": "src/types/index.ts",
-      "sha256": "4bd5bc407590d15c4e0bb9034d46fd94a91b8616224a1abd62b73c4f113b5dc1"
+      "sha256": "74594ddf7741aab3dae009b8df0074774770c0611b6180de67e72f33a917742a"
     },
     {
       "path": "src/types/page-info.ts",

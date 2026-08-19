@@ -10,37 +10,228 @@
   },
   "status": "ok",
   "mode": "apply",
-  "hasChanges": false,
-  "hasDestructiveChanges": false,
-  "changeFingerprint": "a6e77021ff5fadb1d6b6170990ea47fe6807c7ffff137e7d446f8d32d881b3d6",
+  "hasChanges": true,
+  "hasDestructiveChanges": true,
+  "changeFingerprint": "6d788b49fefc3d2630ef1c53e47724e4b9a3aa87295870c6cb41335429a2d7cb",
   "changeImpact": {
     "schemaVersion": 1,
-    "areas": [],
-    "details": [],
-    "requiresVerification": false,
-    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped."
+    "areas": [
+      "api-surface",
+      "models",
+      "runtime",
+      "build-metadata",
+      "publish-workflow",
+      "documentation",
+      "unknown"
+    ],
+    "details": [
+      {
+        "area": "api-surface",
+        "paths": [
+          "src/api/base.ts",
+          "src/api/generations.ts",
+          "src/api/index.ts",
+          "src/api/paths.ts",
+          "src/http/client.ts",
+          "src/sdk.ts"
+        ]
+      },
+      {
+        "area": "models",
+        "paths": [
+          "src/types/common.ts",
+          "src/types/create-generation-command-request.ts",
+          "src/types/favorite-generation-request.ts",
+          "src/types/field-error.ts",
+          "src/types/generation-action-request.ts",
+          "src/types/generation-command-response.ts",
+          "src/types/generation-modality.ts",
+          "src/types/generation-record-page.ts",
+          "src/types/generation-record.ts",
+          "src/types/generation-result-page.ts",
+          "src/types/generation-result.ts",
+          "src/types/generation-status.ts",
+          "src/types/generation-timeline-event-page.ts",
+          "src/types/generation-timeline-event.ts",
+          "src/types/generations-cancel-response.ts",
+          "src/types/generations-favorite-response.ts",
+          "src/types/generations-get-response.ts",
+          "src/types/generations-images-edit-response202.ts",
+          "src/types/generations-images-text-to-response202.ts",
+          "src/types/generations-list-response.ts",
+          "src/types/generations-music-lyrics-to-response202.ts",
+          "src/types/generations-music-text-to-response202.ts",
+          "src/types/generations-results-list-response.ts",
+          "src/types/generations-results-save-to-assets-response.ts",
+          "src/types/generations-retrieve-response.ts",
+          "src/types/generations-retry-response202.ts",
+          "src/types/generations-sound-effects-create-response201.ts",
+          "src/types/generations-sound-effects-create-response202.ts",
+          "src/types/generations-timeline-list-response.ts",
+          "src/types/generations-videos-extend-response202.ts",
+          "src/types/generations-videos-image-to-response202.ts",
+          "src/types/generations-videos-text-to-response202.ts",
+          "src/types/generations-voice-speech-response202.ts",
+          "src/types/generations-voice-transcription-response202.ts",
+          "src/types/generations-voice-translation-response202.ts",
+          "src/types/index.ts",
+          "src/types/media-resource.ts",
+          "src/types/page-info.ts",
+          "src/types/problem-detail.ts",
+          "src/types/save-generation-result-to-assets-request.ts",
+          "src/types/sdk-work-api-response.ts",
+          "src/types/sdk-work-command-data.ts",
+          "src/types/sdk-work-command-response.ts",
+          "src/types/sdk-work-list-response.ts",
+          "src/types/sdk-work-page-data.ts",
+          "src/types/sdk-work-platform-error-code.ts",
+          "src/types/sdk-work-resource-data.ts",
+          "src/types/sdk-work-resource-response.ts"
+        ]
+      },
+      {
+        "area": "runtime",
+        "paths": [
+          "src/auth/index.ts",
+          "src/http/client.ts",
+          "src/http/index.ts"
+        ]
+      },
+      {
+        "area": "build-metadata",
+        "paths": [
+          "package.json",
+          "sdkwork-sdk.json",
+          "tsconfig.json"
+        ]
+      },
+      {
+        "area": "publish-workflow",
+        "paths": [
+          "bin/publish-core.mjs",
+          "bin/publish.ps1",
+          "bin/publish.sh",
+          "bin/sdk-gen.bat",
+          "bin/sdk-gen.sh"
+        ]
+      },
+      {
+        "area": "documentation",
+        "paths": [
+          "CHANGELOG.md",
+          "README.md"
+        ]
+      },
+      {
+        "area": "unknown",
+        "paths": [
+          "LICENSE",
+          "src/index.ts"
+        ]
+      }
+    ],
+    "requiresVerification": true,
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required."
   },
   "executionDecision": {
     "schemaVersion": 1,
-    "riskLevel": "low",
-    "nextAction": "skip",
+    "riskLevel": "high",
+    "nextAction": "verify",
     "requiresManualReview": false,
     "applyRequiresExpectedFingerprint": false,
-    "summary": "No actionable changes were detected. No apply or verification step is required.",
+    "summary": "Changes have been applied. Run the required verification plan now.",
     "reasons": [
-      "no-actionable-changes"
+      "backed-up-generated-files",
+      "deleted-generated-files",
+      "manual-review-required",
+      "unknown-impact",
+      "verification-required"
     ]
   },
   "executionHandoff": {
     "schemaVersion": 1,
-    "summary": "No further commands are required.",
-    "steps": []
+    "summary": "Run the required verification commands now.",
+    "steps": [
+      {
+        "id": "verify-check",
+        "title": "Unified package check",
+        "required": true,
+        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "check"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action check"
+      },
+      {
+        "id": "verify-build",
+        "title": "Unified package build",
+        "required": true,
+        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "build"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action build"
+      }
+    ]
   },
   "verificationPlan": {
-    "shouldRun": false,
-    "runPhase": "skip",
-    "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped.",
-    "steps": []
+    "shouldRun": true,
+    "runPhase": "now",
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
+    "steps": [
+      {
+        "id": "check",
+        "title": "Unified package check",
+        "required": true,
+        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "check"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action check"
+      },
+      {
+        "id": "build",
+        "title": "Unified package build",
+        "required": true,
+        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+        "command": "node",
+        "args": [
+          "./bin/publish-core.mjs",
+          "--language",
+          "typescript",
+          "--project-dir",
+          ".",
+          "--action",
+          "build"
+        ],
+        "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action build"
+      }
+    ]
   },
   "sdk": {
     "name": "sdkwork-generations-app-sdk",
@@ -65,16 +256,94 @@
   "syncSummary": {
     "dryRun": false,
     "controlPlaneEnabled": true,
-    "writtenFiles": 0,
+    "writtenFiles": 66,
     "skippedScaffoldFiles": 2,
-    "skippedUnchangedGeneratedFiles": 66,
-    "deletedGeneratedFiles": 0,
+    "skippedUnchangedGeneratedFiles": 0,
+    "deletedGeneratedFiles": 2,
     "changeSummaryPath": ".sdkwork/sdkwork-generator-changes.json",
-    "changeFingerprint": "a6e77021ff5fadb1d6b6170990ea47fe6807c7ffff137e7d446f8d32d881b3d6",
+    "changeFingerprint": "6d788b49fefc3d2630ef1c53e47724e4b9a3aa87295870c6cb41335429a2d7cb",
     "changes": {
-      "createdGeneratedFiles": [],
-      "updatedGeneratedFiles": [],
-      "unchangedGeneratedFiles": [
+      "createdGeneratedFiles": [
+        "src/types/generations-retrieve-response.ts",
+        "src/types/generations-sound-effects-create-response201.ts"
+      ],
+      "updatedGeneratedFiles": [
+        "bin/publish-core.mjs",
+        "bin/publish.ps1",
+        "bin/publish.sh",
+        "bin/sdk-gen.bat",
+        "bin/sdk-gen.sh",
+        "CHANGELOG.md",
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "sdkwork-sdk.json",
+        "src/api/base.ts",
+        "src/api/generations.ts",
+        "src/api/index.ts",
+        "src/api/paths.ts",
+        "src/auth/index.ts",
+        "src/http/client.ts",
+        "src/http/index.ts",
+        "src/index.ts",
+        "src/sdk.ts",
+        "src/types/common.ts",
+        "src/types/create-generation-command-request.ts",
+        "src/types/favorite-generation-request.ts",
+        "src/types/field-error.ts",
+        "src/types/generation-action-request.ts",
+        "src/types/generation-command-response.ts",
+        "src/types/generation-modality.ts",
+        "src/types/generation-record-page.ts",
+        "src/types/generation-record.ts",
+        "src/types/generation-result-page.ts",
+        "src/types/generation-result.ts",
+        "src/types/generation-status.ts",
+        "src/types/generation-timeline-event-page.ts",
+        "src/types/generation-timeline-event.ts",
+        "src/types/generations-cancel-response.ts",
+        "src/types/generations-favorite-response.ts",
+        "src/types/generations-images-edit-response202.ts",
+        "src/types/generations-images-text-to-response202.ts",
+        "src/types/generations-list-response.ts",
+        "src/types/generations-music-lyrics-to-response202.ts",
+        "src/types/generations-music-text-to-response202.ts",
+        "src/types/generations-results-list-response.ts",
+        "src/types/generations-results-save-to-assets-response.ts",
+        "src/types/generations-retry-response202.ts",
+        "src/types/generations-timeline-list-response.ts",
+        "src/types/generations-videos-extend-response202.ts",
+        "src/types/generations-videos-image-to-response202.ts",
+        "src/types/generations-videos-text-to-response202.ts",
+        "src/types/generations-voice-speech-response202.ts",
+        "src/types/generations-voice-transcription-response202.ts",
+        "src/types/generations-voice-translation-response202.ts",
+        "src/types/index.ts",
+        "src/types/media-resource.ts",
+        "src/types/page-info.ts",
+        "src/types/problem-detail.ts",
+        "src/types/save-generation-result-to-assets-request.ts",
+        "src/types/sdk-work-api-response.ts",
+        "src/types/sdk-work-command-data.ts",
+        "src/types/sdk-work-command-response.ts",
+        "src/types/sdk-work-list-response.ts",
+        "src/types/sdk-work-page-data.ts",
+        "src/types/sdk-work-platform-error-code.ts",
+        "src/types/sdk-work-resource-data.ts",
+        "src/types/sdk-work-resource-response.ts",
+        "tsconfig.json"
+      ],
+      "unchangedGeneratedFiles": [],
+      "deletedGeneratedFiles": [
+        "src/types/generations-get-response.ts",
+        "src/types/generations-sound-effects-create-response202.ts"
+      ],
+      "scaffoldedFiles": [],
+      "preservedScaffoldFiles": [
+        "custom/build-runtime.mjs",
+        "custom/README.md"
+      ],
+      "backedUpFiles": [
         "bin/publish-core.mjs",
         "bin/publish.ps1",
         "bin/publish.sh",
@@ -141,40 +410,254 @@
         "src/types/sdk-work-resource-data.ts",
         "src/types/sdk-work-resource-response.ts",
         "tsconfig.json"
-      ],
-      "deletedGeneratedFiles": [],
-      "scaffoldedFiles": [],
-      "preservedScaffoldFiles": [
-        "custom/build-runtime.mjs",
-        "custom/README.md"
-      ],
-      "backedUpFiles": []
+      ]
     },
     "impact": {
       "schemaVersion": 1,
-      "areas": [],
-      "details": [],
-      "requiresVerification": false,
-      "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped."
+      "areas": [
+        "api-surface",
+        "models",
+        "runtime",
+        "build-metadata",
+        "publish-workflow",
+        "documentation",
+        "unknown"
+      ],
+      "details": [
+        {
+          "area": "api-surface",
+          "paths": [
+            "src/api/base.ts",
+            "src/api/generations.ts",
+            "src/api/index.ts",
+            "src/api/paths.ts",
+            "src/http/client.ts",
+            "src/sdk.ts"
+          ]
+        },
+        {
+          "area": "models",
+          "paths": [
+            "src/types/common.ts",
+            "src/types/create-generation-command-request.ts",
+            "src/types/favorite-generation-request.ts",
+            "src/types/field-error.ts",
+            "src/types/generation-action-request.ts",
+            "src/types/generation-command-response.ts",
+            "src/types/generation-modality.ts",
+            "src/types/generation-record-page.ts",
+            "src/types/generation-record.ts",
+            "src/types/generation-result-page.ts",
+            "src/types/generation-result.ts",
+            "src/types/generation-status.ts",
+            "src/types/generation-timeline-event-page.ts",
+            "src/types/generation-timeline-event.ts",
+            "src/types/generations-cancel-response.ts",
+            "src/types/generations-favorite-response.ts",
+            "src/types/generations-get-response.ts",
+            "src/types/generations-images-edit-response202.ts",
+            "src/types/generations-images-text-to-response202.ts",
+            "src/types/generations-list-response.ts",
+            "src/types/generations-music-lyrics-to-response202.ts",
+            "src/types/generations-music-text-to-response202.ts",
+            "src/types/generations-results-list-response.ts",
+            "src/types/generations-results-save-to-assets-response.ts",
+            "src/types/generations-retrieve-response.ts",
+            "src/types/generations-retry-response202.ts",
+            "src/types/generations-sound-effects-create-response201.ts",
+            "src/types/generations-sound-effects-create-response202.ts",
+            "src/types/generations-timeline-list-response.ts",
+            "src/types/generations-videos-extend-response202.ts",
+            "src/types/generations-videos-image-to-response202.ts",
+            "src/types/generations-videos-text-to-response202.ts",
+            "src/types/generations-voice-speech-response202.ts",
+            "src/types/generations-voice-transcription-response202.ts",
+            "src/types/generations-voice-translation-response202.ts",
+            "src/types/index.ts",
+            "src/types/media-resource.ts",
+            "src/types/page-info.ts",
+            "src/types/problem-detail.ts",
+            "src/types/save-generation-result-to-assets-request.ts",
+            "src/types/sdk-work-api-response.ts",
+            "src/types/sdk-work-command-data.ts",
+            "src/types/sdk-work-command-response.ts",
+            "src/types/sdk-work-list-response.ts",
+            "src/types/sdk-work-page-data.ts",
+            "src/types/sdk-work-platform-error-code.ts",
+            "src/types/sdk-work-resource-data.ts",
+            "src/types/sdk-work-resource-response.ts"
+          ]
+        },
+        {
+          "area": "runtime",
+          "paths": [
+            "src/auth/index.ts",
+            "src/http/client.ts",
+            "src/http/index.ts"
+          ]
+        },
+        {
+          "area": "build-metadata",
+          "paths": [
+            "package.json",
+            "sdkwork-sdk.json",
+            "tsconfig.json"
+          ]
+        },
+        {
+          "area": "publish-workflow",
+          "paths": [
+            "bin/publish-core.mjs",
+            "bin/publish.ps1",
+            "bin/publish.sh",
+            "bin/sdk-gen.bat",
+            "bin/sdk-gen.sh"
+          ]
+        },
+        {
+          "area": "documentation",
+          "paths": [
+            "CHANGELOG.md",
+            "README.md"
+          ]
+        },
+        {
+          "area": "unknown",
+          "paths": [
+            "LICENSE",
+            "src/index.ts"
+          ]
+        }
+      ],
+      "requiresVerification": true,
+      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required."
     },
     "verificationPlan": {
-      "shouldRun": false,
-      "runPhase": "skip",
-      "summary": "No generated, scaffold, or backup changes detected. Verification can be skipped.",
-      "steps": []
+      "shouldRun": true,
+      "runPhase": "now",
+      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
+      "steps": [
+        {
+          "id": "check",
+          "title": "Unified package check",
+          "required": true,
+          "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+          "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+          "command": "node",
+          "args": [
+            "./bin/publish-core.mjs",
+            "--language",
+            "typescript",
+            "--project-dir",
+            ".",
+            "--action",
+            "check"
+          ],
+          "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action check"
+        },
+        {
+          "id": "build",
+          "title": "Unified package build",
+          "required": true,
+          "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+          "workingDirectory": "E:\\sdkwork-space\\sdkwork-generations\\sdks\\sdkwork-generations-app-sdk\\sdkwork-generations-app-sdk-typescript\\generated\\server-openapi",
+          "command": "node",
+          "args": [
+            "./bin/publish-core.mjs",
+            "--language",
+            "typescript",
+            "--project-dir",
+            ".",
+            "--action",
+            "build"
+          ],
+          "displayCommand": "node ./bin/publish-core.mjs --language typescript --project-dir . --action build"
+        }
+      ]
     },
     "executionDecision": {
       "schemaVersion": 1,
-      "riskLevel": "low",
-      "nextAction": "skip",
+      "riskLevel": "high",
+      "nextAction": "verify",
       "requiresManualReview": false,
       "applyRequiresExpectedFingerprint": false,
-      "summary": "No actionable changes were detected. No apply or verification step is required.",
+      "summary": "Changes have been applied. Run the required verification plan now.",
       "reasons": [
-        "no-actionable-changes"
+        "backed-up-generated-files",
+        "deleted-generated-files",
+        "manual-review-required",
+        "unknown-impact",
+        "verification-required"
       ]
     },
-    "backedUpFiles": [],
+    "backedUpFiles": [
+      "bin/publish-core.mjs",
+      "bin/publish.ps1",
+      "bin/publish.sh",
+      "bin/sdk-gen.bat",
+      "bin/sdk-gen.sh",
+      "CHANGELOG.md",
+      "LICENSE",
+      "package.json",
+      "README.md",
+      "sdkwork-sdk.json",
+      "src/api/base.ts",
+      "src/api/generations.ts",
+      "src/api/index.ts",
+      "src/api/paths.ts",
+      "src/auth/index.ts",
+      "src/http/client.ts",
+      "src/http/index.ts",
+      "src/index.ts",
+      "src/sdk.ts",
+      "src/types/common.ts",
+      "src/types/create-generation-command-request.ts",
+      "src/types/favorite-generation-request.ts",
+      "src/types/field-error.ts",
+      "src/types/generation-action-request.ts",
+      "src/types/generation-command-response.ts",
+      "src/types/generation-modality.ts",
+      "src/types/generation-record-page.ts",
+      "src/types/generation-record.ts",
+      "src/types/generation-result-page.ts",
+      "src/types/generation-result.ts",
+      "src/types/generation-status.ts",
+      "src/types/generation-timeline-event-page.ts",
+      "src/types/generation-timeline-event.ts",
+      "src/types/generations-cancel-response.ts",
+      "src/types/generations-favorite-response.ts",
+      "src/types/generations-get-response.ts",
+      "src/types/generations-images-edit-response202.ts",
+      "src/types/generations-images-text-to-response202.ts",
+      "src/types/generations-list-response.ts",
+      "src/types/generations-music-lyrics-to-response202.ts",
+      "src/types/generations-music-text-to-response202.ts",
+      "src/types/generations-results-list-response.ts",
+      "src/types/generations-results-save-to-assets-response.ts",
+      "src/types/generations-retry-response202.ts",
+      "src/types/generations-sound-effects-create-response202.ts",
+      "src/types/generations-timeline-list-response.ts",
+      "src/types/generations-videos-extend-response202.ts",
+      "src/types/generations-videos-image-to-response202.ts",
+      "src/types/generations-videos-text-to-response202.ts",
+      "src/types/generations-voice-speech-response202.ts",
+      "src/types/generations-voice-transcription-response202.ts",
+      "src/types/generations-voice-translation-response202.ts",
+      "src/types/index.ts",
+      "src/types/media-resource.ts",
+      "src/types/page-info.ts",
+      "src/types/problem-detail.ts",
+      "src/types/save-generation-result-to-assets-request.ts",
+      "src/types/sdk-work-api-response.ts",
+      "src/types/sdk-work-command-data.ts",
+      "src/types/sdk-work-command-response.ts",
+      "src/types/sdk-work-list-response.ts",
+      "src/types/sdk-work-page-data.ts",
+      "src/types/sdk-work-platform-error-code.ts",
+      "src/types/sdk-work-resource-data.ts",
+      "src/types/sdk-work-resource-response.ts",
+      "tsconfig.json"
+    ],
     "preservedLegacyFiles": false
   }
 }

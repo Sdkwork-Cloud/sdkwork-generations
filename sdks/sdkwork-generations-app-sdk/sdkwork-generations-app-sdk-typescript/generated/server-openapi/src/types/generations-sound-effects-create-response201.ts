@@ -1,8 +1,8 @@
 import type { GenerationCommandResponse } from './generation-command-response';
 
-export interface GenerationsSoundEffectsCreateResponse202 {
+export interface GenerationsSoundEffectsCreateResponse201 {
   code: 0;
-  data: unknown & Record<string, unknown>;
+  data: unknown & { item: GenerationCommandResponse; };
   /** Server-owned request correlation id. */
   traceId: string;
 }

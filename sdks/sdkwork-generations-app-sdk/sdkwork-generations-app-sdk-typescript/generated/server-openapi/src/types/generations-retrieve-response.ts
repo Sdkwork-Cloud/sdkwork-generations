@@ -1,8 +1,8 @@
 import type { GenerationRecord } from './generation-record';
 
-export interface GenerationsGetResponse {
+export interface GenerationsRetrieveResponse {
   code: 0;
-  data: unknown & Record<string, unknown>;
+  data: unknown & { item: GenerationRecord; };
   /** Server-owned request correlation id. */
   traceId: string;
 }

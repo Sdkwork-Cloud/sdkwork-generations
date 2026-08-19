@@ -17,6 +17,6 @@ export type { SdkWorkResourceResponse } from './sdk-work-resource-response';
 export type { SdkWorkListResponse } from './sdk-work-list-response';
 export type { SdkWorkCommandResponse } from './sdk-work-command-response';
 export type { GenerationDispatchJobsListResponse } from './generation-dispatch-jobs-list-response';
-export type { GenerationDispatchJobsGetResponse } from './generation-dispatch-jobs-get-response';
+export type { GenerationDispatchJobsRetrieveResponse } from './generation-dispatch-jobs-retrieve-response';
 export type { GenerationSourceEventsListResponse } from './generation-source-events-list-response';
-export type { GenerationReconciliationRunsCreateResponse202 } from './generation-reconciliation-runs-create-response202';
+export type { GenerationReconciliationRunsCreateResponse201 } from './generation-reconciliation-runs-create-response201';
