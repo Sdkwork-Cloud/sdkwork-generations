@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "sdkwork-generations",
+    "name": "sdkwork-generations",
+    "displayName": "SDKWork Generations",
+    "officialWebsiteUrl": "https://sdkwork.com",
+    "appType": "NONE",
+    "description": "SDKWork hosted generation product for image, video, music, sound effect and voice generation with automatic asset persistence.",
+    "identifiers": {
+      "containerImage": "sdkwork-generations"
+    }
+  },
+  "backend": {
+    "primaryLanguage": "rust",
+    "framework": "axum",
+    "appId": "sdkwork-generations",
+    "tenantId": "100001",
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam.users.read",
+      "iam.organizations.read"
+    ]
+  },
+  "runtime": {
+    "family": "server",
+    "framework": "rust-service",
+    "defaultPlatform": "API",
+    "defaultArchitecture": "x64",
+    "supportedDeploymentProfiles": ["standalone", "cloud"],
+    "defaultDeploymentProfile": "standalone"
+  },
+  "publish": {
+    "status": "DRAFT",
+    "platforms": ["API", "WEB", "CLI"],
+    "installPlatforms": ["API"],
+    "installSkill": false,
+    "defaultPackageId": "linux-x64-standalone-server-tar-gz"
+  },
+  "release": {
+    "currentVersion": "0.1.0",
+    "defaultChannel": "BETA",
+    "latest": {
+      "BETA": "0.1.0"
+    },
+    "notes": [
+      {
+        "version": "0.1.0",
+        "channel": "BETA",
+        "current": true,
+        "packageIds": [
+          "linux-x64-standalone-server-tar-gz"
+        ]
+      }
+    ]
+  },
+  "security": {
+    "checksumRequired": true,
+    "signatureRequired": true,
+    "sbomRequired": true
+  },
+  "metadata": {
+    "deploymentConfig": "etc/sdkwork.deployment.config.json",
+    "topologySpec": "specs/topology.spec.json",
+    "workflowManifest": "sdkwork.workflow.json",
+    "assetsDependency": "../sdkwork-assets"
+  }
+}

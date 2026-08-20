@@ -1,0 +1,21 @@
+[package]
+name = "sdkwork-routes-generations-app-api"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+description = "App API route boundary for sdkwork-generations."
+
+[lib]
+name = "sdkwork_routes_generations_app_api"
+path = "src/lib.rs"
+
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sdkwork-web-core.workspace = true
+sdkwork-web-bootstrap.workspace = true
+sdkwork-intelligence-generations-service.workspace = true
+sdkwork-routes-generations-http-shared.workspace = true

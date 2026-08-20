@@ -1,0 +1,28 @@
+[package]
+name = "sdkwork-routes-generations-http-shared"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+description = "Shared HTTP route manifests for sdkwork-generations surfaces."
+
+[lib]
+name = "sdkwork_routes_generations_http_shared"
+path = "src/lib.rs"
+
+[build-dependencies]
+sdkwork-web-contract.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sdkwork-web-core.workspace = true
+sdkwork-web-bootstrap.workspace = true
+sdkwork-web-contract.workspace = true
+sdkwork-intelligence-generations-service.workspace = true
+sdkwork-iam-web-adapter.workspace = true
+sdkwork-web-axum.workspace = true

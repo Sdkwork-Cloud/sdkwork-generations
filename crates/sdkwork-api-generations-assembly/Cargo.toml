@@ -1,0 +1,37 @@
+[package]
+name = "sdkwork-api-generations-assembly"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+description = "Generated API assembly for sdkwork-generations application HTTP plane."
+
+[lib]
+name = "sdkwork_api_generations_assembly"
+path = "src/lib.rs"
+
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+sdkwork-web-bootstrap.workspace = true
+sdkwork-web-core.workspace = true
+anyhow.workspace = true
+sdkwork-database-sqlx.workspace = true
+sdkwork-generations-database-host.workspace = true
+sdkwork-intelligence-generations-service.workspace = true
+sdkwork-web-contract.workspace = true
+sdkwork-iam-database-host.workspace = true
+sdkwork-iam-embedded-application-bootstrap.workspace = true
+sdkwork-iam-web-adapter.workspace = true
+sdkwork-api-assets-assembly.workspace = true
+sdkwork-api-drive-assembly.workspace = true
+sdkwork-routes-drive-app-api.workspace = true
+sdkwork-routes-generations-http-shared.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+sqlx.workspace = true
+async-trait.workspace = true
+sdkwork-routes-generations-app-api.workspace = true
+sdkwork-routes-generations-backend-api.workspace = true

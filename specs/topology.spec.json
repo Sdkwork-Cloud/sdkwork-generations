@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.topology.spec",
+  "application": "sdkwork-generations",
+  "profiles": {
+    "standalone": {
+      "gateway": "sdkwork-api-agents-standalone-gateway",
+      "surfaces": ["app-api", "backend-api"]
+    },
+    "cloud": {
+      "gateway": "sdkwork-api-cloud-gateway",
+      "surfaces": ["app-api", "backend-api"]
+    }
+  }
+}

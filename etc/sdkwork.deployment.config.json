@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.deployment.config",
+  "application": "sdkwork-generations",
+  "profiles": {
+    "standalone": {
+      "bind": "127.0.0.1:18093",
+      "database": "generations"
+    },
+    "cloud": {
+      "bind": "0.0.0.0:18093",
+      "database": "generations"
+    }
+  }
+}

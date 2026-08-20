@@ -1,0 +1,32 @@
+[package]
+name = "sdkwork-intelligence-generations-service"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+description = "Business service crate for sdkwork-generations."
+
+[lib]
+name = "sdkwork_intelligence_generations_service"
+path = "src/lib.rs"
+
+[features]
+default = ["http-axum", "postgres-sync"]
+http-axum = []
+postgres-sync = []
+
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sqlx.workspace = true
+time.workspace = true
+chrono.workspace = true
+async-trait.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+anyhow.workspace = true
+sdkwork-database-sqlx.workspace = true
+sdkwork-utils-rust.workspace = true
+sdkwork-database-id.workspace = true

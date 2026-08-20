@@ -2,36 +2,53 @@
   "schemaVersion": 1,
   "kind": "sdkwork.component.spec",
   "component": {
-    "name": "sdkwork-generations-workspace",
-    "displayName": "Sdkwork Generations Workspace",
+    "name": "sdkwork-generations",
+    "displayName": "SDKWork Generations",
     "version": "0.1.0",
-    "type": "node-package",
-    "root": "sdkwork-generations",
+    "type": "web-backend-service",
+    "root": ".",
     "domain": "intelligence",
-    "capability": "generations-workspace",
-    "languages": [
-      "typescript"
-    ],
+    "capability": "generations",
+    "surface": "backend-service",
+    "languages": ["rust", "typescript", "dart"],
     "generated": false,
+    "status": "active",
     "manifests": [
-      "package.json"
+      "sdkwork.app.config.json",
+      "AGENTS.md",
+      "specs/component.spec.json"
     ]
   },
   "canonicalSpecs": [
     {
-      "file": "SDKWORK_WORKSPACE_SPEC.md",
-      "path": "../sdkwork-specs/SDKWORK_WORKSPACE_SPEC.md",
-      "purpose": "Repository workspace and directory dictionary rules."
-    },
-    {
       "file": "SOUL.md",
       "path": "../sdkwork-specs/SOUL.md",
-      "purpose": "Agent execution soul and principles."
+      "purpose": "SDKWork execution soul."
     },
     {
-      "file": "AGENTS_SPEC.md",
-      "path": "../sdkwork-specs/AGENTS_SPEC.md",
-      "purpose": "Agent entrypoint and compatibility shim rules."
+      "file": "WEB_FRAMEWORK_SPEC.md",
+      "path": "../sdkwork-specs/WEB_FRAMEWORK_SPEC.md",
+      "purpose": "Mandatory sdkwork-web-framework integration."
+    },
+    {
+      "file": "DATABASE_FRAMEWORK_SPEC.md",
+      "path": "../sdkwork-specs/DATABASE_FRAMEWORK_SPEC.md",
+      "purpose": "Database lifecycle and SPI."
+    },
+    {
+      "file": "DRIVE_SPEC.md",
+      "path": "../sdkwork-specs/DRIVE_SPEC.md",
+      "purpose": "Mandatory Drive Uploader for file uploads."
+    },
+    {
+      "file": "ASSETS_SPEC.md",
+      "path": "../sdkwork-specs/ASSETS_SPEC.md",
+      "purpose": "Assets catalog integration for generation result auto-save."
+    },
+    {
+      "file": "RUST_CODE_SPEC.md",
+      "path": "../sdkwork-specs/RUST_CODE_SPEC.md",
+      "purpose": "Rust code standards for the backend service."
     },
     {
       "file": "COMPONENT_SPEC.md",
@@ -65,20 +82,71 @@
     }
   ],
   "contracts": {
-    "publicExports": [
-      "."
-    ],
+    "publicExports": [],
     "runtimeEntrypoints": [
-      "package.json#scripts.test"
+      "crates/sdkwork-api-generations-assembly"
     ],
     "routeManifest": null,
-    "sdkClients": [],
+    "apiAuthorities": [
+      "sdks/sdkwork-generations-app-sdk/openapi/sdkwork-generations-app-api.openapi.json",
+      "sdks/sdkwork-generations-backend-sdk/openapi/sdkwork-generations-backend-api.openapi.json"
+    ],
+    "sdkClients": [
+      "sdks/sdkwork-generations-app-sdk",
+      "sdks/sdkwork-generations-backend-sdk"
+    ],
+    "sdkDependencies": [
+      {
+        "workspace": "sdkwork-drive",
+        "role": "drive-uploader-file-storage",
+        "required": true,
+        "dependencyMode": "independent-capability-module",
+        "integrationMode": "composition-slot",
+        "slotKind": "drive",
+        "targetModule": "drive",
+        "reverseDependencyPolicy": "forbidden",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/drive-app-sdk",
+          "rust": "sdkwork-drive-app-sdk"
+        }
+      },
+      {
+        "workspace": "sdkwork-assets",
+        "role": "assets-catalog-for-generation-results",
+        "required": true,
+        "dependencyMode": "independent-capability-module",
+        "integrationMode": "composition-slot",
+        "slotKind": "assets",
+        "targetModule": "assets",
+        "reverseDependencyPolicy": "forbidden",
+        "generatedTransportImportPolicy": "forbidden",
+        "packageByLanguage": {
+          "typescript": "@sdkwork/assets-app-sdk",
+          "rust": "sdkwork-assets-app-sdk"
+        }
+      }
+    ],
+    "dependencyApiExports": [],
+    "dependencyApiSurfaces": [],
     "events": [],
     "configKeys": []
   },
+  "integration": {
+    "authority": "Generations business logic, HTTP routes, SDKs, and managed-store persistence live in sdkwork-generations. Auto-save to assets is enabled by default and controlled by configuration.",
+    "uploadPolicy": "All file uploads must use sdkwork-drive Drive Uploader; no app-local upload APIs.",
+    "assetsPolicy": "Generated media is automatically saved to assets after successful generation when auto_save_to_assets is true (default).",
+    "discoveryPolicy": "sdkwork-discovery remains inactive until RPC services ship."
+  },
   "verification": {
     "commands": [
-      "pnpm test"
+      "pnpm check",
+      "pnpm verify",
+      "cargo test --workspace"
     ]
+  },
+  "metadata": {
+    "standardVersion": "2026-06-26",
+    "status": "active"
   }
 }
