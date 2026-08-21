@@ -1,15 +1,390 @@
 {
-  "schemaVersion": 1,
-  "kind": "sdkwork.topology.spec",
-  "application": "sdkwork-generations",
-  "profiles": {
-    "standalone": {
-      "gateway": "sdkwork-api-agents-standalone-gateway",
-      "surfaces": ["app-api", "backend-api"]
+  "schemaVersion": 5,
+  "kind": "sdkwork.app.topology",
+  "appId": "sdkwork-generations",
+  "applicationCode": "generations",
+  "archetype": "application-http-gateway",
+  "profileRoot": "etc/topology",
+  "profilePattern": "{deploymentProfile}.{environment}.env",
+  "vocabulary": {
+    "deploymentProfile": {
+      "allowed": [
+        "standalone",
+        "cloud"
+      ]
     },
-    "cloud": {
-      "gateway": "sdkwork-api-cloud-gateway",
-      "surfaces": ["app-api", "backend-api"]
+    "environment": {
+      "allowed": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ]
+    }
+  },
+  "defaults": {
+    "developmentProfileId": "standalone.development",
+    "productionProfileId": "cloud.production",
+    "gatewayBind": "127.0.0.1:18093",
+    "desktopBuildProfileId": "standalone.production"
+  },
+  "profileFiles": {
+    "standalone.development": "etc/topology/standalone.development.env",
+    "standalone.test": "etc/topology/standalone.test.env",
+    "standalone.staging": "etc/topology/standalone.staging.env",
+    "standalone.production": "etc/topology/standalone.production.env",
+    "cloud.development": "etc/topology/cloud.development.env",
+    "cloud.test": "etc/topology/cloud.test.env",
+    "cloud.staging": "etc/topology/cloud.staging.env",
+    "cloud.production": "etc/topology/cloud.production.env"
+  },
+  "envKeys": {
+    "deploymentProfile": "SDKWORK_GENERATIONS_DEPLOYMENT_PROFILE",
+    "environment": "SDKWORK_GENERATIONS_ENVIRONMENT",
+    "profileId": "SDKWORK_GENERATIONS_PROFILE_ID",
+    "standaloneGatewayBind": "SDKWORK_GENERATIONS_APPLICATION_PUBLIC_INGRESS_BIND",
+    "apiGatewayBaseUrl": "SDKWORK_GENERATIONS_PLATFORM_API_GATEWAY_HTTP_URL"
+  },
+  "surfaces": {
+    "application.public-ingress": {
+      "connectivityPlane": "application",
+      "protocols": [
+        "http"
+      ],
+      "bindEnv": "SDKWORK_GENERATIONS_APPLICATION_PUBLIC_INGRESS_BIND",
+      "httpUrlEnv": "SDKWORK_GENERATIONS_APPLICATION_PUBLIC_HTTP_URL"
+    },
+    "platform.api-gateway": {
+      "connectivityPlane": "platform",
+      "protocols": [
+        "http"
+      ],
+      "httpUrlEnv": "SDKWORK_GENERATIONS_PLATFORM_API_GATEWAY_HTTP_URL"
+    }
+  },
+  "cloudPublicHosts": {
+    "application.public-ingress": {
+      "httpHost": "generations.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHost": "generations-dev.sdkwork.com"
+        },
+        "test": {
+          "httpHost": "generations-test.sdkwork.com"
+        },
+        "staging": {
+          "httpHost": "generations-staging.sdkwork.com"
+        }
+      }
+    },
+    "platform.api-gateway": {
+      "httpHost": "api.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHost": "api-dev.sdkwork.com"
+        },
+        "test": {
+          "httpHost": "api-test.sdkwork.com"
+        },
+        "staging": {
+          "httpHost": "api-staging.sdkwork.com"
+        }
+      }
+    }
+  },
+  "components": {
+    "gatewayAssembly": {
+      "crate": "sdkwork-api-generations-assembly",
+      "manifest": "crates/sdkwork-api-generations-assembly/assembly-manifest.json"
+    }
+  },
+  "orchestration": {
+    "profiles": {
+      "standalone.development": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          },
+          {
+            "id": "generations-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "bindEnv": "SDKWORK_GENERATIONS_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "generations-adaptive-web",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "generations-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-generations-pc",
+                "script": "dev",
+                "defaultPort": 5677,
+                "portEnv": "SDKWORK_GENERATIONS_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-generations-h5",
+                "script": "dev",
+                "defaultPort": 5678,
+                "portEnv": "SDKWORK_GENERATIONS_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "cloud.production": {
+        "processes": [],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ]
+      },
+      "standalone.test": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          },
+          {
+            "id": "generations-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "bindEnv": "SDKWORK_GENERATIONS_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "generations-adaptive-web",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "generations-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-generations-pc",
+                "script": "dev",
+                "defaultPort": 5677,
+                "portEnv": "SDKWORK_GENERATIONS_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-generations-h5",
+                "script": "dev",
+                "defaultPort": 5678,
+                "portEnv": "SDKWORK_GENERATIONS_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "standalone.staging": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress"
+        ]
+      },
+      "standalone.production": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress"
+        ]
+      },
+      "cloud.development": {
+        "processes": [
+          {
+            "id": "generations-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "bindEnv": "SDKWORK_GENERATIONS_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "generations-adaptive-web",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "generations-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-generations-pc",
+                "script": "dev",
+                "defaultPort": 5677,
+                "portEnv": "SDKWORK_GENERATIONS_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-generations-h5",
+                "script": "dev",
+                "defaultPort": 5678,
+                "portEnv": "SDKWORK_GENERATIONS_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "cloud.test": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          },
+          {
+            "id": "generations-browser",
+            "role": "client",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "bindEnv": "SDKWORK_GENERATIONS_WEB_DEV_INGRESS_BIND",
+            "runtimeTargets": [
+              "browser"
+            ],
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "required": true
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ],
+        "browserDeliveries": [
+          {
+            "id": "generations-adaptive-web",
+            "applicationRoot": "apps/sdkwork-generations-pc",
+            "clientArchitectures": [
+              "pc-web",
+              "h5"
+            ],
+            "originMode": "same-origin",
+            "deliveryMode": "dev-server-proxy",
+            "clientProcessId": "generations-browser",
+            "apiSurfaceId": "application.public-ingress",
+            "preserveCanonicalPaths": true,
+            "tabletArchitecture": "pc-web",
+            "renderers": {
+              "pc-web": {
+                "applicationRoot": "apps/sdkwork-generations-pc",
+                "script": "dev",
+                "defaultPort": 5677,
+                "portEnv": "SDKWORK_GENERATIONS_PC_INTERNAL_DEV_PORT",
+                "env": {}
+              },
+              "h5": {
+                "applicationRoot": "apps/sdkwork-generations-h5",
+                "script": "dev",
+                "defaultPort": 5678,
+                "portEnv": "SDKWORK_GENERATIONS_H5_INTERNAL_DEV_PORT",
+                "env": {}
+              }
+            }
+          }
+        ]
+      },
+      "cloud.staging": {
+        "processes": [
+          {
+            "id": "application.public-ingress",
+            "crate": "sdkwork-api-generations-assembly",
+            "binary": "sdkwork-api-generations-assembly",
+            "required": true,
+            "role": "api-standalone-gateway"
+          }
+        ],
+        "healthSurfaces": [
+          "application.public-ingress",
+          "platform.api-gateway"
+        ]
+      }
     }
   }
 }
